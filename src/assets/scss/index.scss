@@ -2,10 +2,26 @@
 @import "./components/topheader";
 @import "./components/header";
 @import "./components/bottomheader";
+@import "./components/footer";
 
-// Pages
+//Pages
+@import "./pages/productDetails";
+@import "./pages/shop";
+@import "./pages/cart";
+@import "./pages/login";
+@import "./pages/register";
+
+
+// Sections
 @import "./pages/hero";
 @import "./pages/nikevideo";
+@import "./components/trendProduct";
+@import "./pages/explore";
+@import "./pages/forSport";
+@import "./pages/appInfo";
+@import "./pages/nikeMembership";
+@import "./pages/mixedNikePhotos";
+@import "./pages/merchMenu";
 
 // Global Styles
 @import "./pages/base";

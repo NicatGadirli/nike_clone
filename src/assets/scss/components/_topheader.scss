@@ -18,7 +18,7 @@
       padding-top: 4px;
       .topHeaderLeft {
         padding-right: 12px;
-        padding-left: 20px;
+        padding-left: 7px;
         a {
           align-items: center;
           height: 100%;
@@ -60,75 +60,78 @@
             line-height: 14px;
           }
         }
-        .userArea {
-          width: 35px;
-          height: 35px;
-          border: 0;
-          outline: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          &:hover {
-            border-radius: 50%;
-            background: #e5e5e5;
+        .userIcon{
+          display: none;
+          .userArea {
+            width: 35px;
+            height: 35px;
+            border: 0;
+            outline: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             &:hover {
-              .icon {
-                color: #000;
-              }
-            }
-          }
-          .accountMenu {
-            display: none;
-            position: absolute;
-            min-width: 240px;
-            right: 0;
-            top: 60px;
-            transform: translateY(-20px);
-            transition: opacity 0.2s, visibility 0s linear 0.2s,
-            transform 0.25s ease;
-            background: #fff;
-            border-radius: 0 0 8px 8px;
-            cursor: pointer;
-            .dropDown {
-              padding-bottom: 24px;
-              padding-top: 24px;
-              padding-right: 24px;
-              padding-left: 24px;
-              a {
-                margin: 20px 0px;
-                color: #111;
-                cursor: pointer;
-                text-decoration: none;
-                margin-bottom: 12px;
-                background-color: transparent;
-              }
-              .dropDownItem {
-                a {
-                  display: block;
-                  color: #757575;
-                  padding: 4px 8px;
-                  font-size: 14px;
-                  line-height: 20px;
-                  font-weight: 500;
+              border-radius: 50%;
+              background: #e5e5e5;
+              &:hover {
+                .icon {
+                  color: #000;
                 }
               }
             }
-          }
-          .icon {
-            margin-top: 5px;
-            display: inline-block;
-            height: 24px;
-            width: 24px;
-            color: #111;
-            transition: transform 0.5s, opacity 1s;
-            &:hover {
-              background: #e5e5e5;
-              color: rgba(0, 0, 0, 0.54);
-              border-radius: 100px;
-              align-items: center;
-              // .accountMenu{
-              //   display: block;
-              // }
+            .accountMenu {
+              display: none;
+              position: absolute;
+              min-width: 240px;
+              right: 0;
+              top: 60px;
+              transform: translateY(-20px);
+              transition: opacity 0.2s, visibility 0s linear 0.2s,
+                transform 0.25s ease;
+              background: #fff;
+              border-radius: 0 0 8px 8px;
+              cursor: pointer;
+              .dropDown {
+                padding-bottom: 24px;
+                padding-top: 24px;
+                padding-right: 24px;
+                padding-left: 24px;
+                a {
+                  margin: 20px 0px;
+                  color: #111;
+                  cursor: pointer;
+                  text-decoration: none;
+                  margin-bottom: 12px;
+                  background-color: transparent;
+                }
+                .dropDownItem {
+                  a {
+                    display: block;
+                    color: #757575;
+                    padding: 4px 8px;
+                    font-size: 14px;
+                    line-height: 20px;
+                    font-weight: 500;
+                  }
+                }
+              }
+            }
+            .icon {
+              margin-top: 5px;
+              display: inline-block;
+              height: 24px;
+              width: 24px;
+              color: #111;
+              transition: transform 0.5s, opacity 1s;
+              &:hover {
+                background: #e5e5e5;
+                color: rgba(0, 0, 0, 0.54);
+                border-radius: 100px;
+                align-items: center;
+                // .accountMenu{
+                //   display: block;
+                // }
+              }
             }
           }
         }

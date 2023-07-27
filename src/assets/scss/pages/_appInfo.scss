@@ -1,0 +1,60 @@
+.appInfo {
+  margin-bottom: 100px;
+  .container {
+    .appInfoTitle {
+      margin-bottom: 50px;
+      h3 {
+        color: #111;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+      }
+    }
+    .row {
+      justify-content: space-around;
+      a {
+        .card {
+          position: relative;
+          .cardImg {
+            height: 300px;
+            img {
+              height: 100%;
+            }
+          }
+          .cardInfo {
+            position: absolute;
+            top: calc(66.66667% - 48px);
+            height: 33.33333%;
+            text-align: left;
+            left: 48px;
+            width: 75%;
+            p {
+              color: rgb(255, 255, 255);
+              margin-bottom: 24px;
+              font-size: 20px;
+              line-height: 28px;
+            }
+            button {
+              padding: 6px 20px;
+              border-radius: 30px;
+              border: 1.5px solid transparent;
+              justify-content: center;
+              align-items: center;
+              color: #111;
+              cursor: pointer;
+              a {
+                line-height: 24px;
+                color: #111;
+                margin-right: 6px;
+                font-size: 17px;
+              }
+              &:hover {
+                background: #b2b2b2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

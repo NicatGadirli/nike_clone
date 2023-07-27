@@ -1,0 +1,129 @@
+.bottomHeader {
+  display: none;
+}
+
+.cart {
+  margin-bottom: 50px;
+  .container {
+    .row {
+      justify-content: center;
+      gap: 30px;
+      .leftArea {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 50%;
+        margin-top: 40px;
+        .leftAreaTitle {
+          font-size: 23px;
+          font-weight: 400;
+        }
+        .cartMessage{
+            font-size: 17px;
+            margin-left: 5px;
+            display: none;
+        }
+        .product {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 20px;
+          border-bottom: 1px solid #9a9a9a;
+          padding: 24px 0px;
+          .left {
+            display: flex;
+            .cartInfo {
+              margin-left: 20px;
+              .productName {
+                font-size: 17px;
+                margin-bottom: 10px;
+                font-weight: 500;
+              }
+              b {
+                color: #707072;
+                font-weight: 400;
+                margin-bottom: 10px;
+              }
+              .quantityBox {
+                display: flex;
+                gap: 10px;
+                margin-top: 20px;
+                .number,
+                .quantity {
+                  #select {
+                    color: #707072;
+                    border: none;
+                    margin-left: 5px;
+                  }
+                  color: #707072;
+                }
+              }
+              .operationIcons {
+                margin-top: 50px;
+                button {
+                  outline: none;
+                  border: none;
+                  background: transparent;
+                  cursor: pointer;
+                  margin-left: 10px;
+                  transition: all 0.2s ease 0s;
+                  .icons {
+                    width: 24px;
+                    height: 24px;
+                  }
+                  &:hover {
+                    opacity: 0.55;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .rightArea {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 25%;
+        margin-top: 42px;
+        .rightAreaTitle {
+          font-size: 23px;
+          font-weight: 400;
+        }
+        .totalBox {
+          margin-top: 40px;
+          font-size: 17px;
+          .subTotal {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+          }
+          .cargo,
+          .sum {
+            margin-bottom: 35px;
+            border-bottom: 1px solid #bbbbbb;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+        .rightAreaBtn {
+          display: flex;
+          justify-content: center;
+          button {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.2s ease 0s;
+            background: rgb(17, 17, 17);
+            color: rgb(255, 255, 255);
+            width: 90%;
+            padding: 20px 24px;
+            border-radius: 30px;
+            font-size: 17px;
+            &:hover {
+              background-color: #707072;
+            }
+          }
+        }
+      }
+    }
+  }
+}

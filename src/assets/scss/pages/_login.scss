@@ -1,0 +1,126 @@
+.bottomHeader {
+  display: none;
+}
+
+.login {
+  .container {
+    .row {
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 28px;
+      .top {
+        display: flex;
+        flex-direction: column;
+        font-family: Helvetica;
+        font-size: 14px;
+        padding: 0 28px;
+        .loginEnter {
+          margin: 0 auto;
+          .logo {
+            img {
+              height: 17px;
+              margin: 0 auto;
+              display: flex;
+              margin-bottom: 30px;
+            }
+          }
+          .title {
+            font-family: TradeGothicforNike365-BdCn, Helvetica !important;
+            font-size: 20px;
+            line-height: 26px;
+            max-width: 25ch;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 30px;
+          }
+        }
+        form {
+          .userBox {
+            input {
+              margin: 5px 0;
+              outline: none;
+              background-color: #fff;
+              border: 1px solid #e5e5e5;
+              border-radius: 3px;
+              box-sizing: border-box;
+              color: #8d8d8d;
+              font: 14px Helvetica;
+              height: 40px;
+              line-height: 17px;
+              padding: 0 16px;
+              width: 100%;
+            }
+          }
+        }
+      }
+      .info {
+        padding: 20px 28px;
+        .middle {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 12px;
+          gap: 35px;
+          .checkBox {
+            color: #8d8d8d;
+            input {
+              margin-right: 10px;
+            }
+          }
+          .forgotPassword {
+            a {
+              color: #bcbcbc;
+            }
+          }
+        }
+        .bottom {
+          margin: 0 auto;
+          p {
+            text-align: center;
+            cursor: pointer;
+            margin: 20px auto;
+            font-size: 12px;
+            line-height: 16px;
+            padding: 3px 0 24px;
+            max-width: 38ch;
+            color: #8d8d8d;
+            span {
+              text-decoration: underline;
+            }
+          }
+        }
+        .operation {
+          margin: 5px 0;
+          button {
+            background-color: #000;
+            border: 1px solid #000;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+            display: block;
+            font-family: TradeGothicforNike365-BdCn, Helvetica !important;
+            font-size: 15px;
+            margin: auto;
+            width: 100%;
+            padding: 12px;
+          }
+        }
+        .membership {
+          p {
+            font-size: 12px;
+            line-height: 14px;
+            padding: 10px 0 0;
+            text-align: center;
+            color: #8d8d8d;
+            a {
+              font-size: 12px;
+              color: #111;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

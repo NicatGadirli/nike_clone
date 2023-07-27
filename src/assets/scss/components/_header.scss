@@ -1,8 +1,17 @@
 .visible {
-  display: block;
+  display: block !important;
 }
 .hidden {
-  display: none;
+  display: none  !important;
+}
+
+// .hiddenResults{
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.visible_operation_box {
+  width: 100%;
 }
 
 .header {
@@ -13,11 +22,10 @@
   transition: transform 0.15s ease;
   z-index: 2;
   .container {
+    background-color: white;
     .row {
       justify-content: space-between;
-      position: relative;
       .logoArea {
-        margin-left: 12px;
         opacity: 1;
         visibility: visible;
         transition: opacity 0.4s, visibility 0s;
@@ -34,7 +42,8 @@
         }
       }
       .navBarArea {
-        padding-right: 56px;
+        width: 90%;
+        margin-left: 50px;
         .navBar {
           .navList {
             display: flex;
@@ -44,6 +53,7 @@
             max-width: 1255px;
             gap: 20px;
             .navItem {
+              cursor: pointer;
               &:hover {
                 color: #757575;
                 border-bottom: 2px solid #000;
@@ -58,10 +68,12 @@
         padding-top: 12px;
         display: flex;
         gap: 30px;
+        transition: background 10ms, height 0.15s, width 0.15s;
         .searchBox {
-          position: absolute;
-          right: 140px;
+          width: 100%;
           .inputBox {
+            position: relative;
+            transition: width 0.25s ease, transform 0.25s ease;
             .searchBtn {
               width: 35px;
               height: 35px;
@@ -118,16 +130,22 @@
             z-index: 5;
             position: absolute;
             display: none;
+            top: 20px;
+            right: 43px;
+            background: transparent;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-size: 17px;
           }
           .searchResultsBox {
-            width: 1920px;
+            max-width: 1920px;
             margin: auto;
+            width: 100%;
             .searchResults {
-              margin-left: auto;
-              margin-right: auto;
               max-width: 656px;
               width: 100%;
-              padding: 46px 32px 0;
+              padding: 46px;
               transform: translateY(0);
               transition: all 0.65s;
               p {
@@ -157,17 +175,15 @@
               background-color: rgba(0, 0, 0, 0.36);
               backdrop-filter: blur(4px);
               opacity: 1;
-              height: 100vh;
+              height: 680vh;
               visibility: visible;
               z-index: -1;
             }
           }
         }
         .operationIconsArea {
-          gap: 7px;
-          position: absolute;
-          right: 0px;
-          bottom: 15px;
+          display: flex;
+          align-items: baseline;
           .operationBtn {
             width: 35px;
             height: 35px;

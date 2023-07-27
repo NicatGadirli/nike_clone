@@ -1,0 +1,29 @@
+.merchMenu {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  .container {
+    .row {
+      align-items: center;
+      justify-content: center;
+      gap: 70px;
+      .merchMenuList {
+        h4 {
+          line-height: 24px;
+          animation: _3FGhfyw3 0.65s forwards;
+          transition: all 0.7s;
+          margin-bottom: 24px;
+        }
+        .merchMenuItem {
+          margin-bottom: 12px;
+          a {
+            color: #757575;
+            transition: all 0.3s;
+            &:hover {
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}
