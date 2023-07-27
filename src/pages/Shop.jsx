@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Filter } from "../assets/Images/svg/Filter.svg";
 import { ReactComponent as Chevron } from "../assets/Images/svg/Chevron.svg";
 
-import ffff from "../assets/Images/TrendProductSliderimg/ffff.webp";
+import ffff from "../assets/Images/trend-product-slider-img/ffff.webp";
 
 const Shop = () => {
   return (

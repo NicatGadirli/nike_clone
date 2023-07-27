@@ -12,9 +12,10 @@
     }
     .row {
       justify-content: space-around;
-      a {
+      span {
         .card {
           position: relative;
+          cursor: pointer;
           .cardImg {
             height: 300px;
             img {
@@ -27,7 +28,7 @@
             height: 33.33333%;
             text-align: left;
             left: 48px;
-            width: 75%;
+            width: 42%;
             p {
               color: rgb(255, 255, 255);
               margin-bottom: 24px;
@@ -41,7 +42,6 @@
               justify-content: center;
               align-items: center;
               color: #111;
-              cursor: pointer;
               a {
                 line-height: 24px;
                 color: #111;

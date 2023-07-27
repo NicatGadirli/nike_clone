@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 
 // Components
-import TopHeader from "./components/TopHeader";
 import Header from "./components/Header";
 import BottomHeader from "./components/BottomHeader";
 import Footer from "./components/Footer";
@@ -16,6 +15,7 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Favorite from "./pages/Favorite";
 
 const App = () => {
   const [isSearchOpen, setSearchOpen] = useState(true);
@@ -26,18 +26,19 @@ const App = () => {
 
   return (
     <>
-      {isSearchOpen && <TopHeader />}
+      {isSearchOpen}
       <Header handleSearchToggle={handleSearchToggle} />
       <BottomHeader />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/Location" element={<Location />} />
-        <Route path="/ProductDetails" element={<ProductDetails />} />
-        <Route path="/Shop" element={<Shop />} />
-        <Route path="/Cart" element={<Cart />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
+        <Route path="/location" element={<Location />} />
+        <Route path="/product-details" element={<ProductDetails />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/favorite" element={<Favorite />} />
       </Routes>
       <Footer />
     </>

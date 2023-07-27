@@ -6,6 +6,15 @@ import { FiUser } from "react-icons/fi";
 
 import { useState } from "react";
 
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// import required modules
+import { Autoplay } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+
 // Svg
 import { ReactComponent as Man } from "../assets/Images/svg/Man.svg";
 import { ReactComponent as Nike } from "../assets/Images/svg/Nike.svg";
@@ -26,7 +35,7 @@ const Header = () => {
 
   return (
     <>
-      <section className={`topHeader ${isSearchOpen ? "hidden" : ""}`}>
+      <section className={`topHeaderArea ${isSearchOpen ? "hidden" : ""}`}>
         <div className="container">
           <div className="row">
             <div className="topHeaderLeft">
@@ -148,9 +157,9 @@ const Header = () => {
               <div
                 className={`operationIconsArea ${isSearchOpen ? "hidden" : ""}`}
               >
-                <button className="operationBtn">
+                <Link className="operationBtn" to="/favorite">
                   <Heart className="operationIcons" />
-                </button>
+                </Link>
                 <Link to="/Cart" className="operationBtn ">
                   <Cart className="operationIcons" />
                 </Link>

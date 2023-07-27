@@ -1,9 +1,8 @@
 // Router
 import { Link } from "react-router-dom";
 
-//Photo
-import AppInfoFirstImg from "../assets/Images/e423b40b-3a65-45ba-b1d3-342fdf41e0d4.webp";
-import AppInfoSecondImg from "../assets/Images/a0b79318-bf01-40fa-b02f-dda7159aa5fe.webp";
+//Db
+import appInfo from "../db/appInfo";
 
 const AppInfo = () => {
   return (
@@ -13,36 +12,21 @@ const AppInfo = () => {
           <h3>Uygulamalarımızı Keşfet</h3>
         </div>
         <div className="row">
-          <Link>
-            <div className="card">
-              <div className="cardImg">
-                <img src={AppInfoFirstImg} alt="" />
+          {appInfo.map((item) => (
+            <span>
+              <div className="card">
+                <div className="cardImg">
+                  <img src={item.img} alt="exerciseimg" />
+                </div>
+                <div className="cardInfo">
+                  <p>{item.title}</p>
+                  <button>
+                    <Link>{item.btn}</Link>
+                  </button>
+                </div>
               </div>
-              <div className="cardInfo">
-                <p>Seni Neyin Harekete Geçirdiğini Keşfet</p>
-                <button>
-                  <p>Nike App</p>
-                </button>
-              </div>
-            </div>
-          </Link>
-          <Link>
-            <div className="card">
-              <div className="cardImg">
-                <img src={AppInfoSecondImg} alt="" />
-              </div>
-              <div className="cardInfo">
-                <p>
-                  Yüzlerce Antrenman, Nefes Çalışması
-                  <br />
-                  ve Daha Fazlası
-                </p>
-                <button>
-                  <p>Nike Training Club</p>
-                </button>
-              </div>
-            </div>
-          </Link>
+            </span>
+          ))}
         </div>
       </div>
     </section>

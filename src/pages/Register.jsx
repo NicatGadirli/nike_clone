@@ -2,10 +2,11 @@
 import { Link } from "react-router-dom";
 
 //Photo
-import Nike from "../assets/Images/Login/Nike.png";
+import Nike from "../assets/Images/login/Nike.png";
 
 const Register = () => {
   return (
+    
     <section className="register">
       <div className="container">
         <div className="row">

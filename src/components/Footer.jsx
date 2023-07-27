@@ -18,96 +18,102 @@ const Footer = () => {
               <ul className="findStore">
                 <p>
                   <strong>
-                    <Link>MAĞAZA BUL</Link>
+                    <Link to="/">MAĞAZA BUL</Link>
                   </strong>
                 </p>
                 <li>
                   <strong>
-                    <Link>NIKE JOURNAL</Link>
+                    <Link to="/">NIKE JOURNAL</Link>
                   </strong>
                 </li>
                 <li>
                   <strong>
-                    <Link>ÜYE OL</Link>
+                    <Link to="/register">ÜYE OL</Link>
                   </strong>
                 </li>
                 <li>
                   <strong>
-                    <Link>GERİ BİLDİRİM</Link>
+                    <Link to="/">GERİ BİLDİRİM</Link>
                   </strong>
                 </li>
                 <li>
                   <strong>
-                    <Link>PROMOSYON KODLARI</Link>
+                    <Link to="/">PROMOSYON KODLARI</Link>
                   </strong>
                 </li>
               </ul>
               <ul className="aboutFooter">
                 <p>
-                  <Link className="footerLinkBtn">YARDIM AL</Link>
+                  <Link className="footerLinkBtn" to="/">
+                    YARDIM AL
+                  </Link>
                 </p>
                 <li>
-                  <Link>Sipariş Durumu</Link>
+                  <Link to="/">Sipariş Durumu</Link>
                 </li>
                 <li>
-                  <Link>Kargo ve Teslimat</Link>
+                  <Link to="/">Kargo ve Teslimat</Link>
                 </li>
                 <li>
-                  <Link>İadeler</Link>
+                  <Link to="/">İadeler</Link>
                 </li>
                 <li>
-                  <Link>Ödeme Seçenekleri</Link>
+                  <Link to="/">Ödeme Seçenekleri</Link>
                 </li>
                 <li>
-                  <Link>Bize Ulaşın</Link>
+                  <Link to="/">Bize Ulaşın</Link>
                 </li>
               </ul>
               <ul className="aboutFooter">
                 <p>
-                  <Link className="footerLinkBtn">NIKE HAKKINDA</Link>
+                  <Link className="footerLinkBtn" to="/">
+                    NIKE HAKKINDA
+                  </Link>
                 </p>
                 <li>
-                  <Link>Haberler</Link>
+                  <Link to="/">Haberler</Link>
                 </li>
                 <li>
-                  <Link>Kariyer</Link>
+                  <Link to="/">Kariyer</Link>
                 </li>
                 <li>
-                  <Link>Yatırımcılar</Link>
+                  <Link to="/">Yatırımcılar</Link>
                 </li>
                 <li>
-                  <Link>Sürdürülebilirlik</Link>
+                  <Link to="/">Sürdürülebilirlik</Link>
                 </li>
               </ul>
               <ul className="aboutFooter">
                 <p>
-                  <Link className="footerLinkBtn">BIZE KATIL</Link>
+                  <Link className="footerLinkBtn" to="/register">
+                    BIZE KATIL
+                  </Link>
                 </p>
                 <li>
-                  <Link>Nike App</Link>
+                  <Link to="/">Nike App</Link>
                 </li>
                 <li>
-                  <Link>Nike Run Club</Link>
+                  <Link to="/">Nike Run Club</Link>
                 </li>
                 <li>
-                  <Link>Nike Training Club</Link>
+                  <Link to="/">Nike Training Club</Link>
                 </li>
                 <li>
-                  <Link>SNKRS</Link>
+                  <Link to="/">SNKRS</Link>
                 </li>
               </ul>
             </div>
             <div className="rightFooter">
-              <Link>
+              <Link to="https://twitter.com/Nike">
                 <Twitter className="icon" />
               </Link>
-              <Link>
+              <Link to="https://www.facebook.com/nike/">
                 <Facebook className="icon" />
               </Link>
-              <Link>
+              <Link to="https://www.youtube.com/user/NIKE">
                 <Youtube className="icon" />
               </Link>
-              <Link>
+              <Link to="https://www.instagram.com/nike/">
                 <Instagram className="icon" />
               </Link>
             </div>
@@ -125,63 +131,63 @@ const Footer = () => {
             <div className="bottomFooterRight">
               <ul className="bottomFooterList">
                 <li className="bottomFooterItemFirst">
-                  <Link>Rehberler</Link>
+                  <Link to="/">Rehberler</Link>
                   <ul className="guideList">
                     <li className="guideListItem">
-                      <Link>Nike Adapt</Link>
+                      <Link to="/">Nike Adapt</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike FlyEase</Link>
+                      <Link to="/">Nike FlyEase</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike Free</Link>
+                      <Link to="/">Nike Free</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike Vaporfly</Link>
+                      <Link to="/">Nike Vaporfly</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>NBA Taraftar Giysileri</Link>
+                      <Link to="/">NBA Taraftar Giysileri</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike Air</Link>
+                      <Link to="/">Nike Air</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike Flyknit</Link>
+                      <Link to="/">Nike Flyknit</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike Pegasus</Link>
+                      <Link to="/">Nike Pegasus</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike Zoom Fly</Link>
+                      <Link to="/">Nike Zoom Fly</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike Airtopia</Link>
+                      <Link to="/">Nike Airtopia</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike Air Max</Link>
+                      <Link to="/">Nike Air Max</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike Flyleather</Link>
+                      <Link to="/">Nike Flyleather</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike React</Link>
+                      <Link to="/">Nike React</Link>
                     </li>
                     <li className="guideListItem">
-                      <Link>Nike ZoomX</Link>
+                      <Link to="/">Nike ZoomX</Link>
                     </li>
                   </ul>
                 </li>
                 <li className="bottomFooterItem">
-                  <Link>Kullanım Şartları</Link>
+                  <Link to="/">Kullanım Şartları</Link>
                 </li>
                 <li className="bottomFooterItem">
-                  <Link>Satış Şartları</Link>
+                  <Link to="/">Satış Şartları</Link>
                 </li>
                 <li className="bottomFooterItem">
-                  <Link>Şirket Ayrıntıları</Link>
+                  <Link to="/">Şirket Ayrıntıları</Link>
                 </li>
                 <li className="bottomFooterItem">
-                  <Link>Gizlilik ve Tanımlama Bilgisi Politikası</Link>
+                  <Link to="/">Gizlilik ve Tanımlama Bilgisi Politikası</Link>
                 </li>
               </ul>
             </div>

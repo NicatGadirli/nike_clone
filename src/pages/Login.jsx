@@ -2,10 +2,10 @@
 import { Link } from "react-router-dom";
 
 //Photo
-import Nike from "../assets/Images/Login/Nike.png";
+import Nike from "../assets/Images/login/Nike.png";
 
 // Svg
-import { ReactComponent as Checkmark } from "../assets/Images/Login/Checkmark.svg";
+import { ReactComponent as Checkmark } from "../assets/Images/login/Checkmark.svg";
 
 const Login = () => {
   return (

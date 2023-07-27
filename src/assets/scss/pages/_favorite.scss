@@ -1,0 +1,95 @@
+.favorite {
+  margin-bottom: 50px;
+  .container {
+    .row {
+      .favoriteBtn {
+        font-size: 16px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        transition: all 0.2s ease 0s;
+        font-family: "Helvetica Now Text", Helvetica, Arial, sans-serif;
+        padding: 15px 23px;
+        border-radius: 20px;
+        box-shadow: rgb(204, 204, 204) 0px 1px 0px 0px inset,
+          rgb(204, 204, 204) -1px 0px 0px 0px inset,
+          rgb(204, 204, 204) 0px -1px 0px 0px inset,
+          rgb(204, 204, 204) 1px 0px 0px 0px inset;
+        &:hover {
+          box-shadow: rgb(204, 204, 204) 0px 1.5px 0px 0px inset,
+            rgb(204, 204, 204) -1.5px 0px 0px 0px inset,
+            rgb(204, 204, 204) 0px -1.5px 0px 0px inset,
+            rgb(204, 204, 204) 1.5px 0px 0px 0px inset;
+        }
+      }
+      flex-direction: column;
+      .top {
+        display: flex;
+        justify-content: space-between;
+        padding: 48px 10px 12px;
+        .left {
+          h4 {
+            font-size: 24px;
+            line-height: 1.5;
+            font-weight: 500;
+          }
+        }
+      }
+      .favoriteMessage {
+        display: flex;
+        justify-content: center;
+        display: none;
+        h5 {
+          font: var(--podium-cds-typography-body1-strong);
+          margin: 24px;
+          padding: 24px;
+          text-align: center;
+          font-size: 17px;
+        }
+      }
+      .bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        padding-top: 40px;
+        .card {
+          width: 33%;
+          padding-left: 8px;
+          padding-right: 8px;
+          .cardImg {
+            position: relative;
+            min-width: 300px;
+            min-height: 300px;
+            animation: 2s ease-in;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .cardInfo {
+            margin: 16px 16px 0 0;
+            .productInfo {
+              display: flex;
+              justify-content: space-between;
+              font-size: 16px;
+              line-height: 24px;
+              .productName,
+              .price {
+                color: #111;
+                font-size: 16px;
+                line-height: 24px;
+              }
+            }
+            .ProductType {
+              color: #757575;
+            }
+            .cardBtn {
+              margin: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
