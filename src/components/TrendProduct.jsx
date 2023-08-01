@@ -32,9 +32,23 @@ const TrendProduct = () => {
           loop={true}
           modules={[Navigation, Pagination]}
           className="mySwiper"
+          breakpoints={{
+            468: {
+              width: 468,
+              slidesPerView: 1,
+            },
+            768: {
+              width: 768,
+              slidesPerView: 2,
+            },
+            1024:{
+              width: 1496,
+              slidesPerView: 4.8,
+            }
+          }}
         >
           {trendProduct.map((item) => (
-            <SwiperSlide className="SwiperSlide">
+            <SwiperSlide className="SwiperSlide" key={item.id}>
               <div className="card">
                 <Link>
                   <div className="cardImg">

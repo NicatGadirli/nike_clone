@@ -49,7 +49,7 @@
               a {
                 color: #7e7e7e;
                 font-size: 11px;
-                &:hover{
+                &:hover {
                   color: #fff;
                 }
               }
@@ -122,6 +122,170 @@
               .bottomFooterItemFirst:hover .guideList {
                 display: block;
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Responsiveness
+
+@media (max-width: 768px) {
+  .footer {
+    height: 490px;
+    .container {
+      padding-top: 40px;
+      .row {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1327px;
+        flex-direction: column;
+        .topFooter {
+          margin-bottom: 16px;
+          margin-left: -6px;
+          margin-right: -6px;
+          display: flex;
+          .leftFooter {
+            flex-wrap: wrap;
+            .findStore {
+              li,
+              p {
+                margin-bottom: 15px;
+                a {
+                  color: #fff;
+                  font-size: 12px;
+                  margin-bottom: 12px;
+                  letter-spacing: 0.1px;
+                }
+              }
+            }
+            .aboutFooter {
+              p {
+                margin-bottom: 10px;
+                .footerLinkBtn {
+                  color: #fff;
+                  font-size: 12px;
+                  font-weight: bold;
+                }
+              }
+              li {
+                margin-bottom: 15px;
+                a {
+                  color: #7e7e7e;
+                  font-size: 11px;
+                  &:hover {
+                    color: #fff;
+                  }
+                }
+              }
+            }
+          }
+          .rightFooter {
+            display: flex;
+            justify-content: flex-end;
+            width: 40%;
+            .icon {
+              transition: 0.2s ease;
+              width: 30px;
+              height: 30px;
+              margin-left: 16px;
+              background-color: #7e7e7e;
+              border-radius: 50px;
+              padding: 3px;
+              &:hover {
+                background-color: #fff;
+              }
+            }
+          }
+        }
+        .bottomFooter {
+          display: flex;
+          .bottomFooterLeft {
+            display: flex;
+            gap: 20px;
+            a {
+              color: #fff;
+              font-size: 12px;
+            }
+            p {
+              color: #7e7e7e;
+              font-size: 12px;
+              line-height: 2.333333333333333;
+            }
+            .location {
+              width: 14px;
+              height: 14px;
+              filter: invert(100%);
+            }
+          }
+          .bottomFooterRight {
+            .bottomFooterList {
+              flex-wrap: wrap;
+              width: 50%;
+              .bottomFooterItem,
+              .bottomFooterItemFirst {
+                font-size: 12px;
+                line-height: 2.333333333333333;
+                transition: all 0.2s ease;
+                a {
+                  color: #7e7e7e;
+                  &:hover {
+                    color: #fff;
+                  }
+                }
+                .guideList {
+                  display: none;
+                  position: absolute;
+                  background-color: #f9f9f9;
+                  min-width: 160px;
+                  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                  z-index: 991;
+                }
+                .bottomFooterItemFirst:hover .guideList {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 468px) {
+  .footer {
+    height: 640px;
+    .container {
+      .row {
+        flex-direction: column;
+        .topFooter {
+          flex-direction: column;
+          gap: 27px;
+          .leftFooter {
+            display: flex;
+            flex-direction: column;
+            .aboutFooter {
+              li {
+                display: none;
+              }
+            }
+          }
+        }
+        .bottomFooter {
+          display: flex;
+          .bottomFooterLeft {
+            flex-direction: column;
+            gap: 0;
+          }
+          .bottomFooterRight {
+            .bottomFooterList {
+              display: flex;
+              flex-direction: column;
+              width: 90%;
+              margin-top: 50px;
             }
           }
         }

@@ -64,3 +64,33 @@
     }
   }
 }
+
+//Responsiveness
+
+@media (max-width: 768px) {
+  .explore {
+    .container {
+      .row {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 468px) {
+  .explore {
+    .container {
+      .row {
+        flex-wrap: wrap;
+        gap: 20px;
+        .card {
+          .cardImg {
+            width: auto;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

@@ -60,7 +60,7 @@
             line-height: 14px;
           }
         }
-        .userIcon{
+        .userIcon {
           display: none;
           .userArea {
             width: 35px;
@@ -128,14 +128,17 @@
                 color: rgba(0, 0, 0, 0.54);
                 border-radius: 100px;
                 align-items: center;
-                // .accountMenu{
-                //   display: block;
-                // }
               }
             }
           }
         }
       }
     }
+  }
+}
+
+@media (max-width: 960px) {
+  .topHeaderArea {
+    display: none;
   }
 }

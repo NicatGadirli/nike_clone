@@ -58,3 +58,55 @@
     }
   }
 }
+
+//Responsiveness
+
+@media (max-width: 768px) {
+  .appInfo {
+    .container {
+      .row {
+        flex-wrap: wrap;
+        gap: 20px;
+        span {
+          .card {
+            .cardImg {
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 468px) {
+  .appInfo {
+    .container {
+      .row {
+        flex-wrap: wrap;
+        gap: 20px;
+        span {
+          .card {
+            .cardImg {
+              height: 100%;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .cardInfo {
+              width: 54%;
+              p {
+                font-size: 15px;
+                line-height: 19px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

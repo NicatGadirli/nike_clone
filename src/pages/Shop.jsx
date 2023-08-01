@@ -1,13 +1,32 @@
-// Router
-import { Link } from "react-router-dom";
+// Card
+import Card from "../components/Card";
+
+import axios from "axios";
 
 // Svg
 import { ReactComponent as Filter } from "../assets/Images/svg/Filter.svg";
 import { ReactComponent as Chevron } from "../assets/Images/svg/Chevron.svg";
 
-import ffff from "../assets/Images/trend-product-slider-img/ffff.webp";
-
+//ReactHooks
+import { useEffect, useState } from "react";
+// 
 const Shop = () => {
+  const [product, setProduct] = useState([])
+
+  useEffect(() => {
+    getData();
+  }, [])
+
+  const getData = async () => {
+    try {
+      await axios.get("http://localhost:5000/api/products").then((res) => {
+        setProduct(res.data);
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <section className="shop">
       <div className="container">
@@ -28,18 +47,9 @@ const Shop = () => {
             </div>
           </div>
           <div className="bottom">
-            <Link to="/ProductDetails">
-              <div className="card">
-                <div className="cardImg">
-                  <img src={ffff} alt="" />
-                </div>
-                <div className="cardInfo">
-                  <h6 className="title">Name</h6>
-                  <p className="aboutProduct">Erkek Ayakkabısı</p>
-                  <span className="price">0 ₺</span>
-                </div>
-              </div>
-            </Link>
+            {product.map((product) => (
+              <Card data={product} key={product.id} />
+            ))}
           </div>
         </div>
       </div>

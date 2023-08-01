@@ -13,8 +13,8 @@ const AppInfo = () => {
         </div>
         <div className="row">
           {appInfo.map((item) => (
-            <span>
-              <div className="card">
+            <span key={item.id}>
+              <div className="card" >
                 <div className="cardImg">
                   <img src={item.img} alt="exerciseimg" />
                 </div>

@@ -1,6 +1,7 @@
 //Db
 import explore from "../db/explore";
 
+
 // Router
 import { Link } from "react-router-dom";
 
@@ -16,7 +17,7 @@ const Explore = () => {
         </div>
         <div className="row">
           {explore.map((item) => (
-            <div className="card">
+            <div className="card" key={item.id}>
               <div className="cardImg">
                 <img src={item.img} alt="Explore" />
               </div>

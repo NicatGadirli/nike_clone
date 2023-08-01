@@ -31,9 +31,23 @@ const ForSport = () => {
           loop={true}
           modules={[Pagination, Navigation]}
           className="mySwiper"
+          breakpoints={{
+            468: {
+              width: 468,
+              slidesPerView: 1,
+            },
+            768: {
+              width: 768,
+              slidesPerView: 2,
+            },
+            1024:{
+              width: 1496,
+              slidesPerView: 4.8,
+            }
+          }}
         >
           {forSport.map((item) => (
-            <SwiperSlide>
+            <SwiperSlide key={item.id} className="swiperSlide">
               <div className="sportImgBox">
                 <Link to="/">
                   <img src={item.img} alt="athleteModelImg" />

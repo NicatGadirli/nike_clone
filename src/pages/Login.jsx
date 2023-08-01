@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 //Photo
 import Nike from "../assets/Images/login/Nike.png";
 
-// Svg
-import { ReactComponent as Checkmark } from "../assets/Images/login/Checkmark.svg";
 
 const Login = () => {
   return (
@@ -34,7 +32,6 @@ const Login = () => {
             <div className="middle">
               <div className="checkBox">
                 <input type="checkbox" />
-                {/* <Checkmark/> */}
                 Oturumum açık kalsın
               </div>
               <div className="forgotPassword">

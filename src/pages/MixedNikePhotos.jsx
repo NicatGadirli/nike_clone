@@ -27,9 +27,23 @@ const MixedNikePhotos = () => {
           loop={true}
           modules={[Pagination, Navigation]}
           className="mySwiper"
+          breakpoints={{
+            468: {
+              spaceBetween: 20,
+              slidesPerView: 1,
+            },
+            768: {
+              spaceBetween: 20,
+              slidesPerView: 2,
+            },
+            1024: {
+              spaceBetween: 20,
+              slidesPerView: 4.8,
+            },
+          }}
         >
           {mixedNikePhotos.map((item) => (
-            <SwiperSlide>
+            <SwiperSlide key={item.id}>
               <div className="MixedNikePhotosImgBox">
                 <Link to="/">
                   <img src={item.img} alt="athleteModelImg" />

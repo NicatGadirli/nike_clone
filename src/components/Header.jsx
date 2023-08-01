@@ -1,19 +1,13 @@
 // Router
 import { Link } from "react-router-dom";
 
+//HamburgerMenu
+import MobileMenu from "../pages/MobileMenu/MobileMenu";
+
 // Icons
 import { FiUser } from "react-icons/fi";
 
 import { useState } from "react";
-
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-// import required modules
-import { Autoplay } from "swiper/modules";
-
-// Import Swiper styles
-import "swiper/css";
 
 // Svg
 import { ReactComponent as Man } from "../assets/Images/svg/Man.svg";
@@ -103,13 +97,553 @@ const Header = () => {
             <div className={`navBarArea ${isSearchOpen ? "hidden" : ""}`}>
               <nav className="navBar">
                 <ul className="navList">
-                  <li className="navItem">Yeni ve Öne Çıkanlar</li>
-                  <li className="navItem">Erkek</li>
-                  <li className="navItem">Kadın</li>
-                  <li className="navItem">Çocuk</li>
-                  <li className="navItem">İndirim</li>
+                  <li className="navItem">
+                    Yeni ve Öne Çıkanlar
+                    <div className="submenu_container">
+                      <div className="submenu">
+                        <ul>
+                          <li>
+                            <Link>Öne Çıkanlar</Link>
+                          </li>
+                          <li>
+                            <Link>Yeni Ayakkabılar</Link>
+                          </li>
+                          <li>
+                            <Link>Yeni giysiler</Link>
+                          </li>
+                          <li>
+                            <Link>SNKRS lansman takvimi</Link>
+                          </li>
+                          <li>
+                            <Link>Üye mağazası</Link>
+                          </li>
+                          <li>
+                            <Link>Okula dönüş</Link>
+                          </li>
+                          <li>
+                            <Link>En çok satanlar</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>İkonik modelleri incele</Link>
+                          </li>
+                          <li>
+                            <Link>Air Force1</Link>
+                          </li>
+                          <li>
+                            <Link>Air Jordan1</Link>
+                          </li>
+                          <li>
+                            <Link>Air max</Link>
+                          </li>
+                          <li>
+                            <Link>Dunk</Link>
+                          </li>
+                          <li>
+                            <Link>Blazer</Link>
+                          </li>
+                          <li>
+                            <Link>Pegasus</Link>
+                          </li>
+                          <li>
+                            <Link>Mercurial</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>En iyi makaleler</Link>
+                          </li>
+                          <li>
+                            <Link>.Swoosh</Link>
+                          </li>
+                          <li>
+                            <Link>Jordan kolleksiyonu</Link>
+                          </li>
+                          <li>
+                            <Link>Nike SB- Vault</Link>
+                          </li>
+                          <li>
+                            <Link>Sürdürebilirlik</Link>
+                          </li>
+                          <li>
+                            <Link>Nike makaleleri</Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="navItem">
+                    Erkek
+                    <div className="submenu_container">
+                      <div className="submenu">
+                        <ul>
+                          <li>
+                            <Link>Öne Çıkanlar</Link>
+                          </li>
+                          <li>
+                            <Link>Yeni Çıkanlar</Link>
+                          </li>
+                          <li>
+                            <Link>SNKRS Lansman Takvimi</Link>
+                          </li>
+                          <li>
+                            <Link>Milli Takım Formaları</Link>
+                          </li>
+                          <li>
+                            <Link>Okula Dönüş</Link>
+                          </li>
+                          <li>
+                            <Link>En Çok Satanlar</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Ayakkabılar</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm Ayakkabılar</Link>
+                          </li>
+                          <li>
+                            <Link>Günlük Giyim</Link>
+                          </li>
+                          <li>
+                            <Link>Jordan</Link>
+                          </li>
+                          <li>
+                            <Link>Koşu</Link>
+                          </li>
+                          <li>
+                            <Link>Futbol</Link>
+                          </li>
+                          <li>
+                            <Link>Basketbol</Link>
+                          </li>
+                          <li>
+                            <Link>Antrenman ve Spor Salonu</Link>
+                          </li>
+                          <li>
+                            <Link>Kaykay</Link>
+                          </li>
+                          <li>
+                            <Link>Nike By You</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Giysiler</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm Giyim</Link>
+                          </li>
+                          <li>
+                            <Link>Üstler ve Tişörtler</Link>
+                          </li>
+                          <li>
+                            <Link>Kapüşonlu Üstler ve Sweatshirt'ler</Link>
+                          </li>
+                          <li>
+                            <Link>Şortlar</Link>
+                          </li>
+                          <li>
+                            <Link>Eşofman Altları ve Taytlar</Link>
+                          </li>
+                          <li>
+                            <Link>Eşofmanlar </Link>
+                          </li>
+                          <li>
+                            <Link>Eşofman Üstleri</Link>
+                          </li>
+                          <li>
+                            <Link>Takımlar ve Formalar </Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Spora Göre İncele</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm Sporlar</Link>
+                          </li>
+                          <li>
+                            <Link>Koşu</Link>
+                          </li>
+                          <li>
+                            <Link>Futbol</Link>
+                          </li>
+                          <li>
+                            <Link>Basketbol</Link>
+                          </li>
+                          <li>
+                            <Link>Antrenman ve Spor Salonu</Link>
+                          </li>
+                          <li>
+                            <Link>Tenis</Link>
+                          </li>
+                          <li>
+                            <Link>Golf</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Aksesuarlar ve Ekipmanlar</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm Aksesuarlar ve Ekipmanlar</Link>
+                          </li>
+                          <li>
+                            <Link>Çantalar ve Sırt Çantaları</Link>
+                          </li>
+                          <li>
+                            <Link>Çoraplar </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="navItem">
+                    Kadın
+                    <div className="submenu_container">
+                      <div className="submenu">
+                        <ul>
+                          <li>
+                            <Link>Öne Çıkanlar</Link>
+                          </li>
+                          <li>
+                            <Link>Yeni Çıkanlar</Link>
+                          </li>
+                          <li>
+                            <Link>SNKRS Lansman Takvimi</Link>
+                          </li>
+                          <li>
+                            <Link>Milli Takım Formaları</Link>
+                          </li>
+                          <li>
+                            <Link>Okula Dönüş</Link>
+                          </li>
+                          <li>
+                            <Link>En Çok Satanlar</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Ayakkabılar</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm Ayakkabılar</Link>
+                          </li>
+                          <li>
+                            <Link>Günlük Giyim</Link>
+                          </li>
+                          <li>
+                            <Link>Jordan</Link>
+                          </li>
+                          <li>
+                            <Link>Koşu</Link>
+                          </li>
+                          <li>
+                            <Link>Futbol</Link>
+                          </li>
+                          <li>
+                            <Link>Basketbol</Link>
+                          </li>
+                          <li>
+                            <Link>Antrenman ve Spor Salonu</Link>
+                          </li>
+                          <li>
+                            <Link>Kaykay</Link>
+                          </li>
+                          <li>
+                            <Link>Nike By You</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Giysiler</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm Giyim</Link>
+                          </li>
+                          <li>
+                            <Link>Üstler ve Tişörtler</Link>
+                          </li>
+                          <li>
+                            <Link>Kapüşonlu Üstler ve Sweatshirt'ler</Link>
+                          </li>
+                          <li>
+                            <Link>Şortlar</Link>
+                          </li>
+                          <li>
+                            <Link>Eşofman Altları ve Taytlar</Link>
+                          </li>
+                          <li>
+                            <Link>Eşofmanlar </Link>
+                          </li>
+                          <li>
+                            <Link>Eşofman Üstleri</Link>
+                          </li>
+                          <li>
+                            <Link>Takımlar ve Formalar </Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Spora Göre İncele</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm Sporlar</Link>
+                          </li>
+                          <li>
+                            <Link>Koşu</Link>
+                          </li>
+                          <li>
+                            <Link>Futbol</Link>
+                          </li>
+                          <li>
+                            <Link>Basketbol</Link>
+                          </li>
+                          <li>
+                            <Link>Antrenman ve Spor Salonu</Link>
+                          </li>
+                          <li>
+                            <Link>Tenis</Link>
+                          </li>
+                          <li>
+                            <Link>Golf</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Aksesuarlar ve Ekipmanlar</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm Aksesuarlar ve Ekipmanlar</Link>
+                          </li>
+                          <li>
+                            <Link>Çantalar ve Sırt Çantaları</Link>
+                          </li>
+                          <li>
+                            <Link>Çoraplar </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="navItem">
+                    Çocuk
+                    <div className="submenu_container">
+                      <div className="submenu">
+                        <ul>
+                          <li>
+                            <Link>Öne Çıkanlar</Link>
+                          </li>
+                          <li>
+                            <Link>Yeni Çıkanlar</Link>
+                          </li>
+                          <li>
+                            <Link>SNKRS Lansman Takvimi</Link>
+                          </li>
+                          <li>
+                            <Link>Milli Takım Formaları</Link>
+                          </li>
+                          <li>
+                            <Link>Okula Dönüş</Link>
+                          </li>
+                          <li>
+                            <Link>En Çok Satanlar</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Ayakkabılar</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm Ayakkabılar</Link>
+                          </li>
+                          <li>
+                            <Link>Günlük Giyim</Link>
+                          </li>
+                          <li>
+                            <Link>Jordan</Link>
+                          </li>
+                          <li>
+                            <Link>Koşu</Link>
+                          </li>
+                          <li>
+                            <Link>Futbol</Link>
+                          </li>
+                          <li>
+                            <Link>Basketbol</Link>
+                          </li>
+                          <li>
+                            <Link>Antrenman ve Spor Salonu</Link>
+                          </li>
+                          <li>
+                            <Link>Kaykay</Link>
+                          </li>
+                          <li>
+                            <Link>Nike By You</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Giysiler</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm Giyim</Link>
+                          </li>
+                          <li>
+                            <Link>Üstler ve Tişörtler</Link>
+                          </li>
+                          <li>
+                            <Link>Kapüşonlu Üstler ve Sweatshirt'ler</Link>
+                          </li>
+                          <li>
+                            <Link>Şortlar</Link>
+                          </li>
+                          <li>
+                            <Link>Eşofman Altları ve Taytlar</Link>
+                          </li>
+                          <li>
+                            <Link>Eşofmanlar </Link>
+                          </li>
+                          <li>
+                            <Link>Eşofman Üstleri</Link>
+                          </li>
+                          <li>
+                            <Link>Takımlar ve Formalar </Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Yaşa göre çocuk</Link>
+                          </li>
+                          <li>
+                            <Link>Genç Çocuk (7 - 15 yaş)</Link>
+                          </li>
+                          <li>
+                            <Link>Küçük Çocuk (3 - 7 yaş)</Link>
+                          </li>
+                          <li>
+                            <Link>Bebek (0-3 yaş)</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Aksesuarlar ve Ekipmanlar</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm Aksesuarlar ve Ekipmanlar</Link>
+                          </li>
+                          <li>
+                            <Link>Çantalar ve Sırt Çantaları</Link>
+                          </li>
+                          <li>
+                            <Link>Çoraplar </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="navItem">
+                    İndirim
+                    <div className="submenu_container">
+                      <div className="submenu">
+                        <ul>
+                          <li>
+                            <Link>Öne Çıkanlar</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm İndirimli Ürünleri İncele </Link>
+                          </li>
+                          <li>
+                            <Link>En Çok Satanlar </Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Erkekler İçin İndirimli Ürünler</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm İndirimli Erkek Ürünlerini İncele</Link>
+                          </li>
+                          <li>
+                            <Link>Ayakkabılar</Link>
+                          </li>
+                          <li>
+                            <Link>Giysiler</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Kadınlar İçin İndirimli Ürünler</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm İndirimli Kadın Ürünlerini İncele</Link>
+                          </li>
+                          <li>
+                            <Link>Ayakkabılar</Link>
+                          </li>
+                          <li>
+                            <Link>Giysiler</Link>
+                          </li>
+                          <li>
+                            <Link>Sürdürebilirlik</Link>
+                          </li>
+                          <li>
+                            <Link>Nike makaleleri</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Çocuklar İçin İndirimli Ürünler</Link>
+                          </li>
+                          <li>
+                            <Link>Tüm İndirimli Çocuk Ürünlerini İncele </Link>
+                          </li>
+                          <li>
+                            <Link>Ayakkabılar</Link>
+                          </li>
+                          <li>
+                            <Link>Giysiler</Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link>Spora Göre İndirimli Ürünler</Link>
+                          </li>
+                          <li>
+                            <Link>Koşu</Link>
+                          </li>
+                          <li>
+                            <Link>Futbol</Link>
+                          </li>
+                          <li>
+                            <Link>Spor Salonu ve Antrenman</Link>
+                          </li>
+                          <li>
+                            <Link>Basketbol</Link>
+                          </li>
+                          <li>
+                            <Link>Tenis</Link>
+                          </li>
+                          <li>
+                            <Link>Golf</Link>
+                          </li>
+                          <li>
+                            <Link>Yoga</Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </nav>
+            </div>
+            <div className="mobileMenu">
+              <button>
+                <MobileMenu className="hamburgerMenu" />
+              </button>
             </div>
             <div
               className={`operation ${

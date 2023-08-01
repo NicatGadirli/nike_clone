@@ -77,3 +77,48 @@
     }
   }
 }
+
+//Responsiveness
+
+@media (max-width: 1024px) {
+  .forSport {
+    .row {
+      margin: 0 35px 0 0;
+      .mySwiper {
+        .sportImgBox {
+          width: auto;
+          height: auto;
+          margin-left: 24px;
+        }
+        .swiper-button-prev,
+        .swiper-button-next {
+          padding: 42px;
+        }
+      }
+      .sportInfo {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 468px) {
+    .forSport {
+      .row {
+        .mySwiper {
+          .sportImgBox {
+            width: auto;
+            height: auto;
+            margin-left: 24px;
+          }
+          .swiper-button-prev,
+          .swiper-button-next {
+            padding: 42px;
+          }
+        }
+      }
+      .sportInfo {
+        display: none;
+      }
+    }
+  }
+}

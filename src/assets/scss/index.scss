@@ -3,6 +3,7 @@
 @import "./components/header";
 @import "./components/bottomheader";
 @import "./components/footer";
+@import "./components//loading";
 
 //Pages
 @import "./pages/productDetails";
@@ -23,6 +24,9 @@
 @import "./pages/nikeMembership";
 @import "./pages/mixedNikePhotos";
 @import "./pages/merchMenu";
+
+//HamburgerMenu
+@import"./pages/hamburgerMenu";
 
 // Global Styles
 @import "./pages/base";
