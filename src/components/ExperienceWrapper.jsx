@@ -11,7 +11,7 @@ import "swiper/css";
 
 const BottomHeader = () => {
   return (
-    <header className="bottomHeader">
+    <header className="experienceWrapper">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

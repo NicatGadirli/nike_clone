@@ -1,0 +1,29 @@
+.notFound {
+  margin: 100px 0;
+  .container {
+    .row {
+      flex-direction: column;
+      h2 {
+        margin: 0 auto;
+        font-size: 20px;
+        font-size: 50px;
+      }
+      .link {
+        margin: 20px auto;
+        width: 15%;
+        a {
+          text-align: center;
+          background-color: #000;
+          border: 1px solid #000;
+          border-radius: 3px;
+          color: #fff;
+          cursor: pointer;
+          display: block;
+          font-family: TradeGothicforNike365-BdCn, Helvetica !important;
+          font-size: 15px;
+          padding: 12px;
+        }
+      }
+    }
+  }
+}

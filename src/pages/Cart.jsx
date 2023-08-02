@@ -7,21 +7,16 @@ import TrendProduct from "../components/TrendProduct";
 import quantity from "../db/quantity";
 import sizes from "../db/sizes";
 
-//Loading
-import Loading from "../components/Loading";
 
 // Svg
 import { ReactComponent as Heart } from "../assets/Images/svg/Heart.svg";
 import { ReactComponent as Trash } from "../assets/Images/svg/Trash.svg";
-import { useState } from "react";
 
 const Cart = () => {
-  const[refresh,setRefresh]=useState(false)
 
   return (
     <>
       <section className="cart">
-      {refresh && <Loading/>}
         <div className="container">
           <div className="row">
             <div className="leftArea">

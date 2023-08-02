@@ -4,9 +4,6 @@ import { Link, useParams } from "react-router-dom";
 //Axios
 import axios from "axios";
 
-//Photo
-import Shoe from "../assets/Images/cosmic-unity-3-basketbol-ayakkabısı-lVP6Vb.jpeg";
-
 // Svg
 import { ReactComponent as Star } from "../assets/Images/svg/Star.svg";
 import { ReactComponent as Heart } from "../assets/Images/svg/Heart.svg";
@@ -17,45 +14,62 @@ import TrendProduct from "../components/TrendProduct";
 //ReactHooks
 import { useEffect, useState } from "react";
 
-const ProductDetails = () => {
-  const { productID } = useParams()
+//Location
+import { useLocation } from "react-router-dom";
 
-  const [product, setProduct] = useState(null)
+const ProductDetails = () => {
+  const { productID } = useParams();
+
+  const [product, setProduct] = useState({});
+
+    //Router
+    const { pathname } = useLocation()
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname])
 
   useEffect(() => {
+    const getData = async () => {
+      try {
+        await axios
+          .get(`http://localhost:5000/api/products/${productID}`)
+          .then((res) => {
+            if (res.status === 200) {
+              setProduct(res.data);
+            }
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    };
     getData();
-  }, [])
+  }, [productID]);
 
-  const getData = async () => {
-    try {
-      await axios
-        .get(`http://localhost:5000/api/products/${productID}`)
-        .then((res) => {
-          setProduct(res.data);
-        })
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  console.log(product);
   return (
     <>
       <section className="productDetails">
         <div className="container">
           <div className="row">
-            <div className="hiddenTop">
-              <h6>Sürdürülebilir Malzemeler</h6>
-              <h5 className="title">{product.name}</h5>
-              <p className="detail">{product.type}</p>
-              <span className="price">{product.price} ₺</span>
-            </div>
+            {product && (
+              <div className="hiddenTop">
+                <h6>Sürdürülebilir Malzemeler</h6>
+                <h5 className="title">{product.name}</h5>
+                <p className="detail">{product.type}</p>
+                <span className="price">{product.price} ₺</span>
+              </div>
+            )}
             <div className="productImg">
               <div className="scoreBox">
                 <Star className="starIcon" />
                 <span>Yüksek Puanlı</span>
               </div>
-              <img src={Shoe} alt="ProductImage" />
+              {product.productImage && (
+                <img
+                  src={` http://localhost:5000/${product.productImage}`}
+                  alt={product.name}
+                />
+              )}
             </div>
             <div className="aboutProduct">
               <div className="top">

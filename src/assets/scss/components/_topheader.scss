@@ -79,43 +79,6 @@
                 }
               }
             }
-            .accountMenu {
-              display: none;
-              position: absolute;
-              min-width: 240px;
-              right: 0;
-              top: 60px;
-              transform: translateY(-20px);
-              transition: opacity 0.2s, visibility 0s linear 0.2s,
-                transform 0.25s ease;
-              background: #fff;
-              border-radius: 0 0 8px 8px;
-              cursor: pointer;
-              .dropDown {
-                padding-bottom: 24px;
-                padding-top: 24px;
-                padding-right: 24px;
-                padding-left: 24px;
-                a {
-                  margin: 20px 0px;
-                  color: #111;
-                  cursor: pointer;
-                  text-decoration: none;
-                  margin-bottom: 12px;
-                  background-color: transparent;
-                }
-                .dropDownItem {
-                  a {
-                    display: block;
-                    color: #757575;
-                    padding: 4px 8px;
-                    font-size: 14px;
-                    line-height: 20px;
-                    font-weight: 500;
-                  }
-                }
-              }
-            }
             .icon {
               margin-top: 5px;
               display: inline-block;

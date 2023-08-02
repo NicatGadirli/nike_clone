@@ -4,9 +4,45 @@ import { Link } from "react-router-dom";
 //Photo
 import Nike from "../assets/Images/login/Nike.png";
 
+//React Hook Form
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { object, string } from "yup";
+
+
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const Register = () => {
+  // Navigate
+  const navigate = useNavigate()
+
+
+  // Schema
+  const registerSchema = object({
+    name: string().required().trim(),
+    surname: string().required().trim(),
+    email: string().required().trim().email(),
+    password: string().required().trim().min(8).max(18),
+  });
+
+  // React Hook Form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(registerSchema) });
+  const onSubmit = async (data) => {
+    await axios
+      .post(process.env.REACT_APP_REGISTER, data)
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/login")
+        }
+      })
+      .catch((err) => console.log(err));
+  };
   return (
-    
     <section className="register">
       <div className="container">
         <div className="row">
@@ -21,22 +57,38 @@ const Register = () => {
             </div>
           </div>
           <div className="middle">
-            <form>
+            <form
+              data-aos="fade-up"
+              data-aos-duration="900"
+              noValidate
+              onSubmit={handleSubmit(onSubmit)}>
               <div className="userBox">
-                <input type="email" name="email" placeholder="E-posta adresi" />
+                <input type="email" name="email" placeholder="E-posta adresi" {...register("email")} />
                 {/* <span>Lütfen geçerli bir e-posta adresi gir.</span> */}
+                {errors.email && (
+                  <div className="error-message">{errors.email.message}</div>
+                )}
               </div>
               <div className="userBox">
-                <input type="password" name="password" placeholder="Şifre" />
+                <input type="password" name="password" placeholder="Şifre" {...register("password")} />
                 {/* <span>Lütfen bir şifre gir.</span> */}
+                {errors.password && (
+                  <div className="error-message">{errors.password.message}</div>
+                )}
               </div>
               <div className="userBox">
-                <input type="text" name="text" placeholder="Adı" />
+                <input type="name" name="name" placeholder="Adı" {...register("name")} />
                 {/* <span>Lütfen geçerli bir ad gir.</span> */}
+                {errors.name && (
+                  <div className="error-message">{errors.name.message}</div>
+                )}
               </div>
               <div className="userBox">
-                <input type="text" name="text" placeholder="Soyadı" />
+                <input type="surname" name="surname" placeholder="Soyadı" {...register("surname")} />
                 {/* <span>Lütfen geçerli bir soyadı gir.</span> */}
+                {errors.surname && (
+                  <div className="error-message">{errors.surname.message}</div>
+                )}
               </div>
               <div className="userBox">
                 <input type="date" name="date" placeholder="Doğum Tarihi" />
@@ -44,7 +96,7 @@ const Register = () => {
                 <p>Her yıl Doğum Gününde Nike Üye Ödülü kazan.</p>
               </div>
               <div className="userBox">
-                <select class="form-select" id="country" name="Türkiye">
+                <select className="form-select" id="country" name="Türkiye">
                   <option value="">Türkiye</option>
                   <option value="Afghanistan">Afghanistan</option>
                   <option value="Aland Islands">Aland Islands</option>
@@ -387,7 +439,6 @@ const Register = () => {
           <div className="bottom">
             <div className="checkBox">
               <input type="checkbox" />
-              {/* <Checkmark/> */}
               <p>
                 Nike'tan ürünler, teklifler ve Üye avantajlarına yönelik
                 güncellemeler almak için e-postalara kaydol

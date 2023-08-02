@@ -1,7 +1,18 @@
-const NotFound = () => {
-  return <section className="notFound">
-    <h2>Not FOund</h2>
-  </section>;
-};
+import { Link } from "react-router-dom";
 
-export default NotFound;
+const NotFound = () => {
+  return (
+    <section className="notFound">
+      <div className="container">
+        <div className="row">
+          <h2>NOT FOUND:/</h2>
+          <div className="link">
+            <Link to="/">ANA SAYFA</Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default NotFound

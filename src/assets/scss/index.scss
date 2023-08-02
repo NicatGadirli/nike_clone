@@ -1,7 +1,7 @@
 // Components
 @import "./components/topheader";
 @import "./components/header";
-@import "./components/bottomheader";
+@import "./components/experienceWrapper";
 @import "./components/footer";
 @import "./components//loading";
 
@@ -12,7 +12,8 @@
 @import "./pages/login";
 @import "./pages/register";
 @import "./pages/favorite";
-
+@import "./pages/profile";
+@import "./pages/notFound";
 
 // Sections
 @import "./pages/hero";
@@ -26,7 +27,7 @@
 @import "./pages/merchMenu";
 
 //HamburgerMenu
-@import"./pages/hamburgerMenu";
+@import "./pages/hamburgerMenu";
 
 // Global Styles
 @import "./pages/base";

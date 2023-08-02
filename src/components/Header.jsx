@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <>
-      <section className={`topHeaderArea ${isSearchOpen ? "hidden" : ""}`}>
+      <header className={`topHeaderArea ${isSearchOpen ? "hidden" : ""}`}>
         <div className="container">
           <div className="row">
             <div className="topHeaderLeft">
@@ -49,35 +49,7 @@ const Header = () => {
               </div>
               <div className="userIcon">
                 <div className="userArea">
-                  <div className="accountMenu">
-                    <nav className="dropDown">
-                      <ul className="dropDownList">
-                        <Link to="">Hesap</Link>
-                        <li className="dropDownItem">
-                          <Link>Profil</Link>
-                        </li>
-                        <li className="dropDownItem">
-                          <Link>Siparişler</Link>
-                        </li>
-                        <li className="dropDownItem">
-                          <Link>Favoriler</Link>
-                        </li>
-                        <li className="dropDownItem">
-                          <Link>Gelen Kutusu</Link>
-                        </li>
-                        <li className="dropDownItem">
-                          <Link>Deneyimler</Link>
-                        </li>
-                        <li className="dropDownItem">
-                          <Link>Hesap Ayarları</Link>
-                        </li>
-                        <li className="dropDownItem">
-                          <Link>Oturumu Kapat</Link>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                  <Link to="">
+                  <Link to="/profile">
                     <FiUser className="icon" />
                   </Link>
                 </div>
@@ -85,7 +57,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </section>
+      </header>
       <header className="header">
         <div className="container">
           <div className="row">
@@ -98,7 +70,7 @@ const Header = () => {
               <nav className="navBar">
                 <ul className="navList">
                   <li className="navItem">
-                    Yeni ve Öne Çıkanlar
+                    <Link to="/shop" className="shopLink">Yeni ve Öne Çıkanlar</Link>
                     <div className="submenu_container">
                       <div className="submenu">
                         <ul>
@@ -173,8 +145,8 @@ const Header = () => {
                       </div>
                     </div>
                   </li>
-                  <li className="navItem">
-                    Erkek
+                  <li className="navItem" to="/shop">
+                    <Link to="/shop" className="shopLink">Erkek</Link>
                     <div className="submenu_container">
                       <div className="submenu">
                         <ul>
@@ -301,8 +273,8 @@ const Header = () => {
                       </div>
                     </div>
                   </li>
-                  <li className="navItem">
-                    Kadın
+                  <li className="navItem" to="/shop">
+                    <Link to="/shop" className="shopLink">Kadın</Link>
                     <div className="submenu_container">
                       <div className="submenu">
                         <ul>
@@ -429,8 +401,8 @@ const Header = () => {
                       </div>
                     </div>
                   </li>
-                  <li className="navItem">
-                    Çocuk
+                  <li className="navItem" to="/shop">
+                    <Link to="/shop" className="shopLink">Çocuk</Link>
                     <div className="submenu_container">
                       <div className="submenu">
                         <ul>
@@ -545,8 +517,8 @@ const Header = () => {
                       </div>
                     </div>
                   </li>
-                  <li className="navItem">
-                    İndirim
+                  <li className="navItem" to="/shop">
+                    <Link to="/shop" className="shopLink">İndirim</Link>
                     <div className="submenu_container">
                       <div className="submenu">
                         <ul>
@@ -646,9 +618,8 @@ const Header = () => {
               </button>
             </div>
             <div
-              className={`operation ${
-                isSearchOpen ? "visible_operation_box" : ""
-              }`}
+              className={`operation ${isSearchOpen ? "visible_operation_box" : ""
+                }`}
             >
               <div className="searchBox">
                 <div className="inputBox">
@@ -664,9 +635,8 @@ const Header = () => {
                   İptal
                 </button>
                 <div
-                  className={`searchResultsBox ${
-                    isSearchOpen ? "visible" : "hidden"
-                  }`}
+                  className={`searchResultsBox ${isSearchOpen ? "visible" : "hidden"
+                    }`}
                 >
                   <div className="searchResults">
                     <p>Popüler Arama Terimleri</p>

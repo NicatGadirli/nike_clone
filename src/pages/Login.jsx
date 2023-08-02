@@ -4,8 +4,19 @@ import { Link } from "react-router-dom";
 //Photo
 import Nike from "../assets/Images/login/Nike.png";
 
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+
 
 const Login = () => {
+  //Router
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname])
+
   return (
     <section className="login">
       <div className="container">
