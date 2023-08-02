@@ -1,5 +1,6 @@
 // Router
 import { Link } from "react-router-dom";
+import React, { useState } from 'react';
 
 //Photo
 import Nike from "../assets/Images/login/Nike.png";
@@ -20,10 +21,12 @@ const Register = () => {
 
   // Schema
   const registerSchema = object({
-    name: string().required().trim(),
-    surname: string().required().trim(),
-    email: string().required().trim().email(),
-    password: string().required().trim().min(8).max(18),
+    name: string().required('Lütfen geçerli bir ad gir.').trim(),
+    surname: string().required('Lütfen geçerli bir soyadı gir.').trim(),
+    email: string().required('Lütfen geçerli bir e-posta adresi gir.').trim().email('Lütfen geçerli bir e-posta adresi gir.'),
+    password: string().required('Lütfen bir şifre gir.').trim().min(8).max(18),
+    date:string().required(),
+    gender: string().required("Lütfen bir cinsiyet seçin."),
   });
 
   // React Hook Form
@@ -32,16 +35,30 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(registerSchema) });
-  const onSubmit = async (data) => {
-    await axios
-      .post(process.env.REACT_APP_REGISTER, data)
-      .then((res) => {
-        if (res.status === 200) {
-          navigate("/login")
-        }
-      })
-      .catch((err) => console.log(err));
+
+
+  const [selectedGender, setSelectedGender] = useState(null);
+
+  const handleGenderSelection = (gender) => {
+    setSelectedGender(gender);
   };
+
+  const onSubmit = async (data) => {
+    try {
+      let url = 'http://localhost:3000/register'
+      const res = await axios.post(url, data);
+      if (res.status === 200) {
+        console.log('ugurlu');
+        navigate("/login");
+      }
+    } catch (err) {
+      console.log(err);
+      alert('error')
+    }
+  };
+
+
+
   return (
     <section className="register">
       <div className="container">
@@ -427,11 +444,13 @@ const Register = () => {
                 </select>
               </div>
               <div className="gender">
-                <button>
-                  <p>Erkek</p>
+                <button style={{ borderColor: selectedGender === 'Erkek' ? '#000000' : '#ccc' }}
+                  onClick={() => handleGenderSelection('Erkek')}>
+                  <p style={{ color: selectedGender === 'Erkek' ? '#000000' : '#ccc' }}>Erkek</p>
                 </button>
-                <button>
-                  <p>Kadın</p>
+                <button style={{ borderColor: selectedGender === 'Kadın' ? '#000000' : '#ccc' }}
+                  onClick={() => handleGenderSelection('Kadın')}>
+                  <p style={{ color: selectedGender === 'Kadın' ? '#000000' : '#ccc' }}>Kadın</p>
                 </button>
               </div>
             </form>

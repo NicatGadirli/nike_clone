@@ -74,9 +74,9 @@ const ProductDetails = () => {
             <div className="aboutProduct">
               <div className="top">
                 <h6>Sürdürülebilir Malzemeler</h6>
-                <h5 className="title">Cosmic Unity 3</h5>
-                <p className="detail">Basketbol Ayakkabısı</p>
-                <span className="price">5.099,90 ₺</span>
+                <h5 className="title">{product.name}</h5>
+                <p className="detail">{product.type}</p>
+                <span className="price">{product.price} ₺</span>
               </div>
               <div className="middle">
                 <div className="chooseNumber">
