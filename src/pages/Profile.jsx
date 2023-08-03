@@ -1,6 +1,10 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { Context } from "../utils/Context"
 
 const Profile = () => {
+    const { user, setUser } = useContext(Context);
+
     return (
         <section className="profile">
             <div className="container">
@@ -30,8 +34,9 @@ const Profile = () => {
                         </div>
                         <div className="profileInfo">
                             <h2 className="profileName">Nicat Gadirli</h2>
+                            <h3 className="profileEmail">nicatqedir64@gmail.com</h3>
                             <p>Şu Tarihten Beri Nike Üyesi: 2023</p>
-                        </div>
+                        </div>{user.email}{user.name} {user.surname}
                     </div>
                 </div>
             </div>

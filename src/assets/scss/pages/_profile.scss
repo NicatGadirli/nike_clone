@@ -34,13 +34,19 @@
           background-color: rgb(229, 229, 229);
         }
         .profileInfo {
-          margin-top: 20px;
+          margin-top: 10px;
           margin-left: 20px;
           display: flex;
           flex-direction: column;
           .profilName {
             font-weight: 500;
             font-size: 31px;
+            margin-bottom: 10px;
+          }
+          .profileEmail {
+            margin-top: 10px;
+            font-size: 17px;
+            font-weight: 500;
           }
           p {
             color: #707072;

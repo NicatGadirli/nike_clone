@@ -1,6 +1,6 @@
 // Router
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 //Photo
 import Nike from "../assets/Images/login/Nike.png";
@@ -10,23 +10,22 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 
-
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   // Navigate
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   // Schema
   const registerSchema = object({
-    name: string().required('Lütfen geçerli bir ad gir.').trim(),
-    surname: string().required('Lütfen geçerli bir soyadı gir.').trim(),
-    email: string().required('Lütfen geçerli bir e-posta adresi gir.').trim().email('Lütfen geçerli bir e-posta adresi gir.'),
-    password: string().required('Lütfen bir şifre gir.').trim().min(8).max(18),
-    date:string().required(),
-    gender: string().required("Lütfen bir cinsiyet seçin."),
+    name: string().required("Lütfen geçerli bir ad gir.").trim(),
+    surname: string().required("Lütfen geçerli bir soyadı gir.").trim(),
+    email: string()
+      .required("Lütfen geçerli bir e-posta adresi gir.")
+      .trim()
+      .email("Lütfen geçerli bir e-posta adresi gir."),
+    password: string().required("Lütfen bir şifre gir.").trim().min(8,"En az 8").max(18,"En çok 18"),
   });
 
   // React Hook Form
@@ -36,37 +35,28 @@ const Register = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(registerSchema) });
 
-
   const [selectedGender, setSelectedGender] = useState(null);
 
   const handleGenderSelection = (gender) => {
     setSelectedGender(gender);
   };
 
-  const onSubmit = async (data) => {
-    try {
-      let url = 'http://localhost:3000/register'
-      const res = await axios.post(url, data);
-      if (res.status === 200) {
-        console.log('ugurlu');
-        navigate("/login");
-      }
-    } catch (err) {
-      console.log(err);
-      alert('error')
-    }
+  const onSub = (data) => {
+    axios.post(process.env.REACT_APP_REGISTER, data)
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/login")
+        }
+      })
+      .catch((err) => console.log(err));
   };
-
-
 
   return (
     <section className="register">
       <div className="container">
         <div className="row">
           <div className="top">
-            <div className="logo">
-              <img src={Nike} alt="Logo" />
-            </div>
+            <div className="logo"><img src={Nike} alt="Logo" /></div>
             <div className="title">NIKE ÜYESİ OL</div>
             <div className="info">
               Nike Üye profilini oluşturarak Nike'ın en iyi ürünlerine ilk
@@ -74,42 +64,53 @@ const Register = () => {
             </div>
           </div>
           <div className="middle">
-            <form
-              data-aos="fade-up"
-              data-aos-duration="900"
-              noValidate
-              onSubmit={handleSubmit(onSubmit)}>
+            <form >
               <div className="userBox">
-                <input type="email" name="email" placeholder="E-posta adresi" {...register("email")} />
-                {/* <span>Lütfen geçerli bir e-posta adresi gir.</span> */}
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="E-posta adresi"
+                  {...register("email")}
+                />
                 {errors.email && (
                   <div className="error-message">{errors.email.message}</div>
                 )}
               </div>
               <div className="userBox">
-                <input type="password" name="password" placeholder="Şifre" {...register("password")} />
-                {/* <span>Lütfen bir şifre gir.</span> */}
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Şifre"
+                  {...register("password")}
+                />
                 {errors.password && (
                   <div className="error-message">{errors.password.message}</div>
                 )}
               </div>
               <div className="userBox">
-                <input type="name" name="name" placeholder="Adı" {...register("name")} />
-                {/* <span>Lütfen geçerli bir ad gir.</span> */}
+                <input
+                  type="name"
+                  name="name"
+                  placeholder="Adı"
+                  {...register("name")}
+                />
                 {errors.name && (
                   <div className="error-message">{errors.name.message}</div>
                 )}
               </div>
               <div className="userBox">
-                <input type="surname" name="surname" placeholder="Soyadı" {...register("surname")} />
-                {/* <span>Lütfen geçerli bir soyadı gir.</span> */}
+                <input
+                  type="surname"
+                  name="surname"
+                  placeholder="Soyadı"
+                  {...register("surname")}
+                />
                 {errors.surname && (
                   <div className="error-message">{errors.surname.message}</div>
                 )}
               </div>
               <div className="userBox">
                 <input type="date" name="date" placeholder="Doğum Tarihi" />
-                {/* <span>Lütfen geçerli bir doğum tarihi gir.</span> */}
                 <p>Her yıl Doğum Gününde Nike Üye Ödülü kazan.</p>
               </div>
               <div className="userBox">
@@ -444,20 +445,48 @@ const Register = () => {
                 </select>
               </div>
               <div className="gender">
-                <button style={{ borderColor: selectedGender === 'Erkek' ? '#000000' : '#ccc' }}
-                  onClick={() => handleGenderSelection('Erkek')}>
-                  <p style={{ color: selectedGender === 'Erkek' ? '#000000' : '#ccc' }}>Erkek</p>
+                <button
+                  style={{
+                    borderColor:
+                      selectedGender === "Erkek" ? "#000000" : "#ccc",
+                  }}
+                  onClick={(e) => {
+                    handleGenderSelection("Erkek");
+                    e.preventDefault();
+                  }}
+                >
+                  <p
+                    style={{
+                      color: selectedGender === "Erkek" ? "#000000" : "#ccc",
+                    }}
+                  >
+                    Erkek
+                  </p>
                 </button>
-                <button style={{ borderColor: selectedGender === 'Kadın' ? '#000000' : '#ccc' }}
-                  onClick={() => handleGenderSelection('Kadın')}>
-                  <p style={{ color: selectedGender === 'Kadın' ? '#000000' : '#ccc' }}>Kadın</p>
+                <button
+                  style={{
+                    borderColor:
+                      selectedGender === "Kadın" ? "#000000" : "#ccc",
+                  }}
+                  onClick={(e) => {
+                    handleGenderSelection("Kadın");
+                    e.preventDefault();
+                  }}
+                >
+                  <p
+                    style={{
+                      color: selectedGender === "Kadın" ? "#000000" : "#ccc",
+                    }}
+                  >
+                    Kadın
+                  </p>
                 </button>
               </div>
             </form>
           </div>
           <div className="bottom">
             <div className="checkBox">
-              <input type="checkbox" />
+              <input type="checkbox" required />
               <p>
                 Nike'tan ürünler, teklifler ve Üye avantajlarına yönelik
                 güncellemeler almak için e-postalara kaydol
@@ -466,11 +495,20 @@ const Register = () => {
             <div className="signUp">
               <p>
                 Hesap oluşturarak Nike'ın <span>Gizlilik Politikası</span> 'nı
-                ve <br /><span>Kullanım Şartları</span> 'nı kabul etmiş olursun.
+                ve <br />
+                <span>Kullanım Şartları</span> 'nı kabul etmiş olursun.
               </p>
             </div>
             <div className="operation">
-              <button type="submit">BİZE KATIL</button>
+              <button
+                type="submit"
+                onClick={(e) => {
+                  handleSubmit(onSub)(e);
+                  e.preventDefault();
+                }}
+              >
+                BİZE KATIL
+              </button>
             </div>
             <div className="membership">
               <p>

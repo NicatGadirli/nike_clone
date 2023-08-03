@@ -18,6 +18,9 @@ import Register from "./pages/Register";
 import Favorite from "./pages/Favorite";
 import Profile from "./pages/Profile";
 
+//Context
+import { MainContext } from "./utils/Context";
+
 const App = () => {
   const [isSearchOpen, setSearchOpen] = useState(true);
 
@@ -26,7 +29,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <MainContext>
       {isSearchOpen}
       <Header handleSearchToggle={handleSearchToggle} />
       <ExperienceWrapper />
@@ -46,7 +49,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
-    </>
+    </MainContext>
   );
 };
 

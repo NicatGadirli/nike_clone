@@ -13,9 +13,15 @@ import MerchMenu from "./MerchMenu";
 import { useLocation } from "react-router-dom";
 
 //ReactHooks
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import axios from "axios";
+// import { Context } from "../utils/Context";
 
 const Home = () => {
+  // const { user, setUser } = useContext(Context)
+
+
+
   //Router
   const { pathname } = useLocation()
 
