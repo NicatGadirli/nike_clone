@@ -12,7 +12,14 @@ import sizes from "../db/sizes";
 import { ReactComponent as Heart } from "../assets/Images/svg/Heart.svg";
 import { ReactComponent as Trash } from "../assets/Images/svg/Trash.svg";
 
+//Context
+import { useContext } from "react";
+import { Context } from "../utils/Context";
+
 const Cart = () => {
+  //Global States
+  const { cart } = useContext(Context)
+  const cartItems = cart || [];
 
   return (
     <>
@@ -21,47 +28,53 @@ const Cart = () => {
           <div className="row">
             <div className="leftArea">
               <h5 className="leftAreaTitle">Sepet</h5>
-              <p className="cartMessage">Sepetinde ürün yok.</p>
-              <div className="product">
-                <div className="left">
-                  <div className="leftImg">
-                    <img src={DV0788_001} alt="" />
-                  </div>
-                  <div className="cartInfo">
-                    <p className="productName">name</p>
-                    <b>Erkek Ayakkabısı</b>
-                    <div className="quantityBox">
-                      <div className="number">
-                        Numara/Beden
-                        <select id="select">
-                          {sizes.map((sizenumber)=>(
-                            <option key={sizenumber.id}>{sizenumber.number}</option>
-                          ))}
-                        </select>
+              {cartItems.length === 0 ? (
+                <p className="cartMessage">Sepetinde ürün yok.</p>
+              ) : (
+                cartItems.map((product) => (
+                  <div className="product">
+                    <p className="cartMessage">Sepetinde ürün yok.</p>
+                    <div className="left">
+                      <div className="leftImg">
+                        <img src={`http://localhost:5000/${product.productImage}`} alt={product.name} />
                       </div>
-                      <div className="quantity">
-                        Adet
-                        <select id="select">
-                          {quantity.map((numbers) => (
-                            <option key={numbers.id}>{numbers.number}</option>
-                          ))}
-                        </select>
+                      <div className="cartInfo">
+                        <p className="productName">{product.name}</p>
+                        <b>Erkek Ayakkabısı</b>
+                        <div className="quantityBox">
+                          <div className="number">
+                            Numara/Beden
+                            <select id="select">
+                              {sizes.map((sizenumber) => (
+                                <option key={sizenumber.id}>{sizenumber.number}</option>
+                              ))}
+                            </select>
+                          </div>
+                          <div className="quantity">
+                            Adet
+                            <select id="select">
+                              {quantity.map((numbers) => (
+                                <option key={numbers.id}>{numbers.number}</option>
+                              ))}
+                            </select>
+                          </div>
+                        </div>
+                        <div className="operationIcons">
+                          <button>
+                            <Heart className="icons" />
+                          </button>
+                          <button>
+                            <Trash className="icons" />
+                          </button>
+                        </div>
                       </div>
                     </div>
-                    <div className="operationIcons">
-                      <button>
-                        <Heart className="icons" />
-                      </button>
-                      <button>
-                        <Trash className="icons" />
-                      </button>
+                    <div className="right">
+                      <span className="price">₺ {product.price}</span>
                     </div>
                   </div>
-                </div>
-                <div className="right">
-                  <span className="price">₺ 0</span>
-                </div>
-              </div>
+                ))
+              )}
             </div>
             <div className="rightArea">
               <h5 className="rightAreaTitle">Özet</h5>

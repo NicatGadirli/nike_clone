@@ -6,6 +6,13 @@ export const Context = createContext();
 
 export const MainContext = ({ children }) => {
   const [user, setUser] = useState([]);
+  const [cart, setCart] = useState([]);
+
+  //Add to Cart
+  const addToCart = (newProduct) => {
+    setCart([...cart, newProduct]);
+    console.log(newProduct);
+  };
 
   useEffect(() => {
     const checkUser = async () => {
@@ -24,11 +31,10 @@ export const MainContext = ({ children }) => {
     };
   }, []);
 
-  console.log(user);
-
   const globalStates = {
     user,
     setUser,
+    addToCart,
   };
 
   return <Context.Provider value={globalStates}>{children}</Context.Provider>;

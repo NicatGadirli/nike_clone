@@ -1,3 +1,6 @@
+import { useContext } from 'react'
+import { Context } from '../utils/Context'
+
 // Router
 import { Link, useParams } from "react-router-dom";
 
@@ -18,16 +21,20 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const ProductDetails = () => {
+  //Add to Cart
+  const { addToCart } = useContext(Context)
+
   const { productID } = useParams();
 
   const [product, setProduct] = useState({});
 
-    //Router
-    const { pathname } = useLocation()
 
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [pathname])
+  //Router
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname])
 
   useEffect(() => {
     const getData = async () => {
@@ -100,7 +107,7 @@ const ProductDetails = () => {
                   <div className="sizes">EU 48.5</div>
                 </div>
                 <div className="operationBtn">
-                  <button className="addCart">Sepete Ekle</button>
+                <button className="addCart" onClick={() => addToCart(product)}>Sepete Ekle</button>
                   <button className="addToFavorite">
                     <span>Favori</span>
                     <Heart className="heart" />
