@@ -53,7 +53,7 @@ const Cart = () => {
                           <select id="select">
                             {
                               quantity.map((nums) => (
-                                <option  key={nums.id}>{nums.number}</option>
+                                <option key={nums.id}>{nums.number}</option>
                               ))
                             }
                           </select>

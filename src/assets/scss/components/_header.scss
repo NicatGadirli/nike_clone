@@ -326,6 +326,9 @@
                   flex-direction: column;
                   gap: 10px;
                   font-size: 18px;
+                  span{
+                    visibility: hidden;
+                  }
                 }
               }
             }
@@ -341,7 +344,7 @@
                 width: 50%;
                 padding: 16px 24px;
                 border-radius: 30px;
-                font-size: 17px;
+                font-size: 16px;
                 &:hover {
                   border: 1px solid #000;
                 }

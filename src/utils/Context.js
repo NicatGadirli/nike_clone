@@ -44,10 +44,13 @@ export const MainContext = ({ children }) => {
   };
 
   //Cart Quantity
-
   const calcQuantity = () => {
     const totalQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
-    setCartSum(totalQuantity);
+    if(totalQuantity>9){
+      setCartSum('9+')
+    }else{
+      setCartSum(totalQuantity);
+    }
   };
 
 

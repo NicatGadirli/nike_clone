@@ -716,7 +716,7 @@ const Header = () => {
                       ))
                     }
                     <div className="cartBtn">
-                      <Link to="/cart">Sepeti Görüntüle({cart.length})</Link>
+                      <Link to="/cart">Sepeti Görüntüle({cartSum})</Link>
                       <button>Ödeme</button>
                     </div>
                   </div>
