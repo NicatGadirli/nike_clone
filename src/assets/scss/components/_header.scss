@@ -281,33 +281,36 @@
               top: 25px;
               color: #000;
             }
-            #cart_box {
-              width: 400px;
-              background: white;
-              position: absolute;
-              top: 64px;
-              right: 24px;
+          }
+          #cart_box {
+            width: 400px;
+            background: white;
+            position: absolute;
+            top: 64px;
+            right: 24px;
+            transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
+            box-shadow: -5px 3px 64px 23px rgba(0, 0, 0, 0.75);
+            h6 {
+              margin: 10px;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              color: #000;
+              font-size: 12px;
+              font-weight: 500;
+              .checkedİcon {
+                width: 22px;
+                height: 15px;
+              }
+            }
+            .cardArea {
               display: flex;
               flex-direction: column;
-              transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
-              box-shadow: -5px 3px 64px 23px rgba(0,0,0,0.75);
-              h6 {
-                margin: 10px;
-                display: flex;
-                align-items: center;
-                gap: 5px;
-                color: #000;
-                font-size: 12px;
-                font-weight: 500;
-                .checkedİcon {
-                  width: 22px;
-                  height: 15px;
-                }
-              }
+              border-bottom: 1px solid #cacacb;
               .card {
                 display: flex;
                 gap: 10%;
-                margin-top: 10px;
+                margin: 10px 0;
                 .cardImg {
                   width: 100px;
                   height: auto;
@@ -325,37 +328,37 @@
                   font-size: 18px;
                 }
               }
-              .cartBtn {
-                display: flex;
-                justify-content: space-around;
-                margin: 20px 0;
-                a {
-                  border: 1px solid #cacacb;
-                  transition: all 0.2s ease 0s;
-                  background: rgb(255, 255, 255);
-                  color: rgb(17, 17, 17);
-                  width: 50%;
-                  padding: 16px 24px;
-                  border-radius: 30px;
-                  font-size: 17px;
-                  &:hover {
-                    border: 1px solid #000;
-                  }
+            }
+            .cartBtn {
+              display: flex;
+              justify-content: space-around;
+              margin: 20px 0;
+              a {
+                border: 1px solid #cacacb;
+                transition: all 0.2s ease 0s;
+                background: rgb(255, 255, 255);
+                color: rgb(17, 17, 17);
+                width: 50%;
+                padding: 16px 24px;
+                border-radius: 30px;
+                font-size: 17px;
+                &:hover {
+                  border: 1px solid #000;
                 }
-                button {
-                  border: none;
-                  outline: none;
-                  cursor: pointer;
-                  transition: all 0.2s ease 0s;
-                  background: rgb(17, 17, 17);
-                  color: rgb(255, 255, 255);
-                  width: 40%;
-                  padding: 16px 24px;
-                  border-radius: 30px;
-                  font-size: 17px;
-                  &:hover {
-                    background-color: #707072;
-                  }
+              }
+              button {
+                border: none;
+                outline: none;
+                cursor: pointer;
+                transition: all 0.2s ease 0s;
+                background: rgb(17, 17, 17);
+                color: rgb(255, 255, 255);
+                width: 40%;
+                padding: 16px 24px;
+                border-radius: 30px;
+                font-size: 17px;
+                &:hover {
+                  background-color: #707072;
                 }
               }
             }

@@ -1,57 +1,91 @@
 import { createContext, useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Context = createContext();
 
 export const MainContext = ({ children }) => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]);
+  const [cartSum, setCartSum] = useState(0);
+
+  //Navigate
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getUserData();
+  }, []);
+
+  useEffect(() => {
+    calcQuantity();
+  }, [cart]);
 
   //Add To Cartl
   const addToCart = (product) => {
-    let excitingProduct = cart.find((item) => item.id === product.id);
-    if (excitingProduct) {
-      let upgradedCart = cart.map((item) => {
-        if (excitingProduct.id === item.id) {
-          return { ...item, quantify: item.quantify + 1 };
-        } else {
-          return item;
-        }
-      });
-      setCart(upgradedCart);
+    const existingProduct = cart.find((item) => item.id === product.id);
+    if (existingProduct) {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
     } else {
-      setCart([...cart, { ...product, quantify: 1 }]);
+      setCart([...cart, { ...product, quantity: 1 }]);
     }
   };
 
   //Remove Cart from Cart
   const removeFromCart = (id) => {
     const updatedCart = cart.filter((item) => item.id !== id);
-    setCart(updatedCart)
+    setCart(updatedCart);
   };
 
-  useEffect(() => {
-    const checkUser = async () => {
-      await axios
-        .post(process.env.REACT_APP_CHECK_LOGIN, {
-          token: JSON.parse(localStorage.getItem("token")),
-        })
+  //Cart Quantity
+
+  const calcQuantity = () => {
+    const totalQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+    setCartSum(totalQuantity);
+  };
+
+
+  const getUserData = async () => {
+    let localToken = await JSON.parse(localStorage.getItem("token"));
+    if (localToken) {
+      axios
+        .post(process.env.REACT_APP_CHECK_LOGIN, localToken)
         .then((res) => {
-          if (res.status === 200) {
-            setUser(res.data);
-          }
+          setUser(res.data);
         })
         .catch((err) => {
           console.log(err);
         });
-    };
-  }, []);
+    }
+  };
+
+  //Log Out
+  const logOut = () => {
+    try {
+      setUser({});
+      localStorage.removeItem("token");
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const globalStates = {
+    //States
     cart,
     user,
     setUser,
+    logOut,
+    cartSum,
+    setCartSum,
+
+    //Functions
     addToCart,
     removeFromCart,
   };

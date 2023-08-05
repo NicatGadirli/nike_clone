@@ -1,9 +1,10 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { Context } from "../utils/Context"
+import axios from "axios";
 
 const Profile = () => {
-    const { user, setUser } = useContext(Context);
+    const { user, setUser, logOut } = useContext(Context)
 
     return (
         <section className="profile">
@@ -33,10 +34,11 @@ const Profile = () => {
                             <img src="" alt="" />
                         </div>
                         <div className="profileInfo">
-                            <h2 className="profileName">Nicat Gadirli</h2>
-                            <h3 className="profileEmail">nicatqedir64@gmail.com</h3>
-                            <p>Şu Tarihten Beri Nike Üyesi: 2023</p>
-                        </div>{user.email}{user.name} {user.surname}
+                            <h2 className="profileName">{user.name}</h2>
+                            <h2>{user.surname}</h2>
+                            <h3 className="profileEmail">{user.email}</h3>
+                            <button onClick={() => logOut()}>Çıkış</button>
+                        </div>
                     </div>
                 </div>
             </div>

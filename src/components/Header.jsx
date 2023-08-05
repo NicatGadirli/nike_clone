@@ -22,12 +22,9 @@ import { ReactComponent as Cart } from "../assets/Images/svg/Cart.svg";
 import { ReactComponent as Search } from "../assets/Images/svg/Search.svg";
 import { ReactComponent as Checked } from "../assets/Images/svg/Checked.svg";
 
-
-import img from "../assets/Images/1163f9d5-7b28-46e5-b73b-4d3d2ff4dbc3.webp"
-
 const Header = () => {
-
-  const { cart } = useContext(Context);
+  //Global States
+  const { cart, cartSum, user } = useContext(Context);
 
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [showCartBox, setShowCartBox] = useState(false);
@@ -53,6 +50,8 @@ const Header = () => {
     }
   }, [cart]);
 
+
+
   return (
     <>
       <header className={`topHeaderArea ${isSearchOpen ? "hidden" : ""}`}>
@@ -69,9 +68,11 @@ const Header = () => {
                 <span></span>
                 <Link to="">Yardım</Link>
                 <span></span>
-                <Link to="/Register">Bize Katıl</Link>
-                <span></span>
-                <Link to="/Login">Oturum Aç</Link>
+                {!user && <Link to="/Register">Bize Katıl</Link>}
+                {!user && <span></span>}
+                {
+                  user ? (<Link to="/profile">Profile</Link>) : (<Link to="/Login">Oturum Aç</Link>)
+                }
               </div>
               <div className="userIcon">
                 <div className="userArea">
@@ -692,28 +693,34 @@ const Header = () => {
                 </Link>
                 <Link to="/Cart" className="operationBtn ">
                   <Cart className="operationIcons" />
-                  <p className="count">9</p>
-                  {showCartBox && cart.length > 0 && (
-                                      
+                  <p className="count">{cart.length}</p>
+                </Link>
+                {showCartBox && cart.length > 0 && (
                   <div id="cart_box" >
                     <h6><Checked className="checkedİcon" />Sepete Eklendi</h6>
-                    <div className="card">
-                      <div className="cardImg">
-                        <img src={img} alt="" />
-                      </div>
-                      <div className="cardInfo">
-                        <h5>Nike Dunk High</h5>
-                        <p className="productType">Erkek Ayakkabısı</p>
-                        <p className="productPrice">₺ 2.799,90 </p>
-                      </div>
-                    </div>
+                    {
+                      cart.map((item) => (
+                        <div className="cardArea" key={item.id}>
+                          <div className="card">
+                            <div className="cardImg">
+                              <img src={`http://localhost:5000/${item.productImage}`} alt={item.name} />
+                            </div>
+                            <div className="cardInfo">
+                              <h5>{item.name}</h5>
+                              <p className="productType">{item.type}</p>
+                              <p className="productPrice">₺ {item.price}</p>
+                              <span className="productQuantity">Adet: {cartSum}</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))
+                    }
                     <div className="cartBtn">
-                      <Link to="/cart">Sepeti Görüntüle</Link>
+                      <Link to="/cart">Sepeti Görüntüle({cart.length})</Link>
                       <button>Ödeme</button>
                     </div>
                   </div>
-                  )}
-                </Link>
+                )}
               </div>
             </div>
           </div>

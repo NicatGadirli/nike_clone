@@ -15,7 +15,7 @@ import { Context } from "../utils/Context";
 
 const Cart = () => {
   //Global States
-  const { cart,removeFromCart } = useContext(Context)
+  const { cart, removeFromCart } = useContext(Context)
 
   return (
     <>
@@ -37,12 +37,34 @@ const Cart = () => {
                     <div className="cartInfo">
                       <p className="productName">{product.name}</p>
                       <b>Erkek Ayakkabısı</b>
+                      <div className="quantityBox">
+                        <div className="number">
+                          Numara/Beden
+                          <select id="select">
+                            {
+                              sizes.map((nums) => (
+                                <option key={nums.id}>{nums.number}</option>
+                              ))
+                            }
+                          </select>
+                        </div>
+                        <div className="quantity">
+                          Adet
+                          <select id="select">
+                            {
+                              quantity.map((nums) => (
+                                <option  key={nums.id}>{nums.number}</option>
+                              ))
+                            }
+                          </select>
+                        </div>
+                      </div>
                       <div className="operationIcons">
                         <button>
                           <Heart className="icons" />
                         </button>
                         <button>
-                          <Trash className="icons" onClick={()=>removeFromCart(product.id)} />
+                          <Trash className="icons" onClick={() => removeFromCart(product.id)} />
                         </button>
                       </div>
                     </div>
@@ -55,13 +77,7 @@ const Cart = () => {
             </div>
             <div className="rightArea">
               <h5 className="rightAreaTitle">Özet</h5>
-              {
-                cart.map((total) => (
-                  <div className="totalBox" key={total.id}>
-                    <div className="subTotal">
-                      <div className="text">Ara Toplam</div>
-                      <div className="number">₺6.299,80</div>
-                    </div>
+                  <div className="totalBox">
                     <div className="cargo">
                       <div className="text">Tahmini Kargo ve İşlem Ücreti</div>
                       <div className="answer">Ücretsiz</div>
@@ -71,10 +87,8 @@ const Cart = () => {
                       <div className="number">₺6.299,80</div>
                     </div>
                   </div>
-                ))
-              }
               <div className="rightAreaBtn">
-                <button>Üye Girişi Yaparak Ödeme</button>
+                <button>Ödeme</button>
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+//Context
 import { useContext } from 'react'
 import { Context } from '../utils/Context'
 
@@ -124,12 +125,7 @@ const ProductDetails = () => {
                 </div>
                 <div className="productInfo">
                   <p>
-                    Oyunun için geliştirilmesi ve sürdürülebilirlik düşünülerek
-                    tasarlanmasıyla önem verdiğin 2 konuya yoğunlaşan Cosmic
-                    Unity 3, yere yakın ve hafif yapısıyla ayağını sabitler.
-                    Bulut gibi yastıklaması, her yıl sıra dışı yeni yeteneklerin
-                    ortaya çıktığı basketbolda aniden hızlanma ve çabuk yön
-                    değiştirmelerle fark yaratmanı sağlar.
+                   {product.details}
                   </p>
                 </div>
               </div>
