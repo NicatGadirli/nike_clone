@@ -7,7 +7,12 @@ import MobileMenu from "../pages/mobileMenu/MobileMenu";
 // Icons
 import { FiUser } from "react-icons/fi";
 
+//React Hook
 import { useState } from "react";
+
+//Context
+import React, { useContext, useEffect } from "react";
+import { Context } from "../utils/Context";
 
 // Svg
 import { ReactComponent as Man } from "../assets/Images/svg/Man.svg";
@@ -15,9 +20,17 @@ import { ReactComponent as Nike } from "../assets/Images/svg/Nike.svg";
 import { ReactComponent as Heart } from "../assets/Images/svg/Heart.svg";
 import { ReactComponent as Cart } from "../assets/Images/svg/Cart.svg";
 import { ReactComponent as Search } from "../assets/Images/svg/Search.svg";
+import { ReactComponent as Checked } from "../assets/Images/svg/Checked.svg";
+
+
+import img from "../assets/Images/1163f9d5-7b28-46e5-b73b-4d3d2ff4dbc3.webp"
 
 const Header = () => {
+
+  const { cart } = useContext(Context);
+
   const [isSearchOpen, setSearchOpen] = useState(false);
+  const [showCartBox, setShowCartBox] = useState(false);
 
   const handleSearchToggle = () => {
     setSearchOpen(!isSearchOpen);
@@ -26,6 +39,19 @@ const Header = () => {
   const handleCancelSearch = () => {
     setSearchOpen(false);
   };
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      setShowCartBox(true);
+      const timer = setTimeout(() => {
+        setShowCartBox(false);
+      }, 5000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [cart]);
 
   return (
     <>
@@ -666,6 +692,27 @@ const Header = () => {
                 </Link>
                 <Link to="/Cart" className="operationBtn ">
                   <Cart className="operationIcons" />
+                  <p className="count">9</p>
+                  {showCartBox && cart.length > 0 && (
+                                      
+                  <div id="cart_box" >
+                    <h6><Checked className="checkedİcon" />Sepete Eklendi</h6>
+                    <div className="card">
+                      <div className="cardImg">
+                        <img src={img} alt="" />
+                      </div>
+                      <div className="cardInfo">
+                        <h5>Nike Dunk High</h5>
+                        <p className="productType">Erkek Ayakkabısı</p>
+                        <p className="productPrice">₺ 2.799,90 </p>
+                      </div>
+                    </div>
+                    <div className="cartBtn">
+                      <Link to="/cart">Sepeti Görüntüle</Link>
+                      <button>Ödeme</button>
+                    </div>
+                  </div>
+                  )}
                 </Link>
               </div>
             </div>

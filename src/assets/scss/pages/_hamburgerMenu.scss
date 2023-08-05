@@ -8,6 +8,7 @@ $background-color_2: #f0f0f0;
   justify-content: center;
   flex-direction: column;
   position: relative;
+  background-color: #fff;
   .menu-btn {
     cursor: pointer;
     display: flex;
@@ -58,8 +59,8 @@ $background-color_2: #f0f0f0;
     height: 100%;
     background-color: $background-color_2;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: stretch;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-100%);
@@ -95,4 +96,3 @@ $background-color_2: #f0f0f0;
     }
   }
 }
-

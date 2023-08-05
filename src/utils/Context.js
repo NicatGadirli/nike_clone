@@ -8,10 +8,27 @@ export const MainContext = ({ children }) => {
   const [user, setUser] = useState([]);
   const [cart, setCart] = useState([]);
 
-  //Add to Cart
-  const addToCart = (newProduct) => {
-    setCart([...cart, newProduct]);
-    console.log(newProduct);
+  //Add To Cartl
+  const addToCart = (product) => {
+    let excitingProduct = cart.find((item) => item.id === product.id);
+    if (excitingProduct) {
+      let upgradedCart = cart.map((item) => {
+        if (excitingProduct.id === item.id) {
+          return { ...item, quantify: item.quantify + 1 };
+        } else {
+          return item;
+        }
+      });
+      setCart(upgradedCart);
+    } else {
+      setCart([...cart, { ...product, quantify: 1 }]);
+    }
+  };
+
+  //Remove Cart from Cart
+  const removeFromCart = (id) => {
+    const updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart)
   };
 
   useEffect(() => {
@@ -32,9 +49,11 @@ export const MainContext = ({ children }) => {
   }, []);
 
   const globalStates = {
+    cart,
     user,
     setUser,
     addToCart,
+    removeFromCart,
   };
 
   return <Context.Provider value={globalStates}>{children}</Context.Provider>;
