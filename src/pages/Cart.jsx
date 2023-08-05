@@ -15,7 +15,7 @@ import { Context } from "../utils/Context";
 
 const Cart = () => {
   //Global States
-  const { cart, removeFromCart } = useContext(Context)
+  const { cart, removeFromCart, incrementProduct } = useContext(Context)
 
   return (
     <>
@@ -50,7 +50,7 @@ const Cart = () => {
                         </div>
                         <div className="quantity">
                           Adet
-                          <select id="select">
+                          <select id="select" defaultValue={product.quantity} onChange={()=>incrementProduct(product)}>
                             {
                               quantity.map((nums) => (
                                 <option key={nums.id}>{nums.number}</option>
@@ -77,16 +77,16 @@ const Cart = () => {
             </div>
             <div className="rightArea">
               <h5 className="rightAreaTitle">Özet</h5>
-                  <div className="totalBox">
-                    <div className="cargo">
-                      <div className="text">Tahmini Kargo ve İşlem Ücreti</div>
-                      <div className="answer">Ücretsiz</div>
-                    </div>
-                    <div className="sum">
-                      <div className="text">Toplam</div>
-                      <div className="number">₺6.299,80</div>
-                    </div>
-                  </div>
+              <div className="totalBox">
+                <div className="cargo">
+                  <div className="text">Tahmini Kargo ve İşlem Ücreti</div>
+                  <div className="answer">Ücretsiz</div>
+                </div>
+                <div className="sum">
+                  <div className="text">Toplam</div>
+                  <div className="number">₺6.299,80</div>
+                </div>
+              </div>
               <div className="rightAreaBtn">
                 <button>Ödeme</button>
               </div>

@@ -21,7 +21,7 @@ export const MainContext = ({ children }) => {
     calcQuantity();
   }, [cart]);
 
-  //Add To Cartl
+  //Add To Cart
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
     if (existingProduct) {
@@ -46,13 +46,12 @@ export const MainContext = ({ children }) => {
   //Cart Quantity
   const calcQuantity = () => {
     const totalQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
-    if(totalQuantity>9){
-      setCartSum('9+')
-    }else{
+    if (totalQuantity > 9) {
+      setCartSum("9+");
+    } else {
       setCartSum(totalQuantity);
     }
   };
-
 
   const getUserData = async () => {
     let localToken = await JSON.parse(localStorage.getItem("token"));
@@ -79,6 +78,22 @@ export const MainContext = ({ children }) => {
     }
   };
 
+  //Increment Product
+  const incrementProduct = (product) => {
+    if (product) {
+      const updatedCart = cart.map((item) => {
+        if (item.id === product.id) {
+          return { ...item, quantity: product.quantity + 1 };
+        } else {
+          return item;
+        }
+      });
+      setCart(updatedCart);
+    }
+  };
+
+  //Decrement Product
+
   const globalStates = {
     //States
     cart,
@@ -91,6 +106,7 @@ export const MainContext = ({ children }) => {
     //Functions
     addToCart,
     removeFromCart,
+    incrementProduct,
   };
 
   return <Context.Provider value={globalStates}>{children}</Context.Provider>;
