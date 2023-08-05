@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 //Db
-import appInfo from "../db/appInfo";
+import appInfo from "../../db/appInfo";
 
 const AppInfo = () => {
   return (

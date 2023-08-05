@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 // Pages
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import Location from "./pages/Location";
+import Location from "./pages/section/Location";
 import ProductDetails from "./pages/ProductDetails";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";

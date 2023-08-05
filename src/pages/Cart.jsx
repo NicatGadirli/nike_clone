@@ -41,24 +41,6 @@ const Cart = () => {
                       <div className="cartInfo">
                         <p className="productName">{product.name}</p>
                         <b>Erkek Ayakkabısı</b>
-                        <div className="quantityBox">
-                          <div className="number">
-                            Numara/Beden
-                            <select id="select">
-                              {sizes.map((sizenumber) => (
-                                <option key={sizenumber.id}>{sizenumber.number}</option>
-                              ))}
-                            </select>
-                          </div>
-                          <div className="quantity">
-                            Adet
-                            <select id="select">
-                              {quantity.map((numbers) => (
-                                <option key={numbers.id}>{numbers.number}</option>
-                              ))}
-                            </select>
-                          </div>
-                        </div>
                         <div className="operationIcons">
                           <button>
                             <Heart className="icons" />

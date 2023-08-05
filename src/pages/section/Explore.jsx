@@ -1,12 +1,12 @@
 //Db
-import explore from "../db/explore";
+import explore from "../../db/explore";
 
 
 // Router
 import { Link } from "react-router-dom";
 
 //Svg
-import { ReactComponent as Eye } from "../assets/Images/svg/Eye.svg";
+import { ReactComponent as Eye } from "../../assets/Images/svg/Eye.svg";
 
 const Explore = () => {
   return (

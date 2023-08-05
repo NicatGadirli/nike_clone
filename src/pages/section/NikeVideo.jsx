@@ -1,4 +1,4 @@
-import video from "../assets/videos/video.mp4";
+import video from "../../assets/videos/video.mp4";
 
 const NikeVideo = () => {
   return (

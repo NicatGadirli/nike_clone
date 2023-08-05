@@ -1,13 +1,13 @@
 //Sections
-import Hero from "./Hero";
-import NikeVideo from "./NikeVideo";
-import MixedNikePhotos from "./MixedNikePhotos";
+import Hero from "./section/Hero";
+import NikeVideo from "./section/NikeVideo";
+import MixedNikePhotos from "./section/MixedNikePhotos";
 import TrendProduct from "../components/TrendProduct";
-import Explore from "./Explore";
-import ForSport from "./ForSport";
-import AppInfo from "./AppInfo";
-import NikeMembership from "./NikeMembership";
-import MerchMenu from "./MerchMenu";
+import Explore from "./section/Explore";
+import ForSport from "./section/ForSport";
+import AppInfo from "./section/AppInfo";
+import NikeMembership from "./section/NikeMembership";
+import MerchMenu from "./section/MerchMenu";
 
 //Location
 import { useLocation } from "react-router-dom";

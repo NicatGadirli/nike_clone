@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 //Db
-import forSport from "../db/forSport";
+import forSport from "../../db/forSport";
 
 const ForSport = () => {
   return (

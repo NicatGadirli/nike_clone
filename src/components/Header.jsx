@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 //HamburgerMenu
-import MobileMenu from "../pages/MobileMenu/MobileMenu";
+import MobileMenu from "../pages/mobileMenu/MobileMenu";
 
 // Icons
 import { FiUser } from "react-icons/fi";

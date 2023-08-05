@@ -12,15 +12,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-//Db
-import nikeMemembership from "../db/nikeMemembership";
+import mixedNikePhotos from "../../db/mixedNikePhotos";
 
-const NikeMembership = () => {
+const MixedNikePhotos = () => {
   return (
-    <section className="nikeMembership">
-      <div className="nikeMembershipTitle">
-        <h3>Nike Üyeliği</h3>
-      </div>
+    <section className="MixedNikePhotos">
       <div className="row">
         <Swiper
           pagination={{
@@ -33,22 +29,22 @@ const NikeMembership = () => {
           className="mySwiper"
           breakpoints={{
             468: {
-              width: 468,
+              spaceBetween: 20,
               slidesPerView: 1,
             },
             768: {
-              width: 768,
+              spaceBetween: 20,
               slidesPerView: 2,
             },
-            1024:{
-              width: 1496,
+            1024: {
+              spaceBetween: 20,
               slidesPerView: 4.8,
-            }
+            },
           }}
         >
-          {nikeMemembership.map((item) => (
+          {mixedNikePhotos.map((item) => (
             <SwiperSlide key={item.id}>
-              <div className="membershipImgBox">
+              <div className="MixedNikePhotosImgBox">
                 <Link to="/">
                   <img src={item.img} alt="athleteModelImg" />
                 </Link>
@@ -57,11 +53,11 @@ const NikeMembership = () => {
           ))}
         </Swiper>
       </div>
-      <div className="membershipInfo">
-        <Link to="/">Üye Ürünlerine Eriş</Link>
+      <div className="MixedNikePhotosInfo">
+        <Link to="/">Aksesuarlar</Link>
       </div>
     </section>
   );
 };
 
-export default NikeMembership;
+export default MixedNikePhotos;
