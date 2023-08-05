@@ -693,7 +693,7 @@ const Header = () => {
                 </Link>
                 <Link to="/Cart" className="operationBtn ">
                   <Cart className="operationIcons" />
-                  <p className="count">{cart.length}</p>
+                  <p className="count">{cartSum}</p>
                 </Link>
                 {showCartBox && cart.length > 0 && (
                   <div id="cart_box" >
@@ -709,7 +709,7 @@ const Header = () => {
                               <h5>{item.name}</h5>
                               <p className="productType">{item.type}</p>
                               <p className="productPrice">₺ {item.price}</p>
-                              <span className="productQuantity">Adet: {cartSum}</span>
+                              <span className="productQuantity">Adet: {item.quantity}</span>
                             </div>
                           </div>
                         </div>
