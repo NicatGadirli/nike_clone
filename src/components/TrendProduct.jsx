@@ -34,14 +34,14 @@ const TrendProduct = () => {
           className="mySwiper"
           breakpoints={{
             468: {
-              width: 468,
+              width: 392,
               slidesPerView: 1,
             },
             768: {
               width: 768,
               slidesPerView: 2,
             },
-            1024:{
+            1024: {
               width: 1496,
               slidesPerView: 4.8,
             }

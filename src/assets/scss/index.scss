@@ -16,17 +16,16 @@
 @import "./pages/notFound";
 @import "./pages/pay";
 
-
 // Sections
-@import "./pages/hero";
-@import "./pages/nikevideo";
+@import "./pages/section/hero";
+@import "./pages/section/nikevideo";
 @import "./components/trendProduct";
-@import "./pages/explore";
-@import "./pages/forSport";
-@import "./pages/appInfo";
-@import "./pages/nikeMembership";
-@import "./pages/mixedNikePhotos";
-@import "./pages/merchMenu";
+@import "./pages/section/explore";
+@import "./pages/section/forSport";
+@import "./pages/section/appInfo";
+@import "./pages/section/nikeMembership";
+@import "./pages/section/mixedNikePhotos";
+@import "./pages/section/merchMenu";
 
 //HamburgerMenu
 @import "./pages/hamburgerMenu";

@@ -27,7 +27,7 @@ const Header = () => {
   const { cart, cartSum, user } = useContext(Context);
 
   const [isSearchOpen, setSearchOpen] = useState(false);
-  const [showCartBox, setShowCartBox] = useState(false);
+  const [showCartBox, setShowCartBox] = useState(true);
 
   const location = useLocation();
 
@@ -45,7 +45,6 @@ const Header = () => {
       const timer = setTimeout(() => {
         setShowCartBox(false);
       }, 2000);
-
       return () => {
         clearTimeout(timer);
       };
@@ -698,25 +697,23 @@ const Header = () => {
                   <p className="count">{cartSum}</p>
                 </Link>
                 {showCartBox && cart.length > 0 && (
-                  location.pathname !== "/cart"  && (
+                  location.pathname !== "/cart" && (
                     <div id="cart_box" >
                       <h6><Checked className="checkedİcon" />Sepete Eklendi</h6>
                       {
-                        cart.map((item) => (
-                          <div className="cardArea" key={item.id}>
-                            <div className="card">
-                              <div className="cardImg">
-                                <img src={`http://localhost:5000/${item.productImage}`} alt={item.name} />
-                              </div>
-                              <div className="cardInfo">
-                                <h5>{item.name}</h5>
-                                <p className="productType">{item.type}</p>
-                                <p className="productPrice">₺ {item.price}</p>
-                                <span className="productQuantity">Adet: {item.quantity}</span>
-                              </div>
+                        <div className="cardArea" key={cart[cart.length - 1].id}>
+                          <div className="card">
+                            <div className="cardImg">
+                              <img src={`http://localhost:5000/${cart[cart.length - 1].productImage}`} alt={cart[cart.length - 1].name} />
+                            </div>
+                            <div className="cardInfo">
+                              <h5>{cart[cart.length - 1].name}</h5>
+                              <p className="productType">{cart[cart.length - 1].type}</p>
+                              <p className="productPrice">₺ {cart[cart.length - 1].price}</p>
+                              <span className="productQuantity">Adet: {cart[cart.length - 1].quantity}</span>
                             </div>
                           </div>
-                        ))
+                        </div>
                       }
                       <div className="cartBtn">
                         <Link to="/cart">Sepeti Görüntüle({cartSum})</Link>

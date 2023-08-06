@@ -13,6 +13,7 @@ export const MainContext = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [cartSum, setCartSum] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+
   //Navigate
   const navigate = useNavigate();
 
@@ -23,6 +24,17 @@ export const MainContext = ({ children }) => {
   useEffect(() => {
     calcQuantity();
     sumPrice();
+  }, [cart]);
+
+  useEffect(() => {
+    const localCart = JSON.parse(localStorage.getItem("cart"));
+    if (localCart !== null) {
+      setCart(localCart);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
   //Add To Cart
@@ -98,7 +110,9 @@ export const MainContext = ({ children }) => {
       setTotalPrice(0);
       return;
     }
-    let productPrices = cart.map((item) => item.quantity * parseFloat(item.price));
+    let productPrices = cart.map(
+      (item) => item.quantity * parseFloat(item.price)
+    );
     let sum = productPrices.reduce((acc, curr) => acc + curr, 0);
     setTotalPrice(sum);
   };

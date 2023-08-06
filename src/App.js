@@ -29,6 +29,7 @@ const App = () => {
     setSearchOpen(!isSearchOpen);
   };
 
+
   return (
     <MainContext>
       {isSearchOpen}
