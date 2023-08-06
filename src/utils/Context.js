@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+/* ------------------------------- SweetAlert ------------------------------- */
+import Swal from "sweetalert2";
+
 export const Context = createContext();
 
 export const MainContext = ({ children }) => {
@@ -37,10 +40,25 @@ export const MainContext = ({ children }) => {
     }
   };
 
+
   //Remove Cart from Cart
   const removeFromCart = (id) => {
-    const updatedCart = cart.filter((item) => item.id !== id);
-    setCart(updatedCart);
+    Swal.fire({
+      title: 'Ürünü kaldırmak istediğinizden emin misiniz??',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Sil',
+      denyButtonText: `Silme`,
+      cancelButtonText: 'Vazgeç',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedCart = cart.filter((item) => item.id !== id);
+        setCart(updatedCart);
+        Swal.fire('Silindi!', '', 'success');
+      } else if (result.isDenied) {
+        Swal.fire('Silinemedi', '', 'warning');
+      }
+    });
   };
 
   //Cart Quantity
@@ -78,12 +96,12 @@ export const MainContext = ({ children }) => {
     }
   };
 
-  //Increment Product
-  const incrementProduct = (product) => {
+  //Change Quantity
+  const changeQuantity = (product,number) => {
     if (product) {
       const updatedCart = cart.map((item) => {
         if (item.id === product.id) {
-          return { ...item, quantity: product.quantity + 1 };
+          return { ...item, quantity: number };
         } else {
           return item;
         }
@@ -92,7 +110,6 @@ export const MainContext = ({ children }) => {
     }
   };
 
-  //Decrement Product
 
   const globalStates = {
     //States
@@ -106,7 +123,7 @@ export const MainContext = ({ children }) => {
     //Functions
     addToCart,
     removeFromCart,
-    incrementProduct,
+    changeQuantity,
   };
 
   return <Context.Provider value={globalStates}>{children}</Context.Provider>;

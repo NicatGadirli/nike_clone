@@ -15,7 +15,7 @@ import { Context } from "../utils/Context";
 
 const Cart = () => {
   //Global States
-  const { cart, removeFromCart, incrementProduct } = useContext(Context)
+  const { cart, removeFromCart, changeQuantity } = useContext(Context)
 
   return (
     <>
@@ -50,12 +50,21 @@ const Cart = () => {
                         </div>
                         <div className="quantity">
                           Adet
-                          <select id="select" defaultValue={product.quantity} onChange={()=>incrementProduct(product)}>
-                            {
-                              quantity.map((nums) => (
-                                <option key={nums.id}>{nums.number}</option>
-                              ))
+                          <select
+                            id="select"
+                            value={product.quantity}
+                            onChange={(e) =>
+                              changeQuantity(
+                                product,
+                                parseInt(e.target.value)
+                              )
                             }
+                          >
+                            {quantity.map((nums) => (
+                              <option key={nums.id} value={nums.number}>
+                                {nums.number}
+                              </option>
+                            ))}
                           </select>
                         </div>
                       </div>
