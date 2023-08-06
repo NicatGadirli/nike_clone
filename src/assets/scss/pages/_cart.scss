@@ -109,17 +109,14 @@
         .rightAreaBtn {
           display: flex;
           justify-content: center;
-          button {
-            border: none;
-            outline: none;
-            cursor: pointer;
+          a {
+            text-align: center;
             transition: all 0.2s ease 0s;
             background: rgb(17, 17, 17);
             color: rgb(255, 255, 255);
             width: 100%;
-            padding: 20px 24px;
+            padding: 18px 24px;
             border-radius: 30px;
-            font-size: 17px;
             &:hover {
               background-color: #707072;
             }

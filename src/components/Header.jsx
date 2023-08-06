@@ -1,5 +1,5 @@
 // Router
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 //HamburgerMenu
 import MobileMenu from "../pages/mobileMenu/MobileMenu";
@@ -29,6 +29,8 @@ const Header = () => {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [showCartBox, setShowCartBox] = useState(false);
 
+  const location = useLocation();
+
   const handleSearchToggle = () => {
     setSearchOpen(!isSearchOpen);
   };
@@ -42,7 +44,7 @@ const Header = () => {
       setShowCartBox(true);
       const timer = setTimeout(() => {
         setShowCartBox(false);
-      }, 5000);
+      }, 2000);
 
       return () => {
         clearTimeout(timer);
@@ -696,30 +698,31 @@ const Header = () => {
                   <p className="count">{cartSum}</p>
                 </Link>
                 {showCartBox && cart.length > 0 && (
-                  <div id="cart_box" >
-                    <h6><Checked className="checkedİcon" />Sepete Eklendi</h6>
-                    {
-                      cart.map((item) => (
-                        <div className="cardArea" key={item.id}>
-                          <div className="card">
-                            <div className="cardImg">
-                              <img src={`http://localhost:5000/${item.productImage}`} alt={item.name} />
-                            </div>
-                            <div className="cardInfo">
-                              <h5>{item.name}</h5>
-                              <p className="productType">{item.type}</p>
-                              <p className="productPrice">₺ {item.price}</p>
-                              <span className="productQuantity">Adet: {item.quantity}</span>
+                  location.pathname !== "/cart"  && (
+                    <div id="cart_box" >
+                      <h6><Checked className="checkedİcon" />Sepete Eklendi</h6>
+                      {
+                        cart.map((item) => (
+                          <div className="cardArea" key={item.id}>
+                            <div className="card">
+                              <div className="cardImg">
+                                <img src={`http://localhost:5000/${item.productImage}`} alt={item.name} />
+                              </div>
+                              <div className="cardInfo">
+                                <h5>{item.name}</h5>
+                                <p className="productType">{item.type}</p>
+                                <p className="productPrice">₺ {item.price}</p>
+                                <span className="productQuantity">Adet: {item.quantity}</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))
-                    }
-                    <div className="cartBtn">
-                      <Link to="/cart">Sepeti Görüntüle({cartSum})</Link>
-                      <button>Ödeme</button>
+                        ))
+                      }
+                      <div className="cartBtn">
+                        <Link to="/cart">Sepeti Görüntüle({cartSum})</Link>
+                      </div>
                     </div>
-                  </div>
+                  )
                 )}
               </div>
             </div>

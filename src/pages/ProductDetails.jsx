@@ -25,10 +25,17 @@ const ProductDetails = () => {
   //Add to Cart
   const { addToCart } = useContext(Context)
 
+  const [isFavorite, setIsFavorite] = useState(false);
+
   const { productID } = useParams();
 
   const [product, setProduct] = useState({});
 
+
+    //Add То Favorite
+    const handleFavoriteToggle = () => {
+      setIsFavorite((prevIsFavorite) => !prevIsFavorite);
+    };
 
   //Router
   const { pathname } = useLocation()
@@ -108,9 +115,9 @@ const ProductDetails = () => {
                   <div className="sizes">EU 48.5</div>
                 </div>
                 <div className="operationBtn">
-                <button className="addCart" onClick={() => addToCart(product)}>Sepete Ekle</button>
-                  <button className="addToFavorite">
-                    <span>Favori</span>
+                  <button className="addCart" onClick={() => addToCart(product)}>Sepete Ekle</button>
+                  <button to="/favorite" className="addToFavorite" onClick={handleFavoriteToggle} >
+                    {isFavorite ? 'Favoriden Çıkar' : 'Favori'}
                     <Heart className="heart" />
                   </button>
                 </div>
@@ -125,7 +132,7 @@ const ProductDetails = () => {
                 </div>
                 <div className="productInfo">
                   <p>
-                   {product.details}
+                    {product.details}
                   </p>
                 </div>
               </div>

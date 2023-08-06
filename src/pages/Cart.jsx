@@ -13,10 +13,22 @@ import { ReactComponent as Trash } from "../assets/Images/svg/Trash.svg";
 import { useContext } from "react";
 import { Context } from "../utils/Context";
 
+//ReactHooks
+import { useEffect } from "react";
+
+//Location
+import { Link, useLocation } from "react-router-dom";
+
 const Cart = () => {
   //Global States
-  const { cart, removeFromCart, changeQuantity } = useContext(Context)
+  const { cart, removeFromCart, changeQuantity, totalPrice } = useContext(Context)
 
+  //Router
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname])
   return (
     <>
       <section className="cart">
@@ -93,11 +105,11 @@ const Cart = () => {
                 </div>
                 <div className="sum">
                   <div className="text">Toplam</div>
-                  <div className="number">₺6.299,80</div>
+                  <div className="number">₺{totalPrice}</div>
                 </div>
               </div>
               <div className="rightAreaBtn">
-                <button>Ödeme</button>
+                <Link to="/pay">Ödeme</Link>
               </div>
             </div>
           </div>

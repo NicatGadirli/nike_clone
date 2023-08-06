@@ -17,6 +17,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Favorite from "./pages/Favorite";
 import Profile from "./pages/Profile";
+import Pay from "./pages/Pay";
 
 //Context
 import { MainContext } from "./utils/Context";
@@ -47,6 +48,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/favorite" element={<Favorite />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/pay" element={<Pay />} />
       </Routes>
       <Footer />
     </MainContext>

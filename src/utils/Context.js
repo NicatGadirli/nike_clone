@@ -12,7 +12,7 @@ export const MainContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]);
   const [cartSum, setCartSum] = useState(0);
-
+  const [totalPrice, setTotalPrice] = useState(0);
   //Navigate
   const navigate = useNavigate();
 
@@ -22,41 +22,48 @@ export const MainContext = ({ children }) => {
 
   useEffect(() => {
     calcQuantity();
+    sumPrice();
   }, [cart]);
 
   //Add To Cart
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
     if (existingProduct) {
-      setCart(
-        cart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
+      if (existingProduct.quantity < 10) {
+        setCart(
+          cart.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          )
+        );
+      } else {
+        Swal.fire(
+          "Hata",
+          "Üzgünüz, maksimum miktara ulaştın. Lütfen bir ürünü kaldır ve tekrar dene."
+        );
+      }
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
   };
 
-
   //Remove Cart from Cart
   const removeFromCart = (id) => {
     Swal.fire({
-      title: 'Ürünü kaldırmak istediğinizden emin misiniz??',
+      title: "Ürünü kaldırmak istediğinizden emin misiniz??",
       showDenyButton: true,
       showCancelButton: true,
-      confirmButtonText: 'Sil',
+      confirmButtonText: "Sil",
       denyButtonText: `Silme`,
-      cancelButtonText: 'Vazgeç',
+      cancelButtonText: "Vazgeç",
     }).then((result) => {
       if (result.isConfirmed) {
         const updatedCart = cart.filter((item) => item.id !== id);
         setCart(updatedCart);
-        Swal.fire('Silindi!', '', 'success');
+        Swal.fire("Silindi!", "", "success");
       } else if (result.isDenied) {
-        Swal.fire('Silinemedi', '', 'warning');
+        Swal.fire("Silinemedi", "", "warning");
       }
     });
   };
@@ -71,6 +78,32 @@ export const MainContext = ({ children }) => {
     }
   };
 
+  //Change Quantity
+  const changeQuantity = (product, number) => {
+    if (product) {
+      const updatedCart = cart.map((item) => {
+        if (item.id === product.id) {
+          return { ...item, quantity: number };
+        } else {
+          return item;
+        }
+      });
+      setCart(updatedCart);
+    }
+  };
+
+  // Calculate Total Price
+  const sumPrice = () => {
+    if (cart.length === 0) {
+      setTotalPrice(0);
+      return;
+    }
+    let productPrices = cart.map((item) => item.quantity * parseFloat(item.price));
+    let sum = productPrices.reduce((acc, curr) => acc + curr, 0);
+    setTotalPrice(sum);
+  };
+
+  //Login
   const getUserData = async () => {
     let localToken = await JSON.parse(localStorage.getItem("token"));
     if (localToken) {
@@ -96,21 +129,6 @@ export const MainContext = ({ children }) => {
     }
   };
 
-  //Change Quantity
-  const changeQuantity = (product,number) => {
-    if (product) {
-      const updatedCart = cart.map((item) => {
-        if (item.id === product.id) {
-          return { ...item, quantity: number };
-        } else {
-          return item;
-        }
-      });
-      setCart(updatedCart);
-    }
-  };
-
-
   const globalStates = {
     //States
     cart,
@@ -119,6 +137,8 @@ export const MainContext = ({ children }) => {
     logOut,
     cartSum,
     setCartSum,
+    totalPrice,
+    setTotalPrice,
 
     //Functions
     addToCart,
