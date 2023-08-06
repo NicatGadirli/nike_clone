@@ -1,7 +1,3 @@
-.isActive{
-  border: 2px solid black;
-}
-
 .productDetails {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -99,6 +95,7 @@
             margin-top: 8px;
             width: 90%;
             .sizes {
+              box-sizing: border-box;
               width: 80%;
               cursor: pointer;
               display: flex;
@@ -107,6 +104,9 @@
               box-shadow: rgb(229, 229, 229) 0px 0px 0px 1px;
               height: 48px;
               border-radius: 4px;
+              &:active {
+                border-color:1px solid #000;
+              }
             }
           }
           .operationBtn {

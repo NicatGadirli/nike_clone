@@ -1,7 +1,6 @@
 //Db
 import explore from "../../db/explore";
 
-
 // Router
 import { Link } from "react-router-dom";
 

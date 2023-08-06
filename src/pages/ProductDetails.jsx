@@ -21,6 +21,8 @@ import { useEffect, useState } from "react";
 //Location
 import { useLocation } from "react-router-dom";
 
+import productDetailsSizes from "../db/productDetailsSizes"
+
 const ProductDetails = () => {
   //Add to Cart
   const { addToCart } = useContext(Context)
@@ -32,10 +34,18 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
 
 
-    //Add То Favorite
-    const handleFavoriteToggle = () => {
-      setIsFavorite((prevIsFavorite) => !prevIsFavorite);
-    };
+  //Add То Favorite
+  const handleFavoriteToggle = () => {
+    setIsFavorite((prevIsFavorite) => !prevIsFavorite);
+  };
+
+
+  const [activeSize, setActiveSize] = useState(null);
+
+  const handleSizeClick = (size) => {
+    setActiveSize(size);
+  };
+
 
   //Router
   const { pathname } = useLocation()
@@ -99,27 +109,17 @@ const ProductDetails = () => {
                   <Link>Beden/Numara Rehberi</Link>
                 </div>
                 <div className="sizesBox">
-                  <div className="sizes">EU 40</div>
-                  <div className="sizes">EU 40.5</div>
-                  <div className="sizes">EU 41</div>
-                  <div className="sizes">EU 42</div>
-                  <div className="sizes">EU 42.5</div>
-                  <div className="sizes">EU 43</div>
-                  <div className="sizes">EU 44</div>
-                  <div className="sizes">EU 44.5</div>
-                  <div className="sizes">EU 45</div>
-                  <div className="sizes">EU 45.5</div>
-                  <div className="sizes">EU 46</div>
-                  <div className="sizes">EU 47</div>
-                  <div className="sizes">EU 47.5</div>
-                  <div className="sizes">EU 48.5</div>
+                  {productDetailsSizes.map((sizes) => (
+                    <div className={`sizes ${activeSize === "EU 40" ? "active" : ""}`}
+                      onClick={() => handleSizeClick("EU 40")} key={sizes.id}>EU {sizes.size}</div>
+                  ))}
                 </div>
                 <div className="operationBtn">
                   <button className="addCart" onClick={() => addToCart(product)}>Sepete Ekle</button>
-                  <button to="/favorite" className="addToFavorite" onClick={handleFavoriteToggle} >
+                  <Link to="/favorite" className="addToFavorite" onClick={handleFavoriteToggle} >
                     {isFavorite ? 'Favoriden Çıkar' : 'Favori'}
                     <Heart className="heart" />
-                  </button>
+                  </Link>
                 </div>
               </div>
               <div className="bottom">
