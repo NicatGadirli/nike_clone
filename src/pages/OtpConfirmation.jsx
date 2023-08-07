@@ -1,0 +1,81 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+//NikePhoto
+import Nike from "../assets/Images/login/Nike.png";
+
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
+
+const OtpConfirmation = () => {
+    const [otp, setOtp] = useState("")
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        await axios.post(process.env.REACT_APP_VERIFY_OTP_CODE, {
+            token: JSON.parse(localStorage.getItem("token")),
+            otp
+        }).then((res) => {
+            console.log(res);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+
+    return (
+        <section className="forgotPassword">
+            <div className="container">
+                <div className="row">
+                    <div className="top">
+                        <div className="forgotPasswordEnter">
+                            <div className="logo">
+                                <img src={Nike} alt="Logo" />
+                            </div>
+                            <div className="title">OTP-CONFIRMATION</div>
+                            <div className="forgotPasswordInfo">
+                                E-posta adresine gelen otp kodu gir,şifreni yenile.
+                            </div>
+                        </div>
+                        <form>
+                            <div className="userBox">
+                                <input type="email"
+                                    name="email"
+                                    placeholder="OTP Kodunu girin."
+                                    onChange={(e) => setOtp(e.target.value)}
+                                />
+                            </div>
+                            <div className="info">
+                                <div className="operation">
+                                    <button type="submit" onClick={handleSubmit}>DEVAM ET</button>
+                                </div>
+                                <div className="membership">
+                                    <p>
+                                        Alternatif olarak geri dön:<Link to="/login">Oturum Aç.</Link>
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
+        </section>
+    )
+}
+
+export default OtpConfirmation

@@ -25,15 +25,9 @@ const Register = () => {
       .required("Lütfen geçerli bir e-posta adresi gir.")
       .trim()
       .email("Lütfen geçerli bir e-posta adresi gir."),
-    password: string().required("Lütfen bir şifre gir.").trim().min(8,"En az 8").max(18,"En çok 18"),
+    password: string().required("Lütfen bir şifre gir.").trim().min(8, "En az 8").max(18, "En çok 18"),
   });
 
-  // React Hook Form
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(registerSchema) });
 
   const [selectedGender, setSelectedGender] = useState(null);
 
@@ -41,16 +35,23 @@ const Register = () => {
     setSelectedGender(gender);
   };
 
-  const onSub = (data) => {
-    axios.post(process.env.REACT_APP_REGISTER, data)
-      .then((res) => {
-        if (res.status === 200) {
-          navigate("/login")
-        }
-      })
-      .catch((err) => console.log(err));
-  };
+ // React Hook Form
+ const {
+  register,
+  handleSubmit,
+  formState: { errors },
+} = useForm({ resolver: yupResolver(registerSchema) });
 
+const onSubmit = async (data) => {
+  await axios
+    .post(process.env.REACT_APP_REGISTER, data)
+    .then((res) => {
+      if(res.status===200){
+        navigate("/login")
+      }
+    })
+    .catch((err) => console.log(err));
+};
   return (
     <section className="register">
       <div className="container">
@@ -109,7 +110,7 @@ const Register = () => {
                   <div className="error-message">{errors.surname.message}</div>
                 )}
               </div>
-              <div className="userBox">
+              <div className="userBox" >
                 <input type="date" name="date" placeholder="Doğum Tarihi" />
                 <p>Her yıl Doğum Gününde Nike Üye Ödülü kazan.</p>
               </div>
@@ -503,7 +504,7 @@ const Register = () => {
               <button
                 type="submit"
                 onClick={(e) => {
-                  handleSubmit(onSub)(e);
+                  handleSubmit(onSubmit)(e);
                   e.preventDefault();
                 }}
               >

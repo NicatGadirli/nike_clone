@@ -18,6 +18,8 @@ import Register from "./pages/Register";
 import Favorite from "./pages/Favorite";
 import Profile from "./pages/Profile";
 import Pay from "./pages/Pay";
+import ForgotPassword from "./pages/ForgotPassword";
+import OtpConfirmation from "./pages/OtpConfirmation";
 
 //Context
 import { MainContext } from "./utils/Context";
@@ -50,6 +52,8 @@ const App = () => {
         <Route path="/favorite" element={<Favorite />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/pay" element={<Pay />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/otp-confirmation" element={<OtpConfirmation />} />
       </Routes>
       <Footer />
     </MainContext>

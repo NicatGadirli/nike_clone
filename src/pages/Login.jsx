@@ -82,7 +82,7 @@ const Login = () => {
                     Oturumum açık kalsın
                   </div>
                   <div className="forgotPassword">
-                    <Link to="/">Şifreni mi unuttun?</Link>
+                    <Link to="/forgot-password">Şifreni mi unuttun?</Link>
                   </div>
                 </div>
                 <div className="bottom">

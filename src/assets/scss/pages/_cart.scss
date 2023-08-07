@@ -28,7 +28,7 @@
             .leftImg {
               width: 180px;
               min-width: 180px;
-              img{
+              img {
                 width: 100%;
               }
             }
@@ -109,6 +109,18 @@
         .rightAreaBtn {
           display: flex;
           justify-content: center;
+          button {
+            font-size: 18px;
+            outline: none;
+            border: none;
+            text-align: center;
+            transition: all 0.2s ease 0s;
+            background-color: #707072;
+            color: #fff;
+            width: 100%;
+            padding: 18px 24px;
+            border-radius: 30px;
+          }
           a {
             text-align: center;
             transition: all 0.2s ease 0s;

@@ -26,6 +26,7 @@
       }
       .profileBox {
         display: flex;
+        align-items: center;
         .profileImg {
           width: 96px;
           height: 96px;
@@ -34,7 +35,6 @@
           background-color: rgb(229, 229, 229);
         }
         .profileInfo {
-          margin-top: 10px;
           margin-left: 20px;
           display: flex;
           flex-direction: column;
@@ -47,6 +47,20 @@
             margin-top: 10px;
             font-size: 17px;
             font-weight: 500;
+          }
+          button {
+            padding: 6px 20px;
+            border-radius: 30px;
+            border: 1.5px solid transparent;
+            background: #111;
+            color: #fff;
+            font-size: 16px;
+            line-height: 24px;
+            transition: color 0.5s ease-out;
+            margin-top: 20px;
+            &:hover {
+              background-color: #757575;
+            }
           }
           p {
             color: #707072;

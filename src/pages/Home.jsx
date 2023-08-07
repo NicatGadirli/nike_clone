@@ -12,22 +12,21 @@ import MerchMenu from "./section/MerchMenu";
 //Location
 import { useLocation } from "react-router-dom";
 
+
+
 //ReactHooks
-import { useContext, useEffect } from "react";
-import axios from "axios";
-// import { Context } from "../utils/Context";
+import { useEffect } from "react";
 
 const Home = () => {
-  // const { user, setUser } = useContext(Context)
 
-
-
-  //Router
+  /* ---------------------- Router -------------------------------------------- */
   const { pathname } = useLocation()
-
+  /* ---------------------- Reset keeping Scroll Position --------------------- */
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname])
+
+
   return (
     <main>
       <Hero />

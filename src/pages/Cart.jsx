@@ -23,6 +23,10 @@ const Cart = () => {
   //Global States
   const { cart, removeFromCart, changeQuantity, totalPrice } = useContext(Context)
 
+
+  const isCartEmpty = cart.length === 0;
+
+
   //Router
   const { pathname } = useLocation()
 
@@ -109,7 +113,11 @@ const Cart = () => {
                 </div>
               </div>
               <div className="rightAreaBtn">
-                <Link to="/pay">Ödeme</Link>
+                {isCartEmpty ? (
+                  <button disabled>Sepet Boş</button>
+                ) : (
+                  <Link to="/pay">Ödeme</Link>
+                )}
               </div>
             </div>
           </div>

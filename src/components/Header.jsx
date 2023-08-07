@@ -26,15 +26,16 @@ const Header = () => {
   //Global States
   const { cart, cartSum, user } = useContext(Context);
 
+
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [showCartBox, setShowCartBox] = useState(true);
-
   const location = useLocation();
 
   const handleSearchToggle = () => {
     setSearchOpen(!isSearchOpen);
   };
 
+  
   const handleCancelSearch = () => {
     setSearchOpen(false);
   };
@@ -65,22 +66,19 @@ const Header = () => {
             </div>
             <div className="topHeaderRight">
               <div className="profileInfo">
-                <Link to="">Mağaza Bul</Link>
-                <span></span>
-                <Link to="">Yardım</Link>
-                <span></span>
-                {!user && <Link to="/Register">Bize Katıl</Link>}
-                {!user && <span></span>}
-                {
-                  user ? (<Link to="/profile">Profile</Link>) : (<Link to="/Login">Oturum Aç</Link>)
-                }
-              </div>
-              <div className="userIcon">
-                <div className="userArea">
-                  <Link to="/profile">
-                    <FiUser className="icon" />
-                  </Link>
-                </div>
+                <ul className="profileInfoList">
+                  <li className="profileInfoItem"><Link to="/">Mağaza Bul</Link></li>
+                  <span></span>
+                  <li className="profileInfoItem"><Link to="/">Yardım</Link></li>
+                  <span></span>
+                  {!user && <li className="profileInfoItem"><Link to="/Register">Bize Katıl</Link></li>}
+                  {!user && <span></span>}
+                  {(user) ? (
+                    <li className="profileInfoItemForIcon"><Link to="/profile"><p>Merhaba,{user.name}</p><FiUser className="icon" /></Link></li>
+                  ) : (
+                    <li className="profileInfoItem"><Link to="/Login">Oturum Aç</Link></li>
+                  )}
+                </ul>
               </div>
             </div>
           </div>

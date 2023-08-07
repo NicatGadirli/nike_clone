@@ -40,57 +40,65 @@
         position: absolute;
         right: 20px;
         display: flex;
+        width: 50%;
+        justify-content: end;
         .profileInfo {
           padding-top: 9px;
-          a {
-            color: #000;
-            padding-right: 4px;
-            padding-left: 4px;
-            margin: 8px;
-            font-size: 12px;
-            font-weight: 300;
-            &:hover {
-              color: #757575;
-            }
-          }
-          span {
-            border-left: 1px solid #000;
-            margin-right: 4px;
-            font-size: 12px;
-            line-height: 14px;
-          }
-        }
-        .userIcon {
-          display: none;
-          .userArea {
-            width: 35px;
-            height: 35px;
-            border: 0;
-            outline: 0;
+          display: flex;
+          .profileInfoList {
             display: flex;
-            justify-content: center;
             align-items: center;
-            &:hover {
-              border-radius: 50%;
-              background: #e5e5e5;
-              &:hover {
-                .icon {
-                  color: #000;
+            .profileInfoItem {
+              display: flex;
+              a {
+                color: #000;
+                padding-right: 4px;
+                padding-left: 4px;
+                margin: 8px;
+                font-size: 13px;
+                font-weight: 300;
+                display: flex;
+                &:hover {
+                  color: #757575;
                 }
               }
             }
-            .icon {
-              margin-top: 5px;
-              display: inline-block;
-              height: 24px;
-              width: 24px;
-              color: #111;
-              transition: transform 0.5s, opacity 1s;
-              &:hover {
-                background: #e5e5e5;
-                color: rgba(0, 0, 0, 0.54);
-                border-radius: 100px;
+            span {
+              border-left: 1px solid #000;
+              margin-right: 4px;
+              font-size: 12px;
+              line-height: 14px;
+              height: 20px;
+              margin: auto;
+            }
+            .profileInfoItemForIcon {
+              a {
+                color: #000;
+                padding-right: 4px;
+                padding-left: 4px;
+                margin: 8px;
+                font-size: 13px;
+                font-weight: 300;
+                display: flex;
                 align-items: center;
+                gap: 10px;
+                &:hover p {
+                  color: #757575;
+                }
+                .icon {
+                  margin-top: 5px;
+                  display: inline-block;
+                  height: 24px;
+                  width: 24px;
+                  color: #111;
+                  transition: transform 0.5s, opacity 1s;
+                  margin-bottom: 5px;
+                  &:hover {
+                    background: #e5e5e5;
+                    color: rgba(0, 0, 0, 0.54);
+                    border-radius: 100px;
+                  }
+                }
               }
             }
           }

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 /* ------------------------------- SweetAlert ------------------------------- */
 import Swal from "sweetalert2";
+/* ------------------------------- SweetAlert ------------------------------- */
 
 export const Context = createContext();
 
@@ -14,8 +15,9 @@ export const MainContext = ({ children }) => {
   const [cartSum, setCartSum] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  //Navigate
+  /* ------------------------------- Navigate ------------------------------- */
   const navigate = useNavigate();
+  /* ------------------------------- Navigate ------------------------------- */
 
   useEffect(() => {
     getUserData();
@@ -117,7 +119,7 @@ export const MainContext = ({ children }) => {
     setTotalPrice(sum);
   };
 
-  //Login
+  // Login
   const getUserData = async () => {
     let localToken = await JSON.parse(localStorage.getItem("token"));
     if (localToken) {
