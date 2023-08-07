@@ -23,6 +23,7 @@ import OtpConfirmation from "./pages/OtpConfirmation";
 
 //Context
 import { MainContext } from "./utils/Context";
+import { Validation } from "./utils/Auth";
 
 const App = () => {
   const [isSearchOpen, setSearchOpen] = useState(true);
@@ -31,32 +32,33 @@ const App = () => {
     setSearchOpen(!isSearchOpen);
   };
 
-
   return (
-    <MainContext>
-      {isSearchOpen}
-      <Header handleSearchToggle={handleSearchToggle} />
-      <ExperienceWrapper />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/location" element={<Location />} />
-        <Route
-          path="/product-details/:productID"
-          element={<ProductDetails />}
-        />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/favorite" element={<Favorite />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/pay" element={<Pay />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/otp-confirmation" element={<OtpConfirmation />} />
-      </Routes>
-      <Footer />
-    </MainContext>
+    <Validation>
+      <MainContext>
+        {isSearchOpen}
+        <Header handleSearchToggle={handleSearchToggle} />
+        <ExperienceWrapper />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/location" element={<Location />} />
+          <Route
+            path="/product-details/:productID"
+            element={<ProductDetails />}
+          />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/favorite" element={<Favorite />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/pay" element={<Pay />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/otp-confirmation" element={<OtpConfirmation />} />
+        </Routes>
+        <Footer />
+      </MainContext>
+    </Validation>
   );
 };
 

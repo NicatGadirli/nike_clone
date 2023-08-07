@@ -21,10 +21,12 @@ import { ReactComponent as Heart } from "../assets/Images/svg/Heart.svg";
 import { ReactComponent as Cart } from "../assets/Images/svg/Cart.svg";
 import { ReactComponent as Search } from "../assets/Images/svg/Search.svg";
 import { ReactComponent as Checked } from "../assets/Images/svg/Checked.svg";
+import { Auth } from "../utils/Auth";
 
 const Header = () => {
   //Global States
-  const { cart, cartSum, user } = useContext(Context);
+  const { cart, cartSum } = useContext(Context);
+  const { user, token } = useContext(Auth)
 
 
   const [isSearchOpen, setSearchOpen] = useState(false);
@@ -35,7 +37,7 @@ const Header = () => {
     setSearchOpen(!isSearchOpen);
   };
 
-  
+
   const handleCancelSearch = () => {
     setSearchOpen(false);
   };
@@ -73,7 +75,7 @@ const Header = () => {
                   <span></span>
                   {!user && <li className="profileInfoItem"><Link to="/Register">Bize Katıl</Link></li>}
                   {!user && <span></span>}
-                  {(user) ? (
+                  {token ? (
                     <li className="profileInfoItemForIcon"><Link to="/profile"><p>Merhaba,{user.name}</p><FiUser className="icon" /></Link></li>
                   ) : (
                     <li className="profileInfoItem"><Link to="/Login">Oturum Aç</Link></li>

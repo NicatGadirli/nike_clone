@@ -1,7 +1,5 @@
 import { createContext, useState } from "react";
 import { useEffect } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 /* ------------------------------- SweetAlert ------------------------------- */
 import Swal from "sweetalert2";
@@ -10,18 +8,17 @@ import Swal from "sweetalert2";
 export const Context = createContext();
 
 export const MainContext = ({ children }) => {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]);
   const [cartSum, setCartSum] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
   /* ------------------------------- Navigate ------------------------------- */
-  const navigate = useNavigate();
   /* ------------------------------- Navigate ------------------------------- */
 
-  useEffect(() => {
-    getUserData();
-  }, []);
+  // useEffect(() => {
+  //   getUserData();
+  // }, []);
 
   useEffect(() => {
     calcQuantity();
@@ -119,38 +116,12 @@ export const MainContext = ({ children }) => {
     setTotalPrice(sum);
   };
 
-  // Login
-  const getUserData = async () => {
-    let localToken = await JSON.parse(localStorage.getItem("token"));
-    if (localToken) {
-      axios
-        .post(process.env.REACT_APP_CHECK_LOGIN, localToken)
-        .then((res) => {
-          setUser(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  };
 
-  //Log Out
-  const logOut = () => {
-    try {
-      setUser({});
-      localStorage.removeItem("token");
-      navigate("/");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+
 
   const globalStates = {
     //States
     cart,
-    user,
-    setUser,
-    logOut,
     cartSum,
     setCartSum,
     totalPrice,

@@ -6,15 +6,18 @@ import Nike from "../assets/Images/login/Nike.png";
 
 //
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 
 //Navigate
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Auth } from "../utils/Auth";
 
 const Login = () => {
   // Navigate
   const navigate = useNavigate();
+
+  const{setToken}=useContext(Auth)
 
   //UseState
   const [userData, setUserData] = useState({})
@@ -33,6 +36,7 @@ const Login = () => {
       .then((res) => {
         if (res.status === 200) {
           localStorage.setItem("token", JSON.stringify(res.data))
+          setToken(true)
           navigate("/")
         }
       }).catch((err) => {
