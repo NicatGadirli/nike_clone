@@ -5,7 +5,6 @@ import MixedNikePhotos from "./section/MixedNikePhotos";
 import TrendProduct from "../components/TrendProduct";
 import Explore from "./section/Explore";
 import ForSport from "./section/ForSport";
-import AppInfo from "./section/AppInfo";
 import NikeMembership from "./section/NikeMembership";
 import MerchMenu from "./section/MerchMenu";
 
@@ -35,7 +34,6 @@ const Home = () => {
       <TrendProduct />
       <Explore />
       <ForSport />
-      <AppInfo />
       <NikeMembership />
       <MerchMenu />
     </main>

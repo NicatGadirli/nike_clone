@@ -69,7 +69,6 @@
   }
 }
 
-
 @media (max-width: 1024px) {
   .MixedNikePhotos {
     .row {
@@ -84,6 +83,18 @@
         .swiper-button-next {
           padding: 42px;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .MixedNikePhotos {
+    margin-top: 10px;
+    margin-bottom: 100px;
+    .row {
+      .mySwiper {
+        
       }
     }
   }

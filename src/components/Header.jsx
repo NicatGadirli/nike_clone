@@ -73,8 +73,8 @@ const Header = () => {
                   <span></span>
                   <li className="profileInfoItem"><Link to="/">Yardım</Link></li>
                   <span></span>
-                  {!user && <li className="profileInfoItem"><Link to="/Register">Bize Katıl</Link></li>}
-                  {!user && <span></span>}
+                  {!token && <li className="profileInfoItem"><Link to="/Register">Bize Katıl</Link></li>}
+                  {!token && <span></span>}
                   {token ? (
                     <li className="profileInfoItemForIcon"><Link to="/profile"><p>Merhaba,{user.name}</p><FiUser className="icon" /></Link></li>
                   ) : (

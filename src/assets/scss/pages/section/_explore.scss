@@ -12,13 +12,12 @@
       }
     }
     .row {
-      justify-content: space-around;
-      width: auto;
+      gap: 10px;
       .card {
         position: relative;
         .cardImg {
-          width: 467px;
-          height: 565px;
+          width: auto;
+          height: auto;
           img {
             width: 100%;
             height: 100%;
@@ -67,12 +66,25 @@
 
 //Responsiveness
 
+@media (max-width: 1024px) {
+  .explore {
+    .container {
+      .row {
+        gap: 10px;
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .explore {
     .container {
       .row {
         flex-wrap: wrap;
         gap: 20px;
+        .card{
+          margin: 0 auto;
+        }
       }
     }
   }

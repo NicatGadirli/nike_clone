@@ -152,3 +152,29 @@
     }
   }
 }
+
+
+@media(max-width:768px){
+  .register {
+    .container {
+      .row {
+        .middle {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+
+@media(max-width:468px){
+  .register {
+    .container {
+      .row {
+        .middle {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
