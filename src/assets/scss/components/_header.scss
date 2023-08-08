@@ -47,6 +47,7 @@
             height: 60px;
             max-width: 1255px;
             gap: 20px;
+            margin-left: 130px;
             .navItem {
               cursor: pointer;
               .shopLink {
@@ -245,7 +246,6 @@
               background-color: rgba(0, 0, 0, 0.36);
               backdrop-filter: blur(4px);
               opacity: 1;
-              height: 680vh;
               visibility: visible;
               z-index: -1;
             }
