@@ -125,7 +125,8 @@ const Footer = () => {
                 Türkiye
               </Link>
               <p>
-                © <span>2023</span> Nike, Inc. Tüm Hakları Saklıdır
+                {new Date().getFullYear()}
+               <span> Nike, Inc. Tüm Hakları Saklıdır ©</span>
               </p>
             </div>
             <div className="bottomFooterRight">
