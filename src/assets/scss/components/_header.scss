@@ -1,8 +1,8 @@
 .visible {
-  display: block !important;
+  display: block!important;
 }
 .hidden {
-  display: none !important;
+  display: none!important;
 }
 
 .visible_operation_box {
@@ -78,7 +78,6 @@
                 white-space: nowrap;
                 opacity: 0;
                 visibility: hidden;
-                height: 680vh;
                 overflow: auto;
                 background-color: rgba(0, 0, 0, 0.36);
                 backdrop-filter: blur(4px);
@@ -370,6 +369,15 @@
       }
     }
   }
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  z-index: 100; 
 }
 
 //Responsiveness

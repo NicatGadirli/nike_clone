@@ -1,9 +1,6 @@
 // Router
 import { Link, useLocation } from "react-router-dom";
 
-//HamburgerMenu
-import MobileMenu from "../pages/mobileMenu/MobileMenu";
-
 // Icons
 import { FiUser } from "react-icons/fi";
 
@@ -31,6 +28,7 @@ const Header = () => {
 
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [showCartBox, setShowCartBox] = useState(true);
+  const [isHeaderFixed, setHeaderFixed] = useState(false);
   const location = useLocation();
 
   const handleSearchToggle = () => {
@@ -54,6 +52,21 @@ const Header = () => {
     }
   }, [cart]);
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setHeaderFixed(true);
+      } else {
+        setHeaderFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
 
   return (
@@ -86,7 +99,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <header className="header">
+      <header className={`header ${isHeaderFixed ? "fixed" : ""}`}>
         <div className="container">
           <div className="row">
             <div className="logoArea">
@@ -641,9 +654,7 @@ const Header = () => {
               </nav>
             </div>
             <div className="mobileMenu">
-              <button>
-                <MobileMenu className="hamburgerMenu" />
-              </button>
+              
             </div>
             <div
               className={`operation ${isSearchOpen ? "visible_operation_box" : ""

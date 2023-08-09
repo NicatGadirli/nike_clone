@@ -2,9 +2,10 @@
 import Nike from "../assets/Images/login/Nike.png";
 
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Auth } from "../utils/Auth";
 
 
 const ResetPasword = () => {
@@ -12,6 +13,8 @@ const ResetPasword = () => {
   const [password, setPassword] = useState("")
   const [rePassword, setRePassword] = useState("")
   const [passwordsMatch, setPasswordsMatch] = useState(true);
+
+  const {email}=useContext(Auth)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +24,7 @@ const ResetPasword = () => {
       return;
     } else {
       await axios.post(process.env.REACT_APP_CHANGE_PASSWORD, {
-        token: JSON.parse(localStorage.getItem("token")),
+        email,
         password,
       }).then(res => {
         console.log(res);

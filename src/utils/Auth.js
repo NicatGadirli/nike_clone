@@ -7,6 +7,7 @@ export const Auth = createContext();
 export const Validation = ({ children }) => {
   const [user, setUser] = useState({});
   const [token, setToken] = useState(false);
+  const [email,setEmail]=useState("")
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,6 +45,8 @@ export const Validation = ({ children }) => {
     token,
     setToken,
     logOut,
+    email,
+setEmail
   };
   return <Auth.Provider value={globalStates}>{children}</Auth.Provider>;
 };

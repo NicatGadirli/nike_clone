@@ -2,16 +2,19 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <section class="page_404">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="col-sm-10 col-sm-offset-1  text-center">
-              <div class="four_zero_four_bg">
+    <section className="page_404">
+      <div className="container">
+        <div className="title">
+          <h2>ERROR NOT FOUND 404</h2>
+        </div>
+        <div className="row">
+          <div className="col-sm-12">
+            <div className="col-sm-10 col-sm-offset-1  text-center">
+              <div className="four_zero_four_bg">
               </div>
-              <div class="contant_box_404">
+              <div className="contant_box_404">
                 <p>Aradığınız sayfa mevcut değil!</p>
-                <Link to="/" class="link_404">ANA SAYFA</Link>
+                <Link to="/" className="link_404">ANA SAYFA</Link>
               </div>
             </div>
           </div>

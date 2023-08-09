@@ -3,6 +3,13 @@
   background: #fff;
   font-family: "Arvo", serif;
   .container {
+    .title {
+      display: flex;
+      justify-content: center;
+      h2 {
+        font-size: 40px;
+      }
+    }
     .row {
       align-items: center;
       justify-content: center;

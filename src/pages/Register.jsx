@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 
+
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -26,6 +27,7 @@ const Register = () => {
       .trim()
       .email("Lütfen geçerli bir e-posta adresi gir."),
     password: string().required("Lütfen bir şifre gir.").trim().min(8, "En az 8").max(18, "En çok 18"),
+    date: string().required("Lütfen geçerli bir tarih girin"),
   });
 
 
@@ -87,8 +89,6 @@ const Register = () => {
                 {errors.password && (
                   <div className="error-message">{errors.password.message}</div>
                 )}
-              </div>
-              <div className="userBox">
                 <input
                   type="name"
                   name="name"
@@ -111,7 +111,12 @@ const Register = () => {
                 )}
               </div>
               <div className="userBox" >
-                <input type="date" name="date" placeholder="Doğum Tarihi" />
+                <input type="date"
+                  name="date"
+                  placeholder="Doğum Tarihi" {...register('date')} />
+                {errors.date && (
+                  <div className="error-message">{errors.date.message}</div>
+                )}
                 <p>Her yıl Doğum Gününde Nike Üye Ödülü kazan.</p>
               </div>
               <div className="userBox">
@@ -504,8 +509,12 @@ const Register = () => {
               <button
                 type="submit"
                 onClick={(e) => {
-                  handleSubmit(onSubmit)(e);
-                  e.preventDefault();
+                  if (selectedGender === null) {
+                    e.preventDefault();
+                    alert("Cinsiyet seçimi yapmadınız!");
+                  } else {
+                    handleSubmit(onSubmit)(e);
+                  }
                 }}
               >
                 BİZE KATIL

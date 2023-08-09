@@ -12,9 +12,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
+import { useContext } from "react";
+import { Auth } from "../utils/Auth";
 
 const ForgotPassword = () => {
     const navigate = useNavigate()
+    const {setEmail}=useContext(Auth)
 
     // Schema
     const registerSchema = object({
@@ -29,6 +32,7 @@ const ForgotPassword = () => {
     } = useForm({ resolver: yupResolver(registerSchema) });
 
     const onSubmit = async (data) => {
+        setEmail(data.email)
         await axios
             .post(process.env.REACT_APP_SEND_RESET_LINK, { email: data.email })
             .then((res) => {

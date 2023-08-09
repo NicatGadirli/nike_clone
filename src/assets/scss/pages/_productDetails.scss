@@ -104,11 +104,15 @@
               box-shadow: rgb(229, 229, 229) 0px 0px 0px 1px;
               height: 48px;
               border-radius: 4px;
-              &:active {
-                border-color:1px solid #000;
-              }
+            }
+            .activeSize {
+              border: 1px solid black;
             }
           }
+          .noSizeSelected {
+            border: 2px solid red;
+          }
+          
           .operationBtn {
             display: flex;
             flex-direction: column;

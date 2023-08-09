@@ -13,6 +13,7 @@ export const MainContext = ({ children }) => {
   const [cartSum, setCartSum] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
+
   useEffect(() => {
     //Calc Quantity
     const calcQuantity = () => {
