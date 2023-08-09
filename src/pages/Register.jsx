@@ -35,23 +35,23 @@ const Register = () => {
     setSelectedGender(gender);
   };
 
- // React Hook Form
- const {
-  register,
-  handleSubmit,
-  formState: { errors },
-} = useForm({ resolver: yupResolver(registerSchema) });
+  // React Hook Form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(registerSchema) });
 
-const onSubmit = async (data) => {
-  await axios
-    .post(process.env.REACT_APP_REGISTER, data)
-    .then((res) => {
-      if(res.status===200){
-        navigate("/login")
-      }
-    })
-    .catch((err) => console.log(err));
-};
+  const onSubmit = async (data) => {
+    await axios
+      .post(process.env.REACT_APP_REGISTER, data)
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/login")
+        }
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <section className="register">
       <div className="container">

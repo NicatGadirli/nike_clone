@@ -10,26 +10,27 @@ export const Validation = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-if(token){
-  let localToken =  JSON.parse(localStorage.getItem("token"));
-  if (localToken) {
-    axios
-      .post(process.env.REACT_APP_CHECK_LOGIN, localToken)
-      .then((res) => {
-        setUser(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-}
+    if (token) {
+      let localToken = JSON.parse(localStorage.getItem("token"));
+      if (localToken) {
+        axios
+          .post(process.env.REACT_APP_CHECK_LOGIN, {
+            token: localToken,
+          })
+          .then((res) => {
+            setUser(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    }
   }, [token]);
-
 
   const logOut = () => {
     try {
       setUser({});
-      setToken(false)
+      setToken(false);
       localStorage.removeItem("token");
       navigate("/");
     } catch (err) {

@@ -27,12 +27,10 @@ const ForgotPassword = () => {
         handleSubmit,
         formState: { errors },
     } = useForm({ resolver: yupResolver(registerSchema) });
+
     const onSubmit = async (data) => {
         await axios
-            .post(process.env.REACT_APP_SEND_RESET_LINK, {
-                token: JSON.parse(localStorage.getItem("token")),
-                email: data.email,
-            })
+            .post(process.env.REACT_APP_SEND_RESET_LINK, { email: data.email })
             .then((res) => {
                 if (res.status === 200) {
                     toast.info(res.data, {

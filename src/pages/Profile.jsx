@@ -1,7 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import { Link } from "react-router-dom";
-import { Context } from "../utils/Context";
 import { Auth } from "../utils/Auth";
+
+import profile from"../assets/Images/login/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.webp"
 
 const Profile = () => {
   const { user, logOut } = useContext(Auth);
@@ -30,7 +31,7 @@ const Profile = () => {
           </div>
           <div className="profileBox">
             <div className="profileImg">
-              <img src="" alt="" />
+              <img src={profile} alt="profileImg" />
             </div>
             <div className="profileInfo">
               <h2 className="profileName">

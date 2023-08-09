@@ -24,6 +24,7 @@ import OtpConfirmation from "./pages/OtpConfirmation";
 //Context
 import { MainContext } from "./utils/Context";
 import { Validation } from "./utils/Auth";
+import ResetPassword from "./pages/ResetPassword";
 
 const App = () => {
   const [isSearchOpen, setSearchOpen] = useState(true);
@@ -42,15 +43,13 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/location" element={<Location />} />
-          <Route
-            path="/product-details/:productID"
-            element={<ProductDetails />}
-          />
+          <Route path="/product-details/:productID" element={<ProductDetails />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/favorite" element={<Favorite />} />
+          <Route path="/favorite/:productID" element={<Favorite />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/pay" element={<Pay />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -63,3 +62,8 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+

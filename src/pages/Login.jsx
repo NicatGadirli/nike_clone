@@ -6,7 +6,7 @@ import Nike from "../assets/Images/login/Nike.png";
 
 //
 import { useLocation } from "react-router-dom";
-import {  useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 //Navigate
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ const Login = () => {
   // Navigate
   const navigate = useNavigate();
 
-  const{setToken}=useContext(Auth)
+  const { setToken } = useContext(Auth)
 
   //UseState
   const [userData, setUserData] = useState({})
@@ -35,8 +35,8 @@ const Login = () => {
       .post(process.env.REACT_APP_LOGIN, userData)
       .then((res) => {
         if (res.status === 200) {
-          localStorage.setItem("token", JSON.stringify(res.data))
-          setToken(true)
+          localStorage.setItem("token", JSON.stringify(res.data.token))
+          setToken(res.data.token)
           navigate("/")
         }
       }).catch((err) => {

@@ -23,21 +23,21 @@ const Shop = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    getData();
-  }, [])
-
-  const getData = async () => {
-    setRefresh(true)
-    try {
-      await axios.get("http://localhost:5000/api/products").then((res) => {
-        setProduct(res.data);
+    const getData = async () => {
+      setRefresh(true)
+      try {
+        await axios.get("http://localhost:5000/api/products").then((res) => {
+          setProduct(res.data);
+          setRefresh(false)
+        })
+      } catch (error) {
         setRefresh(false)
-      })
-    } catch (error) {
-      setRefresh(false)
-      navigate("/error")
+        navigate("/error")
+      }
     }
-  }
+    getData();
+  }, [navigate])
+
 
   return (
     <section className="shop">

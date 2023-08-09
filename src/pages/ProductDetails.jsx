@@ -70,7 +70,6 @@ const ProductDetails = () => {
     };
     getData();
   }, [productID]);
-
   return (
     <>
       <section className="productDetails">

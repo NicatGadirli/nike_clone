@@ -1,27 +1,28 @@
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 //NikePhoto
 import Nike from "../assets/Images/login/Nike.png";
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
 const OtpConfirmation = () => {
     const [otp, setOtp] = useState("")
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.post(process.env.REACT_APP_VERIFY_OTP_CODE, {
-            token: JSON.parse(localStorage.getItem("token")),
-            otp
-        }).then((res) => {
-            console.log(res);
+        await axios.post(process.env.REACT_APP_VERIFY_OTP_CODE, { otp }).then((res) => {
+            if (res.status === 200) {
+                navigate("/reset-password")
+            }
         }).catch((err) => {
             console.log(err);
+            navigate("/error")
         })
     }
 

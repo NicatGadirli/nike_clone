@@ -13,15 +13,30 @@ export const MainContext = ({ children }) => {
   const [cartSum, setCartSum] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  /* ------------------------------- Navigate ------------------------------- */
-  /* ------------------------------- Navigate ------------------------------- */
-
-  // useEffect(() => {
-  //   getUserData();
-  // }, []);
-
   useEffect(() => {
+    //Calc Quantity
+    const calcQuantity = () => {
+      const totalQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+      if (totalQuantity > 9) {
+        setCartSum("9+");
+      } else {
+        setCartSum(totalQuantity);
+      }
+    };
     calcQuantity();
+
+    // Calculate Total Price
+    const sumPrice = () => {
+      if (cart.length === 0) {
+        setTotalPrice(0);
+        return;
+      }
+      let productPrices = cart.map(
+        (item) => item.quantity * parseFloat(item.price)
+      );
+      let sum = productPrices.reduce((acc, curr) => acc + curr, 0);
+      setTotalPrice(sum);
+    };
     sumPrice();
   }, [cart]);
 
@@ -79,16 +94,6 @@ export const MainContext = ({ children }) => {
     });
   };
 
-  //Cart Quantity
-  const calcQuantity = () => {
-    const totalQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
-    if (totalQuantity > 9) {
-      setCartSum("9+");
-    } else {
-      setCartSum(totalQuantity);
-    }
-  };
-
   //Change Quantity
   const changeQuantity = (product, number) => {
     if (product) {
@@ -116,9 +121,6 @@ export const MainContext = ({ children }) => {
     setTotalPrice(sum);
   };
 
-
-
-
   const globalStates = {
     //States
     cart,
@@ -126,6 +128,7 @@ export const MainContext = ({ children }) => {
     setCartSum,
     totalPrice,
     setTotalPrice,
+    sumPrice,
 
     //Functions
     addToCart,
