@@ -18,6 +18,17 @@ import { ReactComponent as Heart } from "../assets/Images/svg/Heart.svg";
 import { ReactComponent as Cart } from "../assets/Images/svg/Cart.svg";
 import { ReactComponent as Search } from "../assets/Images/svg/Search.svg";
 import { ReactComponent as Checked } from "../assets/Images/svg/Checked.svg";
+import { ReactComponent as HamburgerMenu } from "../assets/Images/svg/HamburgerMenu.svg";
+import { ReactComponent as Close } from "../assets/Images/svg/Close.svg";
+import { ReactComponent as ChevronRight } from "../assets/Images/svg/ChevronRight.svg";
+import { ReactComponent as Help } from "../assets/Images/svg/Help.svg";
+import { ReactComponent as Store } from "../assets/Images/svg/Store.svg";
+import { ReactComponent as Box } from "../assets/Images/svg/Box.svg";
+
+
+
+
+
 import { Auth } from "../utils/Auth";
 
 const Header = () => {
@@ -68,6 +79,12 @@ const Header = () => {
     };
   }, []);
 
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
     <>
@@ -653,9 +670,6 @@ const Header = () => {
                 </ul>
               </nav>
             </div>
-            <div className="mobileMenu">
-              
-            </div>
             <div
               className={`operation ${isSearchOpen ? "visible_operation_box" : ""
                 }`}
@@ -732,6 +746,48 @@ const Header = () => {
                     </div>
                   )
                 )}
+              </div>
+              <div className="mobileMenu">
+                <div className="hamburgerIcon">
+                  <button id="openMenuButton" onClick={toggleMenu}>
+                    <HamburgerMenu className="hamburgerMenuItem" />
+                  </button>
+                </div>
+                <div className={`menu ${menuOpen ? '' : 'hidden'}`} id="menu">
+                  <div className="closeBtn">
+                    <button id="closeMenuButton" onClick={toggleMenu}>
+                      <Close className="hamburgerMenuItem" />
+                    </button>
+                  </div>
+                  <div className="top">
+                    <ul className="menuList">
+                      <li className="menuItem"><Link to="/shop">Yeni ve Öne Çıkanlar<ChevronRight /></Link></li>
+                      <li className="menuItem"><Link to="/shop">Erkek<ChevronRight /></Link></li>
+                      <li className="menuItem"><Link to="/shop">Kadın<ChevronRight /></Link></li>
+                      <li className="menuItem"><Link to="/shop">Çocuk<ChevronRight /></Link></li>
+                      <li className="menuItem"><Link to="/shop">İndirim<ChevronRight /></Link></li>
+                    </ul>
+                    <div className="jordan"><Man />Jordan</div>
+                  </div>
+                  <div className="middle">
+                    <div className="middleInfo">
+                      <p>Nike'ın en iyi ürünlerine, ilham verici içeriklere ve spor hakkında hikayelere erişmek için Nike Üyesi ol. </p>
+                      <Link to="/">Daha fazla bilgi edin</Link>
+                    </div>
+                    <div className="middleBtn">
+                      <button><Link to="/register">Bize Katıl</Link></button>
+                      <button className="loginBtn"><Link to="/login">Oturum Aç</Link></button>
+                    </div>
+                  </div>
+                  <div className="bottom">
+                    <ul className="bottomList">
+                      <li className="bottomListItem"><Link to="/cart"><Cart /> Sepet</Link></li>
+                      <li className="bottomListItem"><Link to="/"><Box />Siparişler</Link></li>
+                      <li className="bottomListItem"><Link to="/"><Store />Mağaza</Link></li>
+                      <li className="bottomListItem"><Link to="/"><Help />Yardım</Link></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -1,8 +1,8 @@
 .visible {
-  display: block!important;
+  display: block !important;
 }
 .hidden {
-  display: none!important;
+  display: none !important;
 }
 
 .visible_operation_box {
@@ -118,22 +118,7 @@
           }
         }
       }
-      .mobileMenu {
-        display: none;
-        position: absolute;
-        right: 21px;
-        top: 25%;
-        button {
-          cursor: pointer;
-          background-color: transparent;
-          outline: none;
-          border: none;
-          .hamburgerMenu {
-            width: 30px;
-            height: 30px;
-          }
-        }
-      }
+
       .operation {
         padding-top: 12px;
         display: flex;
@@ -366,6 +351,138 @@
             }
           }
         }
+        .mobileMenu {
+          display: none;
+          position: absolute;
+          right: 42px;
+          top: 25%;
+          .hamburgerIcon {
+            button {
+              cursor: pointer;
+              background-color: transparent;
+              outline: none;
+              border: none;
+              .hamburgerMenuItem {
+                width: 30px;
+                height: 30px;
+              }
+            }
+          }
+          .menu {
+            transform: translateX(-156px);
+            transition: transform 0.25s;
+            position: absolute;
+            overflow-x: hidden;
+            top: -15px;
+            right: -198px;
+            height: 100vh;
+            background-color: #fff;
+            width: 334px;
+            box-shadow: -10px -1px 5px -5px rgba(0, 0, 0, 0.75);
+            .closeBtn {
+              display: flex;
+              justify-content: flex-end;
+              margin: 5px;
+              button {
+                cursor: pointer;
+                background-color: transparent;
+                outline: none;
+                border: none;
+                .hamburgerMenuItem {
+                  width: 30px;
+                  height: 30px;
+                }
+              }
+            }
+            .top {
+              margin-top: 25px;
+              .menuList {
+                display: flex;
+                flex-direction: column;
+                margin-left: 40px;
+                gap: 15px;
+                .menuItem {
+                  display: flex;
+                  a {
+                    color: #000;
+                    font-size: 20px;
+                    svg {
+                      width: 16px;
+                      height: 12px;
+                    }
+                  }
+                }
+              }
+              .jordan {
+                display: flex;
+                align-items: center;
+                margin-left: 40px;
+                margin-top: 30px;
+              }
+            }
+            .middle {
+              margin-top: 50px;
+              padding-top: 48px;
+              .middleInfo {
+                margin: 0 40px;
+                font-size: 23px;
+                p {
+                  color: #757575;
+                }
+                a {
+                  color: #000;
+                }
+              }
+              .middleBtn {
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+                align-items: center;
+                margin-top: 24px;
+                button {
+                  padding: 6px 20px;
+                  border-radius: 30px;
+                  border: 1.5px solid transparent;
+                  background: #111;
+                  color: #fff;
+                  font-size: 16px;
+                  line-height: 24px;
+                  transition: color 0.5s ease-out;
+                  a {
+                    color: #fff;
+                  }
+                }
+                .loginBtn {
+                  background: #fff;
+                  color: #000;
+                  border: 1.5px solid #ccc;
+                  a {
+                    color: #000;
+                  }
+                }
+              }
+            }
+            .bottom {
+              margin: 50px 40px 100px;
+              .bottomList {
+                padding-top: 12px;
+                .bottomListItem {
+                  margin-bottom: 10px;
+                  font-size: 18px;
+                  a {
+                    display: flex;
+                    gap: 20px;
+                    color: #000;
+                    svg {
+                      width: 24px;
+                      height: 24px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -376,8 +493,8 @@
   left: 0;
   right: 0;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-  z-index: 100; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
 //Responsiveness
@@ -388,19 +505,6 @@
       .row {
         .navBarArea {
           display: none;
-        }
-        .mobileMenu {
-          display: block;
-          button {
-            cursor: pointer;
-            background-color: transparent;
-            outline: none;
-            border: none;
-            .hamburgerMenu {
-              width: 30px;
-              height: 30px;
-            }
-          }
         }
         .operation {
           .searchBox {
@@ -413,14 +517,21 @@
           }
           .operationIconsArea {
             gap: 10px;
+            margin-right: 40px;
+            width: 100%;
+            justify-content: center;
             .operationBtn {
               &:nth-child(1) {
                 display: none;
               }
             }
           }
+          .mobileMenu {
+            display: block;
+          }
         }
       }
     }
   }
 }
+
