@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import { Context } from '../utils/Context';
 
 const Favorite = () => {
-  const { favorites } = useContext(Context);
+  const { favorites, addToCart, removeFromFavorites } = useContext(Context);
+
+  const uniqueFavorites = Array.from(new Set(favorites.map(product => product.id)))
+  .map(id => favorites.find(product => product.id === id));
 
   return (
     <>
@@ -16,10 +19,10 @@ const Favorite = () => {
               </div>
             </div>
             <div className="bottom">
-              {favorites.length === 0 ? (
+              {uniqueFavorites.length === 0 ? (
                 <h5 className="favoriteMessage">Favori ürününüz yok.</h5>
               ) : (
-                favorites.map((product) => (
+                uniqueFavorites.map((product) => (
                   <div className="card" key={product.id}>
                     <Link to={`/product-details/${product.id}`}>
                       <div className="cardImg">
@@ -36,6 +39,10 @@ const Favorite = () => {
                         <p className="ProductType">{product.type}</p>
                       </div>
                     </Link>
+                    <div className="cardBtn">
+                      <button className='addToCart' onClick={() => addToCart(product)}>Sepete Ekle</button>
+                      <button className='removeFavorites' onClick={() => removeFromFavorites(product.id)}>Kaldır</button>
+                    </div>
                   </div>
                 ))
               )}

@@ -100,16 +100,26 @@ export const MainContext = ({ children }) => {
     setFavorites((prevFavorites) => [...prevFavorites, product]);
     updateLocalStorage([...favorites, product]);
   };
-
+  
   const removeFromFavorites = (productId) => {
     setFavorites((prevFavorites) =>
       prevFavorites.filter((item) => item.id !== productId)
     );
+    const updatedFavorites = favorites.filter((item) => item.id !== productId);
+    updateLocalStorage(updatedFavorites);
   };
 
   const updateLocalStorage = (updatedFavorites) => {
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
+
+  useEffect(() => {
+    const localFavorites = JSON.parse(localStorage.getItem("favorites"));
+
+    if (localFavorites !== null) {
+      setFavorites(localFavorites);
+    }
+  }, []);
 
   //Change Quantity
   const changeQuantity = (product, number) => {

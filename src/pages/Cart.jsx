@@ -88,7 +88,11 @@ const Cart = () => {
                       </div>
                       <div className="operationIcons">
                         <button onClick={() => favorites.includes(product) ? removeFromFavorites(product.id) : addToFavorites(product)}>
-                          <Heart className={`icons ${favorites.includes(product) ? "favorited" : ""}`} />
+                          {favorites.includes(product) ? (
+                            <BlackHeart className={`icons favorited`} />
+                          ) : (
+                            <Heart className={`icons`} />
+                          )}
                         </button>
                         <button>
                           <Trash className="icons" onClick={() => removeFromCart(product.id)} />

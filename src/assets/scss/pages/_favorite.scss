@@ -2,26 +2,6 @@
   margin-bottom: 70px;
   .container {
     .row {
-      .favoriteBtn {
-        font-size: 16px;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        transition: all 0.2s ease 0s;
-        font-family: "Helvetica Now Text", Helvetica, Arial, sans-serif;
-        padding: 15px 23px;
-        border-radius: 20px;
-        box-shadow: rgb(204, 204, 204) 0px 1px 0px 0px inset,
-          rgb(204, 204, 204) -1px 0px 0px 0px inset,
-          rgb(204, 204, 204) 0px -1px 0px 0px inset,
-          rgb(204, 204, 204) 1px 0px 0px 0px inset;
-        &:hover {
-          box-shadow: rgb(204, 204, 204) 0px 1.5px 0px 0px inset,
-            rgb(204, 204, 204) -1.5px 0px 0px 0px inset,
-            rgb(204, 204, 204) 0px -1.5px 0px 0px inset,
-            rgb(204, 204, 204) 1.5px 0px 0px 0px inset;
-        }
-      }
       flex-direction: column;
       .top {
         display: flex;
@@ -77,8 +57,43 @@
             .ProductType {
               color: #757575;
             }
-            .cardBtn {
-              margin: 20px;
+          }
+          .cardBtn {
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+            .addToCart {
+              cursor: pointer;
+              font-size: 16px;
+              border: none;
+              background-color: transparent;
+              transition: all 0.2s ease 0s;
+              font-family: "Helvetica Now Text", Helvetica, Arial, sans-serif;
+              padding: 15px 23px;
+              border-radius: 20px;
+              box-shadow: rgb(204, 204, 204) 0px 1px 0px 0px inset,
+                rgb(204, 204, 204) -1px 0px 0px 0px inset,
+                rgb(204, 204, 204) 0px -1px 0px 0px inset,
+                rgb(204, 204, 204) 1px 0px 0px 0px inset;
+              &:hover {
+                box-shadow: rgb(204, 204, 204) 0px 1.5px 0px 0px inset,
+                  rgb(204, 204, 204) -1.5px 0px 0px 0px inset,
+                  rgb(204, 204, 204) 0px -1.5px 0px 0px inset,
+                  rgb(204, 204, 204) 1.5px 0px 0px 0px inset;
+              }
+            }
+            .removeFavorites {
+              padding: 6px 20px;
+              border-radius: 30px;
+              border: 1.5px solid transparent;
+              background: #111;
+              color: #fff;
+              font-size: 16px;
+              line-height: 24px;
+              transition: color 0.5s ease-out;
+              &:hover {
+                color: #757575;
+              }
             }
           }
         }
@@ -185,5 +200,4 @@
       }
     }
   }
-  
 }
