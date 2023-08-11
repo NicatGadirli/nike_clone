@@ -8,6 +8,8 @@ import sizes from "../db/sizes";
 // Svg
 import { ReactComponent as Heart } from "../assets/Images/svg/Heart.svg";
 import { ReactComponent as Trash } from "../assets/Images/svg/Trash.svg";
+import { ReactComponent as BlackHeart } from "../assets/Images/svg/BlackHeart.svg";
+
 
 //Context
 import { useContext } from "react";
@@ -21,7 +23,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Cart = () => {
   //Global States
-  const { cart, removeFromCart, changeQuantity, totalPrice } = useContext(Context)
+  const { cart, removeFromCart, favorites, changeQuantity, totalPrice, addToFavorites, removeFromFavorites } = useContext(Context)
 
 
   const isCartEmpty = cart.length === 0;
@@ -85,8 +87,8 @@ const Cart = () => {
                         </div>
                       </div>
                       <div className="operationIcons">
-                        <button>
-                          <Heart className="icons" />
+                        <button onClick={() => favorites.includes(product) ? removeFromFavorites(product.id) : addToFavorites(product)}>
+                          <Heart className={`icons ${favorites.includes(product) ? "favorited" : ""}`} />
                         </button>
                         <button>
                           <Trash className="icons" onClick={() => removeFromCart(product.id)} />

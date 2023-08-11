@@ -58,7 +58,7 @@ const ForSport = () => {
         </Swiper>
       </div>
       <div className="sportInfo">
-        <Link to="/">Koşu</Link>
+        <Link to="/">Spor</Link>
       </div>
     </section>
   );

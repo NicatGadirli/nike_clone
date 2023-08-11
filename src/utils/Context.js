@@ -12,7 +12,7 @@ export const MainContext = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [cartSum, setCartSum] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     //Calc Quantity
@@ -95,6 +95,22 @@ export const MainContext = ({ children }) => {
     });
   };
 
+  //Add to Favorites
+  const addToFavorites = (product) => {
+    setFavorites((prevFavorites) => [...prevFavorites, product]);
+    updateLocalStorage([...favorites, product]);
+  };
+
+  const removeFromFavorites = (productId) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.filter((item) => item.id !== productId)
+    );
+  };
+
+  const updateLocalStorage = (updatedFavorites) => {
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
+
   //Change Quantity
   const changeQuantity = (product, number) => {
     if (product) {
@@ -135,6 +151,10 @@ export const MainContext = ({ children }) => {
     addToCart,
     removeFromCart,
     changeQuantity,
+    favorites,
+    setFavorites,
+    addToFavorites,
+    removeFromFavorites,
   };
 
   return <Context.Provider value={globalStates}>{children}</Context.Provider>;

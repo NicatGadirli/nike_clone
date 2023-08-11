@@ -1,5 +1,5 @@
 .favorite {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   .container {
     .row {
       .favoriteBtn {
@@ -38,19 +38,12 @@
       .favoriteMessage {
         display: flex;
         justify-content: center;
-        display: none;
-        h5 {
-          font: var(--podium-cds-typography-body1-strong);
-          margin: 24px;
-          padding: 24px;
-          text-align: center;
-          font-size: 17px;
-        }
+        margin: 0 auto;
+        font-size: 30px;
       }
       .bottom {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
         width: 100%;
         padding-top: 40px;
         .card {

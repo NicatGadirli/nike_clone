@@ -46,7 +46,7 @@ const Shop = () => {
         <div className="row">
           <div className="top">
             <div className="title">
-              <h2>Erkek Ayakkabıları</h2>
+              <h2>Ayakkabılar</h2>
             </div>
             <div className="right">
               <button className="filterBtn">

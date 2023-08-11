@@ -1,6 +1,6 @@
 // Router
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 
 //Photo
 import Nike from "../assets/Images/login/Nike.png";
@@ -31,11 +31,6 @@ const Register = () => {
   });
 
 
-  const [selectedGender, setSelectedGender] = useState(null);
-
-  const handleGenderSelection = (gender) => {
-    setSelectedGender(gender);
-  };
 
   // React Hook Form
   const {
@@ -451,41 +446,11 @@ const Register = () => {
                 </select>
               </div>
               <div className="gender">
-                <button
-                  style={{
-                    borderColor:
-                      selectedGender === "Erkek" ? "#000000" : "#ccc",
-                  }}
-                  onClick={(e) => {
-                    handleGenderSelection("Erkek");
-                    e.preventDefault();
-                  }}
-                >
-                  <p
-                    style={{
-                      color: selectedGender === "Erkek" ? "#000000" : "#ccc",
-                    }}
-                  >
+                <button>
                     Erkek
-                  </p>
                 </button>
-                <button
-                  style={{
-                    borderColor:
-                      selectedGender === "Kadın" ? "#000000" : "#ccc",
-                  }}
-                  onClick={(e) => {
-                    handleGenderSelection("Kadın");
-                    e.preventDefault();
-                  }}
-                >
-                  <p
-                    style={{
-                      color: selectedGender === "Kadın" ? "#000000" : "#ccc",
-                    }}
-                  >
+                <button>
                     Kadın
-                  </p>
                 </button>
               </div>
             </form>
@@ -508,15 +473,7 @@ const Register = () => {
             <div className="operation">
               <button
                 type="submit"
-                onClick={(e) => {
-                  if (selectedGender === null) {
-                    e.preventDefault();
-                    alert("Cinsiyet seçimi yapmadınız!");
-                  } else {
-                    handleSubmit(onSubmit)(e);
-                  }
-                }}
-              >
+                onClick={(e) => { handleSubmit(onSubmit)(e); }}>
                 BİZE KATIL
               </button>
             </div>

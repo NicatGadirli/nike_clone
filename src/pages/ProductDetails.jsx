@@ -1,40 +1,31 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
+
+//Axios
 import axios from 'axios';
+
+//Svg
 import { ReactComponent as Star } from '../assets/Images/svg/Star.svg';
 import { ReactComponent as Heart } from '../assets/Images/svg/Heart.svg';
+import { ReactComponent as BlackHeart } from '../assets/Images/svg/BlackHeart.svg';
+
+//Section
 import TrendProduct from '../components/TrendProduct';
+
+//Context
 import { Context } from '../utils/Context';
+
+//Data Base
 import productDetailsSizes from '../db/productDetailsSizes';
 
 const ProductDetails = () => {
-  const { addToCart } = useContext(Context);
-
+  const { addToCart, addToFavorites, removeFromFavorites, favorites } = useContext(Context);
   const [isFavorite, setIsFavorite] = useState(false);
   const [activeSize, setActiveSize] = useState(null);
   const [sizeSelected, setSizeSelected] = useState(true);
   const [product, setProduct] = useState({});
   const { productID } = useParams();
   const { pathname } = useLocation();
-
-  const handleFavoriteToggle = () => {
-    setIsFavorite((prevIsFavorite) => !prevIsFavorite);
-  };
-
-  const handleSizeClick = (size) => {
-    setActiveSize(size);
-    setSizeSelected(true);
-  };
-
-  const handleAddToCart = () => {
-    if (activeSize) {
-      addToCart(product);
-      setSizeSelected(true);
-    } else {
-      setSizeSelected(false);
-      console.log('Please select a size before adding to cart.');
-    }
-  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -54,6 +45,32 @@ const ProductDetails = () => {
     getData();
   }, [productID]);
 
+  useEffect(() => {
+    // Check if the product is already a favorite
+    setIsFavorite(favorites.some(item => item.id === product.id));
+  }, [favorites, product.id]);
+
+  const handleFavoriteToggle = () => {
+    if (isFavorite) {
+      removeFromFavorites(product.id);
+    } else {
+      addToFavorites(product);
+    }
+  };
+
+  const handleSizeClick = (size) => {
+    setActiveSize(size);
+    setSizeSelected(true);
+  };
+
+  const handleAddToCart = () => {
+    if (activeSize) {
+      addToCart(product);
+      setSizeSelected(true);
+    } else {
+      setSizeSelected(false);
+    }
+  };
   return (
     <>
       <section className="productDetails">
@@ -102,20 +119,18 @@ const ProductDetails = () => {
                     </div>
                   ))}
                 </div>
-
-
                 <div className="operationBtn">
                   <button className="addCart" onClick={handleAddToCart}>
                     Sepete Ekle
                   </button>
-                  <Link
+                  <button
                     to="/favorite"
                     className="addToFavorite"
                     onClick={handleFavoriteToggle}
                   >
                     {isFavorite ? 'Favoriden Çıkar' : 'Favori'}
-                    <Heart className="heart" />
-                  </Link>
+                    {isFavorite ? <BlackHeart className="heart" /> : <Heart className="heart" />}
+                  </button>
                 </div>
               </div>
               <div className="bottom">

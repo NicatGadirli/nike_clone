@@ -67,6 +67,9 @@
                   cursor: pointer;
                   margin-left: 10px;
                   transition: all 0.2s ease 0s;
+                  .icons.favorited {
+                    fill: red;
+                  }
                   .icons {
                     width: 24px;
                     height: 24px;
