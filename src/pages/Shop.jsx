@@ -4,6 +4,7 @@ import Card from "../components/Card";
 //Loading
 import Loading from "../components/Loading";
 
+//Axios
 import axios from "axios";
 
 // Svg
@@ -15,13 +16,17 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // 
 const Shop = () => {
+  //?UseState
   const [refresh, setRefresh] = useState(false)
-
   const [product, setProduct] = useState([])
+  //?UseState
 
-  //Router
+
+  //?Navigate
   const navigate = useNavigate()
+  //?Navigate
 
+  //! Save Products
   useEffect(() => {
     const getData = async () => {
       setRefresh(true)
@@ -37,6 +42,8 @@ const Shop = () => {
     }
     getData();
   }, [navigate])
+  //! Save Products
+
 
 
   return (

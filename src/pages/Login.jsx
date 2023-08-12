@@ -14,21 +14,28 @@ import axios from "axios";
 import { Auth } from "../utils/Auth";
 
 const Login = () => {
-  // Navigate
-  const navigate = useNavigate();
-
-  const { setToken } = useContext(Auth)
-
-  //UseState
+  //?UseState
   const [userData, setUserData] = useState({})
+  //?UseState
 
+  //!Navigate
+  const navigate = useNavigate();
+  //!Navigate
+
+  //?Auth 
+  const { setToken } = useContext(Auth)
+  //?Auth 
+
+  //?Take Input Value
   const handleChange = (e) => {
     let value = e.target.value;
     let name = e.target.name
 
     setUserData({ ...userData, [name]: value })
   };
+  //?Take Input Value
 
+  //?Login
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
@@ -43,14 +50,20 @@ const Login = () => {
         console.log(err);
       })
   }
+  //?Login
 
 
-  //Router
+
+  //?Location
   const { pathname } = useLocation()
+  //?Location
 
+  //?Scrool
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname])
+  //?Scrool
+
 
   return (
     <section className="login">

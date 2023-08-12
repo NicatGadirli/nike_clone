@@ -9,61 +9,61 @@ const MerchMenu = () => {
           <ul className="merchMenuList">
             <h4>Ayakkabılar</h4>
             <li className="merchMenuItem">
-              <Link>Golf Ayakkabıları</Link>
+              <Link to="/">Golf Ayakkabıları</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Kışlık Spor Ayakkabı</Link>
+              <Link to="/">Kışlık Spor Ayakkabı</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Gore Tex Spor Ayakkabı</Link>
+              <Link to="/">Gore Tex Spor Ayakkabı</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Yürüyüş Ayakkabısı</Link>
+              <Link to="/">Yürüyüş Ayakkabısı</Link>
             </li>
           </ul>
           <ul className="merchMenuList">
             <h4>Giysiler</h4>
             <li className="merchMenuItem">
-              <Link>Tüm Giysiler</Link>
+              <Link to="/">Tüm Giysiler</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Yoga Eşofman Altları</Link>
+              <Link to="/">Yoga Eşofman Altları</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Tech Fleece Ayakkabı</Link>
+              <Link to="/">Tech Fleece Ayakkabı</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Tech Fleece Pantolon</Link>
+              <Link to="/">Tech Fleece Pantolon</Link>
             </li>
           </ul>
           <ul className="merchMenuList">
             <h4>Çocuk</h4>
             <li className="merchMenuItem">
-              <Link>Çocuk Terlik</Link>
+              <Link to="/">Çocuk Terlik</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Çocuk Eşofman İndirimi</Link>
+              <Link to="/">Çocuk Eşofman İndirimi</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Çocuk Şişme Mont</Link>
+              <Link to="/">Çocuk Şişme Mont</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Üstler ve Tişörtler</Link>
+              <Link to="/">Üstler ve Tişörtler</Link>
             </li>
           </ul>
           <ul className="merchMenuList">
             <h4>Öne Çıkanlar</h4>
             <li className="merchMenuItem">
-              <Link>Futbol Takımları</Link>
+              <Link to="/">Futbol Takımları</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Futbol</Link>
+              <Link to="/">Futbol</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Nike Run Club</Link>
+              <Link to="/">Nike Run Club</Link>
             </li>
             <li className="merchMenuItem">
-              <Link>Nike Training Club</Link>
+              <Link to="/">Nike Training Club</Link>
             </li>
           </ul>
         </div>

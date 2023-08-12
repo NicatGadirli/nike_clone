@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { Context } from '../utils/Context';
 
 const Favorite = () => {
+  //?Global States
   const { favorites, addToCart, removeFromFavorites } = useContext(Context);
 
+  //?Unique Favorites
   const uniqueFavorites = Array.from(new Set(favorites.map(product => product.id)))
   .map(id => favorites.find(product => product.id === id));
 

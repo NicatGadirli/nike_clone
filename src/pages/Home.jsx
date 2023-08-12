@@ -18,12 +18,16 @@ import { useEffect } from "react";
 
 const Home = () => {
 
-  /* ---------------------- Router -------------------------------------------- */
+  //?/ Router
   const { pathname } = useLocation()
-  /* ---------------------- Reset keeping Scroll Position --------------------- */
+
+
+  //?Scroll
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname])
+  //?Scroll
+
 
 
   return (

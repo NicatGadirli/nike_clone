@@ -22,16 +22,17 @@ import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Cart = () => {
-  //Global States
+  //?Global States
   const { cart, removeFromCart, favorites, changeQuantity, totalPrice, addToFavorites, removeFromFavorites } = useContext(Context)
 
-
+  //?Cart Code
   const isCartEmpty = cart.length === 0;
 
 
-  //Router
+  //?Location
   const { pathname } = useLocation()
 
+  //?Scrool
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname])

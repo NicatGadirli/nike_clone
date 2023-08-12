@@ -7,11 +7,8 @@ import { ReactComponent as Facebook } from "../assets/Images/svg/Facebook.svg";
 import { ReactComponent as Youtube } from "../assets/Images/svg/Youtube.svg";
 import { ReactComponent as Instagram } from "../assets/Images/svg/Instagram.svg";
 import { ReactComponent as Location } from "../assets/Images/svg/Location.svg";
-import { useTranslation } from "react-i18next";
 
 const Footer = () => {
-
-
   return (
     <footer className="footer">
       <div className="container">

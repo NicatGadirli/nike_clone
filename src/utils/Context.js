@@ -1,21 +1,23 @@
 import { createContext, useState } from "react";
+
+//UseEffect
 import { useEffect } from "react";
 
-/* ------------------------------- SweetAlert ------------------------------- */
+//SweetAlert
 import Swal from "sweetalert2";
-/* ------------------------------- SweetAlert ------------------------------- */
 
+//Context
 export const Context = createContext();
 
 export const MainContext = ({ children }) => {
-  // const [user, setUser] = useState(null);
+  //* const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]);
   const [cartSum, setCartSum] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    //Calc Quantity
+    //!Calc Quantity
     const calcQuantity = () => {
       const totalQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
       if (totalQuantity > 9) {
@@ -25,34 +27,25 @@ export const MainContext = ({ children }) => {
       }
     };
     calcQuantity();
+    //!Calc Quantity
 
-    // Calculate Total Price
+    //!Calculate Total Price
     const sumPrice = () => {
       if (cart.length === 0) {
         setTotalPrice(0);
         return;
       }
       let productPrices = cart.map(
-        (item) => item.quantity * parseFloat(item.price)
-      );
+        (item) => item.quantity * parseFloat(item.price));
       let sum = productPrices.reduce((acc, curr) => acc + curr, 0);
       setTotalPrice(sum);
     };
     sumPrice();
   }, [cart]);
+    //!Calculate Total Price
 
-  useEffect(() => {
-    const localCart = JSON.parse(localStorage.getItem("cart"));
-    if (localCart !== null) {
-      setCart(localCart);
-    }
-  }, []);
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
-  //Add To Cart
+  //!Add To Cart
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
     if (existingProduct) {
@@ -74,8 +67,10 @@ export const MainContext = ({ children }) => {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
   };
+  //!Add To Cart
 
-  //Remove Cart from Cart
+
+  //!Remove Cart from Cart
   const removeFromCart = (id) => {
     Swal.fire({
       title: "Ürünü kaldırmak istediğinizden emin misiniz??",
@@ -94,13 +89,31 @@ export const MainContext = ({ children }) => {
       }
     });
   };
+  //!Remove Cart from Cart
 
-  //Add to Favorites
+  //!Save Cart
+  useEffect(() => {
+    const localCart = JSON.parse(localStorage.getItem("cart"));
+    if (localCart !== null) {
+      setCart(localCart);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+  //!Save Cart
+
+
+  //!Add to Favorites
   const addToFavorites = (product) => {
     setFavorites((prevFavorites) => [...prevFavorites, product]);
     updateLocalStorage([...favorites, product]);
   };
+  //!Add to Favorites
+
   
+  //!Remove from Favorites
   const removeFromFavorites = (productId) => {
     setFavorites((prevFavorites) =>
       prevFavorites.filter((item) => item.id !== productId)
@@ -108,7 +121,10 @@ export const MainContext = ({ children }) => {
     const updatedFavorites = favorites.filter((item) => item.id !== productId);
     updateLocalStorage(updatedFavorites);
   };
+  //!Remove from Favorites
 
+
+  //! Save in Local Storage
   const updateLocalStorage = (updatedFavorites) => {
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
@@ -121,7 +137,10 @@ export const MainContext = ({ children }) => {
     }
   }, []);
 
-  //Change Quantity
+  //! Save in Local Storage
+
+
+  //!Change Quantity
   const changeQuantity = (product, number) => {
     if (product) {
       const updatedCart = cart.map((item) => {
@@ -134,22 +153,26 @@ export const MainContext = ({ children }) => {
       setCart(updatedCart);
     }
   };
+  //!Change Quantity
 
-  // Calculate Total Price
+
+  //!Calculate Total Price
   const sumPrice = () => {
     if (cart.length === 0) {
       setTotalPrice(0);
       return;
     }
     let productPrices = cart.map(
-      (item) => item.quantity * parseFloat(item.price)
-    );
+      (item) => item.quantity * parseFloat(item.price));
     let sum = productPrices.reduce((acc, curr) => acc + curr, 0);
     setTotalPrice(sum);
   };
+  //!Calculate Total Price
 
+
+  //!Global States
   const globalStates = {
-    //States
+    //?States
     cart,
     cartSum,
     setCartSum,
@@ -157,7 +180,7 @@ export const MainContext = ({ children }) => {
     setTotalPrice,
     sumPrice,
 
-    //Functions
+    //?Functions
     addToCart,
     removeFromCart,
     changeQuantity,

@@ -78,7 +78,8 @@
   }
 }
 
-//Responsiveness
+//?Responsiveness
+
 
 @media (max-width: 1024px) {
   .forSport {
@@ -99,7 +100,28 @@
         display: none;
       }
     }
+  }   
+  
+
+  @media (max-width: 768px) {
+    .forSport {
+      .row {
+        .mySwiper {
+          .sportImgBox {
+            margin: 0 24px;
+          }
+          .swiper-button-prev,
+          .swiper-button-next {
+            padding: 42px;
+          }
+        }
+      }
+      .sportInfo {
+        display: none;
+      
+    }
   }
+}
 
   @media (max-width: 468px) {
     .forSport {
@@ -122,3 +144,4 @@
     }
   }
 }
+//?Responsiveness

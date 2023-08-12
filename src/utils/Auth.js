@@ -2,14 +2,16 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+//Context
 export const Auth = createContext();
 
 export const Validation = ({ children }) => {
   const [user, setUser] = useState({});
   const [token, setToken] = useState(false);
-  const [email,setEmail]=useState("")
+  const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
+  //!Log In
   useEffect(() => {
     if (token) {
       let localToken = JSON.parse(localStorage.getItem("token"));
@@ -27,7 +29,9 @@ export const Validation = ({ children }) => {
       }
     }
   }, [token]);
+  //!Log In
 
+  //!Log Out
   const logOut = () => {
     try {
       setUser({});
@@ -38,7 +42,9 @@ export const Validation = ({ children }) => {
       console.log(err);
     }
   };
+  //!Log Out
 
+  //!Global States
   const globalStates = {
     user,
     setUser,
@@ -46,7 +52,10 @@ export const Validation = ({ children }) => {
     setToken,
     logOut,
     email,
-setEmail
+    setEmail,
   };
+  //!Global States
+  
+
   return <Auth.Provider value={globalStates}>{children}</Auth.Provider>;
 };

@@ -78,7 +78,7 @@
   }
 }
 
-//Responsiveness
+//?Responsiveness
 
 @media (max-width: 1024px) {
   .nikeMembership {
@@ -102,6 +102,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .nikeMembership {
+    .row {
+      .mySwiper {
+        .membershipImgBox {
+          margin: 0 24px;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 468px) {
   .nikeMembership {
     .row {
@@ -119,3 +131,4 @@
     }
   }
 }
+//?Responsiveness

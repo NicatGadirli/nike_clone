@@ -9,7 +9,6 @@ import Footer from "./components/Footer";
 // Pages
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import Location from "./pages/section/Location";
 import ProductDetails from "./pages/ProductDetails";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
@@ -42,7 +41,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/location" element={<Location />} />
           <Route path="/product-details/:productID" element={<ProductDetails />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/reset-password" element={<ResetPassword />} />

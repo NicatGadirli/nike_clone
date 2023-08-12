@@ -19,18 +19,26 @@ import { Context } from '../utils/Context';
 import productDetailsSizes from '../db/productDetailsSizes';
 
 const ProductDetails = () => {
+  //?Global States
   const { addToCart, addToFavorites, removeFromFavorites, favorites } = useContext(Context);
+  //?Global States
+
+  //!UseState
   const [isFavorite, setIsFavorite] = useState(false);
   const [activeSize, setActiveSize] = useState(null);
   const [sizeSelected, setSizeSelected] = useState(true);
   const [product, setProduct] = useState({});
+  //!UseState
+
+  //?UseParams
   const { productID } = useParams();
+  //?UseParams
+
+  //!Location
   const { pathname } = useLocation();
+  //!Location
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
+  //?Get Products
   useEffect(() => {
     const getData = async () => {
       try {
@@ -44,12 +52,16 @@ const ProductDetails = () => {
     };
     getData();
   }, [productID]);
+  //?Get Products
 
+
+  //!Check if the product is already a favorite
   useEffect(() => {
-    // Check if the product is already a favorite
     setIsFavorite(favorites.some(item => item.id === product.id));
   }, [favorites, product.id]);
+  //!Check if the product is already a favorite
 
+  //?Handle Favorite Toggle
   const handleFavoriteToggle = () => {
     if (isFavorite) {
       removeFromFavorites(product.id);
@@ -57,12 +69,16 @@ const ProductDetails = () => {
       addToFavorites(product);
     }
   };
+  //?Handle Favorite Toggle
 
+  //!Select Size
   const handleSizeClick = (size) => {
     setActiveSize(size);
     setSizeSelected(true);
   };
+  //!Select Size
 
+  //?Add To Cart
   const handleAddToCart = () => {
     if (activeSize) {
       addToCart(product);
@@ -71,6 +87,16 @@ const ProductDetails = () => {
       setSizeSelected(false);
     }
   };
+  //?Add To Cart
+
+
+  //?Scrool
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  //?Scrool
+
+
   return (
     <>
       <section className="productDetails">
@@ -106,7 +132,7 @@ const ProductDetails = () => {
               <div className="middle">
                 <div className="chooseNumber">
                   <p>Numara/Beden Seç</p>
-                  <Link>Beden/Numara Rehberi</Link>
+                  <Link to="/">Beden/Numara Rehberi</Link>
                 </div>
                 <div className={`sizesBox ${!sizeSelected ? 'noSizeSelected' : ''}`}>
                   {productDetailsSizes.map((sizes) => (

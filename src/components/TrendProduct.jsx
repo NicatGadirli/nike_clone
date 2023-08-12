@@ -12,9 +12,11 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useState } from "react";
 
+//Section
 import trendProduct from "../db/trendProduct";
 
 const TrendProduct = () => {
+  //?Local States
   const [setSwiperRef] = useState(null);
 
   return (
@@ -50,7 +52,7 @@ const TrendProduct = () => {
           {trendProduct.map((item) => (
             <SwiperSlide className="SwiperSlide" key={item.id}>
               <div className="card">
-                <Link>
+                <Link to="/">
                   <div className="cardImg">
                     <img src={item.img} alt="TrendShoes" />
                   </div>

@@ -11,8 +11,8 @@ const Hero = () => {
           Müzik kadar orijinal festival ve dans stilleriyle ritme uy.
         </p>
         <div className="heroBtnBox">
-            <Link>İncele</Link>
-            <Link>Çocuk Ürünlerini İncele</Link>
+            <Link to="/">İncele</Link>
+            <Link to="/">Çocuk Ürünlerini İncele</Link>
         </div>
       </div>
     </section>

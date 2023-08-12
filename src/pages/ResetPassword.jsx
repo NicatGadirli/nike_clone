@@ -9,13 +9,21 @@ import { Auth } from "../utils/Auth";
 
 
 const ResetPasword = () => {
+  //?Auth
+  const { email } = useContext(Auth)
+  //?Auth
+
+  //?Navigate
   const navigate = useNavigate();
+  //?Navigate
+
+  //!UseState
   const [password, setPassword] = useState("")
   const [rePassword, setRePassword] = useState("")
   const [passwordsMatch, setPasswordsMatch] = useState(true);
+  //!UseState
 
-  const {email}=useContext(Auth)
-
+  //? Form Handle Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,6 +42,7 @@ const ResetPasword = () => {
       })
     }
   };
+  //? Form Handle Submit
 
   return (
     <section className="resetPassword">

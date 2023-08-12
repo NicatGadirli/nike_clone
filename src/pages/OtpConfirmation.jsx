@@ -10,12 +10,17 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const OtpConfirmation = () => {
+    //?UseState
     const [otp, setOtp] = useState("")
-    const navigate = useNavigate()
+    //?UseState
 
+    //!Navigate
+    const navigate = useNavigate()
+    //!Navigate
+
+    //?Verify Otp Code
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         await axios.post(process.env.REACT_APP_VERIFY_OTP_CODE, { otp }).then((res) => {
             if (res.status === 200) {
                 navigate("/reset-password")
@@ -25,6 +30,7 @@ const OtpConfirmation = () => {
             navigate("/error")
         })
     }
+    //?Verify Otp Code
 
 
     return (

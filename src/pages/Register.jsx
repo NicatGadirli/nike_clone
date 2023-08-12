@@ -15,10 +15,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  // Navigate
+  //? Navigate
   const navigate = useNavigate();
+  //? Navigate
 
-  // Schema
+
+  //! Schema
   const registerSchema = object({
     name: string().required("Lütfen geçerli bir ad gir.").trim(),
     surname: string().required("Lütfen geçerli bir soyadı gir.").trim(),
@@ -29,16 +31,18 @@ const Register = () => {
     password: string().required("Lütfen bir şifre gir.").trim().min(8, "En az 8").max(18, "En çok 18"),
     date: string().required("Lütfen geçerli bir tarih girin"),
   });
+  //! Schema
 
 
-
-  // React Hook Form
+  //? React Hook Form
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(registerSchema) });
+  //? React Hook Form
 
+  //! OnSubmit Button
   const onSubmit = async (data) => {
     await axios
       .post(process.env.REACT_APP_REGISTER, data)
@@ -49,6 +53,8 @@ const Register = () => {
       })
       .catch((err) => console.log(err));
   };
+  //! OnSubmit Button
+
   return (
     <section className="register">
       <div className="container">
@@ -447,10 +453,10 @@ const Register = () => {
               </div>
               <div className="gender">
                 <button>
-                    Erkek
+                  Erkek
                 </button>
                 <button>
-                    Kadın
+                  Kadın
                 </button>
               </div>
             </form>

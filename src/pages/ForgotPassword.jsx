@@ -17,20 +17,24 @@ import { Auth } from "../utils/Auth";
 
 const ForgotPassword = () => {
     const navigate = useNavigate()
-    const {setEmail}=useContext(Auth)
+    const { setEmail } = useContext(Auth)
 
-    // Schema
+    //? Schema
     const registerSchema = object({
         email: string().required("Lütfen geçerli bir e-posta adresi gir.").trim().email(),
     });
+    //? Schema
 
-    // React Hook Form
+
+    //?React Hook Form
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm({ resolver: yupResolver(registerSchema) });
+    //?React Hook Form
 
+    //?Send Reset Link Code
     const onSubmit = async (data) => {
         setEmail(data.email)
         await axios
@@ -66,6 +70,8 @@ const ForgotPassword = () => {
                 });
             });
     };
+    //?Send Reset Link Code
+
     return (
         <section className="forgotPassword">
             <div className="container">

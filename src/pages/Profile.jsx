@@ -5,7 +5,10 @@ import { Auth } from "../utils/Auth";
 import profile from"../assets/Images/login/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.webp"
 
 const Profile = () => {
+  //?Auth
   const { user, logOut } = useContext(Auth);
+  //?Auth
+
   return (
     <section className="profile">
       <div className="container">

@@ -24,16 +24,16 @@ const BottomHeader = () => {
       >
         <SwiperSlide className="firstSlide">
           <span>Tüm Yeni Çıkan Ürünleri incele</span>
-          <Link>İncele</Link>
+          <Link to="/">İncele</Link>
         </SwiperSlide>
         <SwiperSlide>
-          Bayram tatili nedeniyle bazı teslimatlar normalden uzun sürebilir.{" "}
+          Bayram tatili nedeniyle bazı teslimatlar normalden uzun sürebilir.
         </SwiperSlide>
         <SwiperSlide className="thirdSlide">
           <span>Türk İthalat Mevzuatı</span>
           <p>
-            150 € üzeri siparişlerin teslimi garanti edilemiyor.{" "}
-            <Link>Daha fazla bilgi.</Link>{" "}
+            150 € üzeri siparişlerin teslimi garanti edilemiyor.
+            <Link to="/">Daha fazla bilgi.</Link>
           </p>
         </SwiperSlide>
       </Swiper>

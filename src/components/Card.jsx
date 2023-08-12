@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 
-
 const Card = ({ data }) => {
   return (
     <Link to={`/product-details/${data.id}`}>
